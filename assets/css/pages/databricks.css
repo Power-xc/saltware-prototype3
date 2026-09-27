@@ -1,0 +1,240 @@
+
+:is(.bu--databricks, .bu--data-platform) {
+  --deep-bg: var(--bg-inverse);
+  --deep-accent: var(--text-accent-on-inverse);
+}
+:is(.bu--databricks, .bu--data-platform) .prs {
+  display: grid;
+  gap: 0;
+}
+:is(.bu--databricks, .bu--data-platform) .pr {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--sp-5);
+  align-items: baseline;
+  padding-block: var(--sp-5);
+  border-top: 1px solid var(--border-hair);
+}
+:is(.bu--databricks, .bu--data-platform) .pr:last-child {
+  border-bottom: 1px solid var(--border-hair);
+}
+:is(.bu--databricks, .bu--data-platform) .pr__no {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--accent-local, var(--text-accent));
+  font-variant-numeric: tabular-nums;
+}
+:is(.bu--databricks, .bu--data-platform) .pr__title {
+  font-size: var(--fs-h4);
+  font-weight: 600;
+  letter-spacing: var(--tracking-heading);
+}
+:is(.bu--databricks, .bu--data-platform) .pr__desc {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  margin-top: var(--sp-2);
+  line-height: 1.7;
+}
+:is(.bu--databricks, .bu--data-platform) .envs {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--sp-6);
+  position: relative;
+}
+:is(.bu--databricks, .bu--data-platform) .env {
+  display: grid;
+  gap: var(--sp-3);
+  align-content: start;
+  padding: var(--sp-7) var(--sp-6);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-hair);
+  background: var(--bg-card);
+}
+:is(.bu--databricks, .bu--data-platform) .env--onprem {
+  background: var(--c-neutral-700);
+  border-color: transparent;
+  color: var(--text-on-inverse);
+  --text-primary: var(--text-on-inverse);
+  --text-secondary: var(--c-neutral-300);
+  --text-muted: var(--c-neutral-300);
+  --text-faint: var(--c-neutral-300);
+  --text-accent: var(--c-brand-dot);
+}
+:is(.bu--databricks, .bu--data-platform) .env__cover {
+  display: block;
+  overflow: hidden;
+  margin: calc(var(--sp-7) * -1) calc(var(--sp-6) * -1) var(--sp-2);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  aspect-ratio: 16 / 7;
+  background: var(--bg-band);
+}
+:is(.bu--databricks, .bu--data-platform) .env__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: var(--art-tone);
+}
+:is(.bu--databricks, .bu--data-platform) .env__where {
+  font-size: var(--fs-2xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  color: var(--text-faint);
+}
+:is(.bu--databricks, .bu--data-platform) .env__name {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+}
+:is(.bu--databricks, .bu--data-platform) .env__desc {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+:is(.bu--databricks, .bu--data-platform) .env__list {
+  display: grid;
+  gap: var(--sp-2);
+  list-style: none;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+:is(.bu--databricks, .bu--data-platform) .env__list li::before {
+  content: "· ";
+  color: var(--text-faint);
+}
+:is(.bu--databricks, .bu--data-platform) .envs__hub {
+  grid-column: 1 / -1;
+  justify-self: center;
+  text-align: center;
+  padding: var(--sp-4) var(--sp-7);
+  border-radius: var(--radius-md);
+  background: var(--bg-inverse);
+  color: var(--text-on-inverse);
+  margin-top: calc(var(--sp-5) * -1);
+}
+:is(.bu--databricks, .bu--data-platform) .envs__hub-name {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+:is(.bu--databricks, .bu--data-platform) .envs__hub-desc {
+  font-size: var(--fs-xs);
+  color: var(--text-on-inverse-muted);
+  margin-top: 2px;
+}
+:is(.bu--databricks, .bu--data-platform) .caps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-6);
+}
+:is(.bu--databricks, .bu--data-platform) .cap {
+  display: grid;
+  gap: var(--sp-3);
+  align-content: start;
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--deep-accent);
+}
+:is(.bu--databricks, .bu--data-platform) .cap__name {
+  font-size: var(--fs-h4);
+  font-weight: 600;
+  letter-spacing: var(--tracking-snug);
+}
+:is(.bu--databricks, .bu--data-platform) .cap__desc {
+  font-size: var(--fs-sm);
+  color: var(--text-on-inverse-muted);
+  line-height: 1.7;
+}
+:is(.bu--databricks, .bu--data-platform) .cap__detail {
+  font-size: var(--fs-xs);
+  color: var(--deep-accent);
+  font-weight: 600;
+}
+:is(.bu--databricks, .bu--data-platform) .fw {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: var(--sp-4);
+  list-style: none;
+}
+:is(.bu--databricks, .bu--data-platform) .fw__node {
+  position: relative;
+  display: grid;
+  gap: var(--sp-2);
+  align-content: start;
+  padding: var(--sp-5);
+  border-radius: var(--radius-md);
+  background: var(--bg-band);
+  transition:
+    background-color var(--dur-hover) var(--ease),
+    color var(--dur-hover) var(--ease);
+}
+:is(.bu--databricks, .bu--data-platform) .fw__node:hover {
+  background: var(--bg-inverse);
+  color: var(--text-on-inverse);
+  --text-primary: var(--text-on-inverse);
+  --text-muted: var(--text-on-inverse-muted);
+}
+:is(.bu--databricks, .bu--data-platform) .fw__no {
+  font-size: var(--fs-2xs);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-label);
+  color: var(--text-muted);
+}
+:is(.bu--databricks, .bu--data-platform) .fw__node:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: var(--sp-4);
+  height: 1px;
+  background: var(--border-strong);
+  scale: 0 1;
+  transform-origin: left center;
+  transition: scale 0.45s var(--ease) calc(var(--i, 0) * 70ms + 260ms);
+}
+:is(.bu--databricks, .bu--data-platform) .fw.is-in .fw__node:not(:last-child)::after {
+  scale: 1 1;
+}
+:is(.bu--databricks, .bu--data-platform) .fw__name {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+:is(.bu--databricks, .bu--data-platform) .fw__desc {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.bu--databricks, .bu--data-platform) .fw__node:not(:last-child)::after {
+    scale: 1 1;
+    transition: none;
+  }
+}
+@media (max-width: 1080px) {
+  :is(.bu--databricks, .bu--data-platform) .caps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  :is(.bu--databricks, .bu--data-platform) .fw { grid-auto-flow: row; }
+  :is(.bu--databricks, .bu--data-platform) .fw__node:not(:last-child)::after {
+    top: 100%;
+    left: var(--sp-6);
+    width: 1px;
+    height: var(--sp-4);
+    scale: 1 0;
+    transform-origin: center top;
+  }
+  :is(.bu--databricks, .bu--data-platform) .fw.is-in .fw__node:not(:last-child)::after {
+    scale: 1 1;
+  }
+}
+@media (max-width: 860px) {
+  :is(.bu--databricks, .bu--data-platform) .envs { grid-template-columns: minmax(0, 1fr); }
+  :is(.bu--databricks, .bu--data-platform) .envs__hub {
+    order: 1;
+    margin-block: calc(var(--sp-4) * -1);
+    position: relative;
+    z-index: 1;
+  }
+  :is(.bu--databricks, .bu--data-platform) .env--onprem { order: 2; }
+}
+@media (max-width: 640px) {
+  :is(.bu--databricks, .bu--data-platform) .caps { grid-template-columns: minmax(0, 1fr); }
+}

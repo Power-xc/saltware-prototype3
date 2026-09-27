@@ -1,0 +1,149 @@
+
+.lo {
+  --lo-col: 1080px;
+}
+.lo {
+  padding-top: 0;
+}
+.lo > .container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 1.5rem + 5vw, 5.5rem);
+}
+.lo__block {
+  max-width: var(--lo-col);
+  width: 100%;
+}
+.lo__block--map {
+  max-width: none;
+}
+.lo__title {
+  font-size: var(--fs-h3);
+  line-height: 1.3;
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 var(--sp-5);
+}
+.lorows {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+.lorow {
+  display: grid;
+  grid-template-columns: minmax(7rem, 11rem) 1fr;
+  gap: var(--sp-4);
+  align-items: baseline;
+}
+.lorow__label {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 0;
+}
+.lorow__value {
+  font-size: var(--fs-lede);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+  margin: 0;
+}
+.lorow__link {
+  color: var(--text-accent);
+  text-decoration: none;
+}
+.lorow__link:hover,
+.lorow__link:focus-visible {
+  text-decoration: underline;
+}
+@media (max-width: 640px) {
+  .lorow {
+    grid-template-columns: 1fr;
+    gap: var(--sp-1);
+  }
+}
+.lomap {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-card);
+}
+.lomap__frame {
+  display: grid;
+  place-items: center;
+  background: var(--bg-band);
+  text-align: center;
+}
+.lomap__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+a.lomap__frame {
+  position: relative;
+  text-decoration: none;
+}
+a.lomap__frame:hover .lomap__img,
+a.lomap__frame:focus-visible .lomap__img {
+  opacity: 0.92;
+}
+.lomap__go {
+  position: absolute;
+  right: var(--sp-4);
+  bottom: var(--sp-4);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+a.lomap__frame:hover .lomap__go,
+a.lomap__frame:focus-visible .lomap__go {
+  color: var(--text-accent);
+}
+@media (max-width: 860px) {
+  .lomap__go {
+    display: none;
+  }
+  .lomap__img {
+    width: auto;
+    max-width: 100%;
+    max-height: 80vh;
+    margin-inline: auto;
+  }
+}
+.lomap__addr {
+  padding: var(--sp-6);
+  min-height: clamp(220px, 26vw, 400px);
+  display: grid;
+  place-items: center;
+  font-size: var(--fs-h4);
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: var(--tracking-base);
+  color: var(--text-primary);
+  margin: 0;
+  max-width: 40ch;
+}
+.lomap__bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-5);
+  padding: var(--sp-3) var(--sp-5);
+  border-top: 1px solid var(--rule-track);
+}
+.lomap__act {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.lomap__act:hover,
+.lomap__act:focus-visible {
+  color: var(--text-accent);
+  text-decoration: underline;
+}

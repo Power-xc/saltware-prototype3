@@ -1,0 +1,43 @@
+
+.bu--cloud .ils {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-6);
+}
+.bu--cloud .il {
+  display: grid;
+  gap: var(--sp-3);
+  align-content: start;
+  padding-top: var(--sp-5);
+  border-top: 2px solid var(--text-primary);
+  color: inherit;
+}
+.bu--cloud .il__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+.bu--cloud .il__date {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+.bu--cloud .il__title {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: var(--tracking-snug);
+}
+.bu--cloud a.il:hover .il__title {
+  color: var(--text-accent);
+}
+@media (max-width: 1080px) {
+  .bu--cloud .ils {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .bu--cloud .ils {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
