@@ -1292,14 +1292,14 @@ html.js-intro .intro--film {
   border-color: var(--text-on-inverse-muted);
 }
 .intro__btn--never {
-  border-color: transparent;
+  border-color: color-mix(in srgb, var(--bg-inverse) 28%, transparent);
   background: var(--text-on-inverse);
   color: var(--text-primary);
 }
 .intro__btn--never:hover,
 .intro__btn--never:focus-visible {
   background: var(--bg-page);
-  border-color: transparent;
+  border-color: color-mix(in srgb, var(--bg-inverse) 45%, transparent);
 }
 @media (max-width: 640px) {
   .intro__bar {
