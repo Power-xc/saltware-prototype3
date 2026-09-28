@@ -177,6 +177,20 @@
   letter-spacing: var(--tracking-tight);
   color: var(--text-primary);
 }
+.mega__label--link {
+  justify-self: start;
+  transition: color var(--dur-hover) var(--ease);
+}
+.mega__label--link .mega__chev {
+  display: inline-block;
+  vertical-align: -2px;
+  margin-left: 2px;
+  opacity: 1;
+}
+.mega__label--link:hover,
+.mega__label--link:hover .mega__chev {
+  color: var(--text-accent);
+}
 .mega__coldesc {
   grid-row: 2;
   margin-top: var(--sp-1);
@@ -340,6 +354,12 @@
   min-height: var(--sp-7);
   font-size: var(--fs-sm);
   color: var(--text-secondary);
+}
+.drawer__panel .drawer__label--link {
+  min-height: var(--sp-6);
+  font-size: var(--fs-label-caps);
+  font-weight: 700;
+  color: var(--text-primary);
 }
 .drawer__top .btn {
   min-height: var(--sp-7);

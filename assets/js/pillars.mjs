@@ -7,7 +7,7 @@
 //
 // 없어도 되는 기능이다: 스크립트가 안 도는 날에는 html.js-pillars 가 안 붙고, 그러면 CSS 가
 // 모든 줄을 검게 세우고 액자에는 첫 장을 걸어 둔다. 읽는 데에 빠지는 것이 없다.
-import { scrollStage } from "./frame.mjs?v=5533a4381d30";
+import { scrollStage } from "./frame.mjs?v=f829a8003cc6";
 
 // 화면 어느 높이를 읽는 것으로 본다는 뜻.
 const FOCUS = 0.42;
