@@ -7,7 +7,7 @@
 //
 // 없어도 되는 기능이다: 스크립트가 안 도는 날에는 html.js-pillars 가 안 붙고, 그러면 CSS 가
 // 모든 줄을 검게 세우고 액자에는 첫 장을 걸어 둔다. 읽는 데에 빠지는 것이 없다.
-import { scrollStage } from "./frame.mjs?v=8386ba1d3d3a";
+import { scrollStage } from "./frame.mjs?v=70b3be9b4862";
 
 // 화면 어느 높이를 읽는 것으로 본다는 뜻.
 const FOCUS = 0.42;
@@ -68,6 +68,16 @@ export function initPillars() {
         row.addEventListener("pointerenter", () => light(box, i));
       });
     }
+  }
+
+  // 누르기 · 초점으로도 고른다 — 손이 없는 화면(태블릿 가로)과 키보드에서도 줄이 판을 부른다.
+  // 링크인 줄(회사 소개 사업부)은 누르면 어차피 떠나므로 해가 없다.
+  for (const box of boxes) {
+    const s = state.get(box);
+    s.rows.forEach((row, i) => {
+      row.addEventListener("focusin", () => light(box, i));
+      row.addEventListener("click", () => light(box, i));
+    });
   }
 
   scrollStage(boxes, paint, { rootMargin: "20% 0px" });

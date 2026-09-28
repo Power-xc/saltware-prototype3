@@ -43,7 +43,16 @@ export function initCaseFilter() {
       if (!chip) return;
       chips.forEach((c) => c.setAttribute('aria-pressed', 'false'));
       chip.setAttribute('aria-pressed', 'true');
-      track('case_filter_click', { filter: chip.textContent.trim() });
+      // 판이 제 분류(data-case-group)를 달고 있으면 실제로 거른다 — 클라우드의 대표 판(cases-feature.mjs).
+      // 이름표가 없는 격자에서는 눌림 표시만 바뀐다(앞 동작 그대로).
+      if (chip.hasAttribute('data-filter')) {
+        const key = chip.dataset.filter;
+        const scope = root.closest('section') ?? document;
+        scope.querySelectorAll('[data-case-group]').forEach((card) => {
+          card.hidden = Boolean(key) && card.dataset.caseGroup !== key;
+        });
+      }
+      track('case_filter_click', { filter: (chip.firstChild?.textContent ?? chip.textContent).trim() });
     });
   });
 }
