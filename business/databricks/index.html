@@ -10,13 +10,14 @@
     <meta property="og:description" content="흩어진 데이터를 연결하고, Databricks Data Intelligence Platform 위에서 분석과 AI가 이어질 수 있는 기반을 만듭니다." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/saltware-prototype3/media/social/og-default.jpg" />
-    <link rel="icon" href="/saltware-prototype3/favicon.png?v=e97b3c06bfff" type="image/png" />
-    <link rel="apple-touch-icon" href="/saltware-prototype3/favicon.png?v=e97b3c06bfff" />
-    <link rel="stylesheet" href="/saltware-prototype3/assets/css/tokens.css?v=e97b3c06bfff" />
-    <link rel="stylesheet" href="/saltware-prototype3/assets/css/base.css?v=e97b3c06bfff" />
-    <link rel="stylesheet" href="/saltware-prototype3/assets/css/components.css?v=e97b3c06bfff" />
-        <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/business.css?v=e97b3c06bfff" />
-    <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/databricks.css?v=e97b3c06bfff" />
+    <link rel="icon" href="/saltware-prototype3/favicon.png?v=b6cc59217580" type="image/png" />
+    <link rel="apple-touch-icon" href="/saltware-prototype3/favicon.png?v=b6cc59217580" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/tokens.css?v=b6cc59217580" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/base.css?v=b6cc59217580" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/components.css?v=b6cc59217580" />
+        <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/story.css?v=b6cc59217580" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/business.css?v=b6cc59217580" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/databricks.css?v=b6cc59217580" />
   </head>
   <body class="bu bu--databricks" data-route="/business/databricks">
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -146,71 +147,99 @@
     <ul class="bnav__list"><li><a class="bnav__link" href="#s-challenge">문제</a></li><li><a class="bnav__link" href="#s-scope">수행 범위</a></li><li><a class="bnav__link" href="#s-tech">기술</a></li><li><a class="bnav__link" href="#s-platform">플랫폼</a></li><li><a class="bnav__link" href="#s-architecture">구성</a></li><li><a class="bnav__link" href="#s-useCases">활용</a></li><li><a class="bnav__link" href="#s-process">진행 방식</a></li><li><a class="bnav__link" href="#s-cases">사례</a></li><li><a class="bnav__link" href="#s-proof">자격</a></li><li><a class="bnav__link" href="#s-faq">FAQ</a></li></ul>
   </div>
 </nav>
-<section id="s-challenge" class="section section--inverse">
-  <div class="container"><div class="section__head section__head--split" data-reveal><p class="eyebrow">WHY DATA PLATFORM</p><h2>데이터가 있는데,<br />활용까지 너무 오래 걸립니다</h2><p class="lede">데이터 창고가 여러 개인 조직에서 나오는 상황입니다.</p></div><div class="prs"><article class="pr">
-      <span class="pr__no" aria-hidden="true">01</span>
-      <div class="pr__body">
-        <h3 class="pr__title">저장소가 계속 늘어납니다</h3>
-        <p class="pr__desc">DW, 데이터레이크, 부서별 DB가 따로 굴러갑니다.</p>
-      </div>
-    </article><article class="pr">
-      <span class="pr__no" aria-hidden="true">02</span>
-      <div class="pr__body">
-        <h3 class="pr__title">분석과 AI가 다른 데이터를 봅니다</h3>
-        <p class="pr__desc">같은 질문에 팀마다 다른 답이 나옵니다.</p>
-      </div>
-    </article><article class="pr">
-      <span class="pr__no" aria-hidden="true">03</span>
-      <div class="pr__body">
-        <h3 class="pr__title">비용이 예측되지 않습니다</h3>
-        <p class="pr__desc">쿼리 하나에 얼마가 드는지 아무도 모릅니다.</p>
-      </div>
-    </article><article class="pr">
-      <span class="pr__no" aria-hidden="true">04</span>
-      <div class="pr__body">
-        <h3 class="pr__title">필요한 데이터를 받는 데 시간이 걸립니다</h3>
-        <p class="pr__desc">요청하고 기다리는 사이에 판단할 시점이 지나갑니다.</p>
-      </div>
-    </article><article class="pr">
-      <span class="pr__no" aria-hidden="true">05</span>
-      <div class="pr__body">
-        <h3 class="pr__title">권한을 열어 주기가 조심스럽습니다</h3>
-        <p class="pr__desc">누가 무엇을 볼 수 있는지 정리되지 않으면 개방도 통제도 어렵습니다.</p>
-      </div>
-    </article></div></div>
+<section id="s-challenge" class="section">
+  <div class="container"><div class="section__head section__head--split" data-reveal><p class="eyebrow">WHY DATA PLATFORM</p><h2>데이터가 있는데,<br />활용까지 너무 오래 걸립니다</h2><p class="lede">데이터 창고가 여러 개인 조직에서 나오는 상황입니다.</p></div><div class="cpils cpils--story" data-pillars>
+    <div class="cpils__art" aria-hidden="true"><div class="cpils__frame cpils__frame--story">
+      <img class="cpils__shot cpils__shot--all" src="/saltware-prototype3/media/business/pillar-databricks.jpg?v=2ed339ed3e1e" alt="" loading="lazy" decoding="async" />
+      <span class="cpils__mark" data-pillar-art="0"><b>01</b> / 05</span><span class="cpils__mark" data-pillar-art="1"><b>02</b> / 05</span><span class="cpils__mark" data-pillar-art="2"><b>03</b> / 05</span><span class="cpils__mark" data-pillar-art="3"><b>04</b> / 05</span><span class="cpils__mark" data-pillar-art="4"><b>05</b> / 05</span>
+    </div></div>
+    <div class="cpils__list" data-reveal><div class="cpil cpil--flat">
+      <span class="cpil__n" aria-hidden="true">01</span>
+      <span class="cpil__body">
+        
+        <span class="cpil__title">저장소가 계속 늘어납니다</span>
+      </span>
+      <span class="cpil__desc">DW, 데이터레이크, 부서별 DB가 따로 굴러갑니다.</span>
+    </div><div class="cpil cpil--flat">
+      <span class="cpil__n" aria-hidden="true">02</span>
+      <span class="cpil__body">
+        
+        <span class="cpil__title">분석과 AI가 다른 데이터를 봅니다</span>
+      </span>
+      <span class="cpil__desc">같은 질문에 팀마다 다른 답이 나옵니다.</span>
+    </div><div class="cpil cpil--flat">
+      <span class="cpil__n" aria-hidden="true">03</span>
+      <span class="cpil__body">
+        
+        <span class="cpil__title">비용이 예측되지 않습니다</span>
+      </span>
+      <span class="cpil__desc">쿼리 하나에 얼마가 드는지 아무도 모릅니다.</span>
+    </div><div class="cpil cpil--flat">
+      <span class="cpil__n" aria-hidden="true">04</span>
+      <span class="cpil__body">
+        
+        <span class="cpil__title">필요한 데이터를 받는 데 시간이 걸립니다</span>
+      </span>
+      <span class="cpil__desc">요청하고 기다리는 사이에 판단할 시점이 지나갑니다.</span>
+    </div><div class="cpil cpil--flat">
+      <span class="cpil__n" aria-hidden="true">05</span>
+      <span class="cpil__body">
+        
+        <span class="cpil__title">권한을 열어 주기가 조심스럽습니다</span>
+      </span>
+      <span class="cpil__desc">누가 무엇을 볼 수 있는지 정리되지 않으면 개방도 통제도 어렵습니다.</span>
+    </div></div>
+  </div></div>
 </section>
-<section id="s-scope" class="section">
-  <div class="container"><div class="section__head section__head--split" data-reveal><p class="eyebrow">WHAT SALTWARE DOES</p><h2>데이터를 모으는 것에서<br />끝내지 않습니다</h2><p class="lede">라이선스를 넘기는 일이 아니라 실제로 쓰이게 만드는 일입니다. 도입부터 운영까지 자체 인력이 수행합니다.</p></div><ol class="stages"><li class="stage">
-      <p class="stage__head">
-        <span class="stage__no" aria-hidden="true">01</span>
-        <span class="stage__name">현황 진단</span>
-      </p>
-      <ul class="stage__list"><li>기존 DW·데이터레이크 확인</li><li>데이터 흐름과 병목</li><li>우선순위 정리</li></ul>
-    </li><li class="stage">
-      <p class="stage__head">
-        <span class="stage__no" aria-hidden="true">02</span>
-        <span class="stage__name">데이터 설계</span>
-      </p>
-      <ul class="stage__list"><li>워크스페이스 설계</li><li>AWS 연동 구성</li><li>비용 구조 설계</li><li>보안 기준 적용</li></ul>
-    </li><li class="stage">
-      <p class="stage__head">
-        <span class="stage__no" aria-hidden="true">03</span>
-        <span class="stage__name">플랫폼 구축과 이관</span>
-      </p>
-      <ul class="stage__list"><li>기존 DW 분석</li><li>이관 계획</li><li>파이프라인 구축</li><li>정합성 검증</li></ul>
-    </li><li class="stage">
-      <p class="stage__head">
-        <span class="stage__no" aria-hidden="true">04</span>
-        <span class="stage__name">거버넌스</span>
-      </p>
-      <ul class="stage__list"><li>카탈로그 구성</li><li>접근 권한 체계</li><li>데이터 품질 기준</li><li>이력 추적</li></ul>
-    </li><li class="stage">
-      <p class="stage__head">
-        <span class="stage__no" aria-hidden="true">05</span>
-        <span class="stage__name">운영과 AI 확장</span>
-      </p>
-      <ul class="stage__list"><li>사용량 모니터링</li><li>쿼리 최적화</li><li>현업 교육</li><li>AI 연계</li></ul>
-    </li></ol><div class="scope__boundary"><p class="eyebrow">BEFORE YOU ASK</p><div class="grid grid--2"><article class="card reveal"><h3 class="card__title">고객이 준비합니다</h3><ul class="list"><li class="list__item">이관 대상 데이터와 그 소유 부서</li><li class="list__item">먼저 성과를 볼 업무 한 가지</li><li class="list__item">데이터 접근 권한의 승인 주체</li></ul></article><article class="card reveal"><h3 class="card__title">이럴 땐 맞지 않습니다</h3><ul class="list"><li class="list__item">전사를 한 번에 옮기는 것이 전제인 경우 — 한 도메인부터 권합니다</li><li class="list__item">데이터를 밖으로 내보낼 수 없는 경우 — 그 자리에서 질의하는 Starburst 구성을 먼저 봅니다</li></ul></article></div></div><p class="footnote">라이선스 비용과 구축 비용은 별도로 산정합니다.</p></div>
+<section id="s-scope" class="section section--inverse">
+  <div class="container"><div class="section__head section__head--split" data-reveal><p class="eyebrow">WHAT SALTWARE DOES</p><h2>데이터를 모으는 것에서<br />끝내지 않습니다</h2><p class="lede">라이선스를 넘기는 일이 아니라 실제로 쓰이게 만드는 일입니다. 도입부터 운영까지 자체 인력이 수행합니다.</p></div><div class="cstack cstack--text cstack--n5" data-stage>
+    <div class="cstack__pin"><ul class="cstack__list"><li class="cstack__item">
+      <div class="cstack__body">
+        <span class="cstack__n" aria-hidden="true">01</span>
+        <div class="cstack__text">
+          
+          <h3>현황 진단</h3>
+          <ul class="cstack__points"><li>기존 DW·데이터레이크 확인</li><li>데이터 흐름과 병목</li><li>우선순위 정리</li></ul>
+        </div>
+      </div>
+    </li><li class="cstack__item">
+      <div class="cstack__body">
+        <span class="cstack__n" aria-hidden="true">02</span>
+        <div class="cstack__text">
+          
+          <h3>데이터 설계</h3>
+          <ul class="cstack__points"><li>워크스페이스 설계</li><li>AWS 연동 구성</li><li>비용 구조 설계</li><li>보안 기준 적용</li></ul>
+        </div>
+      </div>
+    </li><li class="cstack__item">
+      <div class="cstack__body">
+        <span class="cstack__n" aria-hidden="true">03</span>
+        <div class="cstack__text">
+          
+          <h3>플랫폼 구축과 이관</h3>
+          <ul class="cstack__points"><li>기존 DW 분석</li><li>이관 계획</li><li>파이프라인 구축</li><li>정합성 검증</li></ul>
+        </div>
+      </div>
+    </li><li class="cstack__item">
+      <div class="cstack__body">
+        <span class="cstack__n" aria-hidden="true">04</span>
+        <div class="cstack__text">
+          
+          <h3>거버넌스</h3>
+          <ul class="cstack__points"><li>카탈로그 구성</li><li>접근 권한 체계</li><li>데이터 품질 기준</li><li>이력 추적</li></ul>
+        </div>
+      </div>
+    </li><li class="cstack__item">
+      <div class="cstack__body">
+        <span class="cstack__n" aria-hidden="true">05</span>
+        <div class="cstack__text">
+          
+          <h3>운영과 AI 확장</h3>
+          <ul class="cstack__points"><li>사용량 모니터링</li><li>쿼리 최적화</li><li>현업 교육</li><li>AI 연계</li></ul>
+        </div>
+      </div>
+    </li></ul></div>
+  </div><div class="scope__boundary"><p class="eyebrow">BEFORE YOU ASK</p><div class="grid grid--2"><article class="card reveal"><h3 class="card__title">고객이 준비합니다</h3><ul class="list"><li class="list__item">이관 대상 데이터와 그 소유 부서</li><li class="list__item">먼저 성과를 볼 업무 한 가지</li><li class="list__item">데이터 접근 권한의 승인 주체</li></ul></article><article class="card reveal"><h3 class="card__title">이럴 땐 맞지 않습니다</h3><ul class="list"><li class="list__item">전사를 한 번에 옮기는 것이 전제인 경우 — 한 도메인부터 권합니다</li><li class="list__item">데이터를 밖으로 내보낼 수 없는 경우 — 그 자리에서 질의하는 Starburst 구성을 먼저 봅니다</li></ul></article></div></div><p class="footnote">라이선스 비용과 구축 비용은 별도로 산정합니다.</p></div>
 </section>
 <section id="s-tech" class="section">
   <div class="container"><div class="section__head section__head--split" data-reveal><p class="eyebrow">PLATFORM</p><h2>제품이 주는 것과<br />우리가 하는 것</h2><p class="lede">라이선스 공급에서 끝나지 않고, 현업에서 실제로 쓰일 때까지 구축합니다.</p></div><div class="ps">
@@ -423,7 +452,7 @@
       <div class="onward__group"><p class="onward__label">RELATED BUSINESS</p><div class="onward__links"><a href="/saltware-prototype3/business/cloud" class="card__more" data-ga-event="related_business_click">클라우드 · AWS</a><a href="/saltware-prototype3/business/data-ai" class="card__more" data-ga-event="related_business_click">AI 데이터 플랫폼</a><a href="/saltware-prototype3/business/data-platform" class="card__more" data-ga-event="related_business_click">데이터 플랫폼 · Sapie-Lake</a></div></div><div class="onward__group"><p class="onward__label">INDUSTRIES</p><div class="onward__links"><a href="/saltware-prototype3/industries/telecom" class="card__more" data-ga-event="industry_click">통신</a><a href="/saltware-prototype3/industries/aviation" class="card__more" data-ga-event="industry_click">항공</a></div></div>
     </nav></div>
 </section>
-<section class="section section--inverse"><div class="container">
+<section class="section section--inverse section--art" data-parallax><img class="section__art" src="/saltware-prototype3/media/business/cover-databricks.jpg?v=2ed339ed3e1e" alt="" loading="lazy" decoding="async" /><div class="container">
       <h2>한 도메인만 먼저<br />올려 보셔도 됩니다</h2>
       <p class="lede">전사 전환 전에 작은 범위로 성과를 확인하는 방식을 권합니다.</p>
       <div class="cta-row"><a href="/saltware-prototype3/contact" class="btn btn--solid btn--lg" data-ga-event="bu_primary_cta" data-topic="inquiry">Databricks 도입 상담</a><a href="/saltware-prototype3/contact" class="btn btn--lg" data-ga-event="bu_secondary_cta" data-topic="diagnosis">PoC 설계 문의</a></div>
@@ -487,6 +516,6 @@
   </button>
 </aside>
 
-    <script type="module" src="/saltware-prototype3/assets/js/main.mjs?v=e97b3c06bfff"></script>
+    <script type="module" src="/saltware-prototype3/assets/js/main.mjs?v=b6cc59217580"></script>
   </body>
 </html>

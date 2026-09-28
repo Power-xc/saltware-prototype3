@@ -2,6 +2,9 @@
 .bhero {
   position: relative;
 }
+.bu {
+  --pin-top: calc(var(--header-h) + 58px);
+}
 .bhero__cover {
   position: relative;
   margin: var(--sp-6) auto 0;
@@ -147,4 +150,11 @@
 }
 .scope__boundary .eyebrow {
   margin-bottom: var(--sp-4);
+}
+@media (min-width: 1080px) {
+  .faq__grid > .section__head {
+    position: sticky;
+    top: calc(var(--pin-top, var(--header-h)) + var(--sp-7));
+    align-self: start;
+  }
 }

@@ -10,13 +10,14 @@
     <meta property="og:description" content="데이터 웨어하우스에서 데이터 레이크를 지나 레이크하우스로 왔습니다. 솔트웨어의 데이터 플랫폼 Sapie-Lake 는 Databricks 와 Starburst 두 엔진 위에서 퍼블릭과 프라이빗 두 가지로 구성합니다." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/saltware-prototype3/media/social/og-default.jpg" />
-    <link rel="icon" href="/saltware-prototype3/favicon.png?v=e97b3c06bfff" type="image/png" />
-    <link rel="apple-touch-icon" href="/saltware-prototype3/favicon.png?v=e97b3c06bfff" />
-    <link rel="stylesheet" href="/saltware-prototype3/assets/css/tokens.css?v=e97b3c06bfff" />
-    <link rel="stylesheet" href="/saltware-prototype3/assets/css/base.css?v=e97b3c06bfff" />
-    <link rel="stylesheet" href="/saltware-prototype3/assets/css/components.css?v=e97b3c06bfff" />
-        <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/business.css?v=e97b3c06bfff" />
-    <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/databricks.css?v=e97b3c06bfff" />
+    <link rel="icon" href="/saltware-prototype3/favicon.png?v=b6cc59217580" type="image/png" />
+    <link rel="apple-touch-icon" href="/saltware-prototype3/favicon.png?v=b6cc59217580" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/tokens.css?v=b6cc59217580" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/base.css?v=b6cc59217580" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/components.css?v=b6cc59217580" />
+        <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/story.css?v=b6cc59217580" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/business.css?v=b6cc59217580" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/databricks.css?v=b6cc59217580" />
   </head>
   <body class="bu bu--data-platform" data-route="/business/data-platform">
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -146,34 +147,44 @@
     <ul class="bnav__list"><li><a class="bnav__link" href="#s-challenge">문제</a></li><li><a class="bnav__link" href="#s-scope">수행 범위</a></li><li><a class="bnav__link" href="#s-tech">기술</a></li><li><a class="bnav__link" href="#s-architecture">구성</a></li><li><a class="bnav__link" href="#s-process">진행 방식</a></li><li><a class="bnav__link" href="#s-proof">자격</a></li><li><a class="bnav__link" href="#s-faq">FAQ</a></li></ul>
   </div>
 </nav>
-<section id="s-challenge" class="section section--inverse">
-  <div class="container"><div class="section__head section__head--split" data-reveal><p class="eyebrow">WHY LAKEHOUSE</p><h2>창고에서 호수로,<br />그리고 호수가 썩는 문제</h2><p class="lede">데이터 플랫폼이 지나온 순서입니다. 어디서 문제가 생겼는지 알아야 무엇을 세울지 정해집니다.</p></div><div class="prs"><article class="pr">
-      <span class="pr__no" aria-hidden="true">01</span>
-      <div class="pr__body">
-        <h3 class="pr__title">데이터 웨어하우스</h3>
-        <p class="pr__desc">사내 데이터를 정제해 쌓고 인텔리전스(대시보드)로 봅니다. 미리 정한 스키마와 ETL 이 전제라 새 데이터를 붙이는 데 시간이 걸립니다.</p>
-      </div>
-    </article><article class="pr">
-      <span class="pr__no" aria-hidden="true">02</span>
-      <div class="pr__body">
-        <h3 class="pr__title">데이터 레이크</h3>
-        <p class="pr__desc">형식을 가리지 않고 담습니다. 담기만 하고 정리가 없으면 호수가 썩습니다 — 찾을 수 없고 믿을 수 없는 데이터가 쌓입니다.</p>
-      </div>
-    </article><article class="pr">
-      <span class="pr__no" aria-hidden="true">03</span>
-      <div class="pr__body">
-        <h3 class="pr__title">레이크하우스</h3>
-        <p class="pr__desc">레이크의 저장 방식 위에 웨어하우스의 관리(테이블·카탈로그·품질)를 올립니다. 분석과 AI 가 같은 데이터를 봅니다.</p>
-      </div>
-    </article><article class="pr">
-      <span class="pr__no" aria-hidden="true">04</span>
-      <div class="pr__body">
-        <h3 class="pr__title">AI 를 위한 데이터 플랫폼</h3>
-        <p class="pr__desc">지금의 데이터 플랫폼은 AI 가 사내 데이터를 잘 쓰게 하는 쪽으로 갑니다. 에이전트가 읽을 수 있게 데이터를 준비하는 일입니다.</p>
-      </div>
-    </article></div></div>
+<section id="s-challenge" class="section">
+  <div class="container"><div class="section__head section__head--split" data-reveal><p class="eyebrow">WHY LAKEHOUSE</p><h2>창고에서 호수로,<br />그리고 호수가 썩는 문제</h2><p class="lede">데이터 플랫폼이 지나온 순서입니다. 어디서 문제가 생겼는지 알아야 무엇을 세울지 정해집니다.</p></div><div class="cpils cpils--story" data-pillars>
+    <div class="cpils__art" aria-hidden="true"><div class="cpils__frame cpils__frame--story">
+      <img class="cpils__shot cpils__shot--all" src="/saltware-prototype3/media/business/cover-data-platform.jpg?v=2ed339ed3e1e" alt="" loading="lazy" decoding="async" />
+      <span class="cpils__mark" data-pillar-art="0"><b>01</b> / 04</span><span class="cpils__mark" data-pillar-art="1"><b>02</b> / 04</span><span class="cpils__mark" data-pillar-art="2"><b>03</b> / 04</span><span class="cpils__mark" data-pillar-art="3"><b>04</b> / 04</span>
+    </div></div>
+    <div class="cpils__list" data-reveal><div class="cpil cpil--flat">
+      <span class="cpil__n" aria-hidden="true">01</span>
+      <span class="cpil__body">
+        <span class="cpil__eyebrow">1990년대</span>
+        <span class="cpil__title">데이터 웨어하우스</span>
+      </span>
+      <span class="cpil__desc">사내 데이터를 정제해 쌓고 인텔리전스(대시보드)로 봅니다. 미리 정한 스키마와 ETL 이 전제라 새 데이터를 붙이는 데 시간이 걸립니다.</span>
+    </div><div class="cpil cpil--flat">
+      <span class="cpil__n" aria-hidden="true">02</span>
+      <span class="cpil__body">
+        <span class="cpil__eyebrow">그 다음</span>
+        <span class="cpil__title">데이터 레이크</span>
+      </span>
+      <span class="cpil__desc">형식을 가리지 않고 담습니다. 담기만 하고 정리가 없으면 호수가 썩습니다 — 찾을 수 없고 믿을 수 없는 데이터가 쌓입니다.</span>
+    </div><div class="cpil cpil--flat">
+      <span class="cpil__n" aria-hidden="true">03</span>
+      <span class="cpil__body">
+        <span class="cpil__eyebrow">지금</span>
+        <span class="cpil__title">레이크하우스</span>
+      </span>
+      <span class="cpil__desc">레이크의 저장 방식 위에 웨어하우스의 관리(테이블·카탈로그·품질)를 올립니다. 분석과 AI 가 같은 데이터를 봅니다.</span>
+    </div><div class="cpil cpil--flat">
+      <span class="cpil__n" aria-hidden="true">04</span>
+      <span class="cpil__body">
+        <span class="cpil__eyebrow">추세</span>
+        <span class="cpil__title">AI 를 위한 데이터 플랫폼</span>
+      </span>
+      <span class="cpil__desc">지금의 데이터 플랫폼은 AI 가 사내 데이터를 잘 쓰게 하는 쪽으로 갑니다. 에이전트가 읽을 수 있게 데이터를 준비하는 일입니다.</span>
+    </div></div>
+  </div></div>
 </section>
-<section id="s-scope" class="section">
+<section id="s-scope" class="section section--inverse">
   <div class="container"><div class="section__head section__head--split" data-reveal><p class="eyebrow">WHAT SALTWARE DOES</p><h2>같은 플랫폼을<br />두 가지로 세웁니다</h2><p class="lede">데이터가 어디에 있느냐에 따라 배치가 갈립니다. 클라우드에 올릴 수 있으면 퍼블릭으로, 내부망을 벗어날 수 없으면 프라이빗으로 세웁니다.</p></div><ol class="stages"><li class="stage">
       <p class="stage__head">
         <span class="stage__no" aria-hidden="true">01</span>
@@ -329,7 +340,7 @@
       <div class="onward__group"><p class="onward__label">RELATED BUSINESS</p><div class="onward__links"><a href="/saltware-prototype3/business/cloud" class="card__more" data-ga-event="related_business_click">클라우드 · AWS</a><a href="/saltware-prototype3/business/data-ai" class="card__more" data-ga-event="related_business_click">AI 데이터 플랫폼</a><a href="/saltware-prototype3/business/databricks" class="card__more" data-ga-event="related_business_click">데이터 · Databricks</a></div></div>
     </nav></div>
 </section>
-<section class="section section--inverse"><div class="container">
+<section class="section section--inverse section--art" data-parallax><img class="section__art" src="/saltware-prototype3/media/business/cover-data-platform.jpg?v=2ed339ed3e1e" alt="" loading="lazy" decoding="async" /><div class="container">
       <h2>지금 있는 데이터부터<br />같이 봅니다</h2>
       <p class="lede">어디에 어떻게 놓였는지 보면 옮길 것과 남길 것이 갈립니다. 그 다음이 플랫폼입니다.</p>
       <div class="cta-row"><a href="/saltware-prototype3/contact" class="btn btn--solid btn--lg" data-ga-event="bu_primary_cta" data-topic="inquiry">데이터 플랫폼 상담</a><a href="/saltware-prototype3/business/databricks" class="btn btn--lg" data-ga-event="bu_secondary_cta">Databricks 사업 보기</a></div>
@@ -393,6 +404,6 @@
   </button>
 </aside>
 
-    <script type="module" src="/saltware-prototype3/assets/js/main.mjs?v=e97b3c06bfff"></script>
+    <script type="module" src="/saltware-prototype3/assets/js/main.mjs?v=b6cc59217580"></script>
   </body>
 </html>

@@ -475,6 +475,33 @@
   --text-muted: var(--c-neutral-300);
   --text-faint: var(--c-neutral-300);
 }
+.section--art {
+  isolation: isolate;
+  overflow: hidden;
+}
+.section--art .section__art {
+  position: absolute;
+  inset: -20% 0;
+  z-index: -2;
+  width: 100%;
+  height: 140%;
+  object-fit: cover;
+  filter: var(--art-tone);
+  translate: 0 calc(var(--py, 0) * 100%);
+  will-change: translate;
+}
+.section--art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    100deg,
+    var(--scrim-ink-80) 0%,
+    var(--scrim-ink-40) 70%,
+    var(--scrim-ink-12) 100%
+  );
+}
 .section--inverse a.tile:hover,
 .section--stone a.tile:hover {
   background: var(--field-glass-hi);
