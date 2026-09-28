@@ -5,10 +5,14 @@
 .bu {
   --pin-top: calc(var(--header-h) + 58px);
 }
+.bhero {
+  container-type: inline-size;
+  --page-x: max(var(--sp-6), (100cqw - var(--container)) / 2 + var(--sp-6));
+}
 .bhero__cover {
   position: relative;
-  margin: var(--sp-6) auto 0;
-  width: min(92%, 1440px);
+  margin: var(--sp-6) var(--page-x) 0;
+  width: auto;
   aspect-ratio: 1.92;
   overflow: hidden;
   border-radius: var(--radius-lg);
@@ -131,7 +135,7 @@
     top: var(--header-h);
     --q: clamp(0, var(--p, 0) / 0.29, 1);
     margin-block: 0;
-    margin-inline: calc(var(--q) * 4vw);
+    margin-inline: calc(var(--q) * var(--page-x));
     width: auto;
     height: calc(100vh - var(--header-h) - var(--q) * 12vh);
     aspect-ratio: auto;
@@ -139,7 +143,7 @@
     will-change: margin, height;
   }
   html.js-stage .bhero__say {
-    padding-inline: calc(clamp(24px, 4vw, 72px) + (1 - var(--q)) * 4vw);
+    padding-inline: calc(clamp(24px, 4vw, 72px) + (1 - var(--q)) * var(--page-x));
   }
 }
 .closing__promise {

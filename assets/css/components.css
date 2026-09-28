@@ -517,10 +517,15 @@
   z-index: -1;
   background: linear-gradient(
     100deg,
-    var(--scrim-ink-80) 0%,
-    var(--scrim-ink-40) 70%,
-    var(--scrim-ink-12) 100%
+    var(--scrim-ink-90) 0%,
+    var(--scrim-ink-90) 45%,
+    var(--scrim-ink-65) 100%
   );
+}
+@media (max-width: 860px) {
+  .section--art::after {
+    background: var(--scrim-ink-90);
+  }
 }
 .section--inverse a.tile:hover,
 .section--stone a.tile:hover {
@@ -1837,7 +1842,7 @@ a.bg__asset:hover {
 }
 .footer__groups {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: var(--sp-7) var(--sp-6);
   align-items: start;
   padding-bottom: var(--sp-8);
