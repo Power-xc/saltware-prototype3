@@ -18,6 +18,10 @@
   color: var(--text-secondary);
   white-space: nowrap;
 }
+.ibar__list a {
+  display: inline-flex;
+  align-items: center;
+}
 .ibar a {
   color: var(--text-secondary);
   text-decoration: none;
@@ -29,6 +33,7 @@
 }
 .ibar__list {
   display: flex;
+  align-items: center;
   gap: var(--sp-5);
   margin: 0;
   padding: 0;
@@ -928,4 +933,40 @@ main:has(#s-units) .onward__label {
 }
 .ibanner .btn:not(.btn--solid):hover {
   border-color: var(--text-primary);
+}
+.ihero {
+  --ibar-h: 54px;
+}
+.ihero .ibar {
+  min-height: var(--ibar-h);
+  padding-block: var(--sp-3);
+}
+@media (min-width: 1080px) {
+  html.js-stage .ihero .bhero__cover {
+    height: calc(100vh - var(--header-h) - var(--ibar-h) - var(--q) * 12vh);
+  }
+}
+.ihero__units {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--sp-2) var(--sp-4);
+}
+.ihero__units span {
+  flex-basis: 100%;
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  color: var(--text-muted);
+}
+.ihero__units a {
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--dur-hover) var(--ease);
+}
+.ihero__units a:hover,
+.ihero__units a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }

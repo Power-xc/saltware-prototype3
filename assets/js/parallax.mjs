@@ -7,7 +7,7 @@
 // 화면에 들어온 판만 프레임당 한 번 재는 비계는 frame.mjs 가 맡는다.
 //
 // 켜는 쪽은 마크업이다: [data-parallax] 가 붙은 판만 움직인다.
-import { scrollStage } from "./frame.mjs?v=e408a07e5e53";
+import { scrollStage } from "./frame.mjs?v=62898ffedc30";
 
 const MAX = 0.18; // 판 높이의 몇 배까지 흐르게 할지 — 넘기면 사진 위아래 끝이 드러난다
 

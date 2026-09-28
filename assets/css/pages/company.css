@@ -1,30 +1,30 @@
 
 .feat--company {
-  --card-media: url("/saltware-prototype3/media/company/hub-feature.jpg?v=6c5d98aad167");
+  --card-media: url("/saltware-prototype3/media/company/hub-feature.jpg?v=00ae8aed1910");
 }
 .hub-card--company-capabilities {
-  --card-media: url("/saltware-prototype3/media/company/card-capabilities.jpg?v=6c5d98aad167");
+  --card-media: url("/saltware-prototype3/media/company/card-capabilities.jpg?v=00ae8aed1910");
 }
 .hub-card--company-esg {
-  --card-media: url("/saltware-prototype3/media/company/card-esg.jpg?v=6c5d98aad167");
+  --card-media: url("/saltware-prototype3/media/company/card-esg.jpg?v=00ae8aed1910");
 }
 .hub-card--company-partners {
-  --card-media: url("/saltware-prototype3/media/company/card-partners.jpg?v=6c5d98aad167");
+  --card-media: url("/saltware-prototype3/media/company/card-partners.jpg?v=00ae8aed1910");
 }
 .hub-card--company-history {
-  --card-media: url("/saltware-prototype3/media/company/card-history.jpg?v=6c5d98aad167");
+  --card-media: url("/saltware-prototype3/media/company/card-history.jpg?v=00ae8aed1910");
 }
 .hub-card--company-ir {
-  --card-media: url("/saltware-prototype3/media/company/card-ir.jpg?v=6c5d98aad167");
+  --card-media: url("/saltware-prototype3/media/company/card-ir.jpg?v=00ae8aed1910");
 }
 .hub-card--company-careers {
-  --card-media: url("/saltware-prototype3/media/company/card-careers.jpg?v=6c5d98aad167");
+  --card-media: url("/saltware-prototype3/media/company/card-careers.jpg?v=00ae8aed1910");
 }
 .hub-card--company-location {
-  --card-media: url("/saltware-prototype3/media/company/card-location.jpg?v=6c5d98aad167");
+  --card-media: url("/saltware-prototype3/media/company/card-location.jpg?v=00ae8aed1910");
 }
 .hub-card--company-brand {
-  --card-media: url("/saltware-prototype3/media/company/card-brand.jpg?v=6c5d98aad167");
+  --card-media: url("/saltware-prototype3/media/company/card-brand.jpg?v=00ae8aed1910");
 }
 @media (min-width: 1080px) {
   .hub-grid--3 {
@@ -372,7 +372,7 @@
 }
 .cclose--art::before {
   z-index: -2;
-  background-image: url("/saltware-prototype3/media/hub/hub-insights.jpg?v=6c5d98aad167");
+  background-image: url("/saltware-prototype3/media/hub/hub-insights.jpg?v=00ae8aed1910");
   background-position: center;
   background-size: cover;
   filter: var(--art-tone);
