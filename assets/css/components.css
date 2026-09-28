@@ -133,6 +133,16 @@
   display: block;
   grid-row: 1 / -1;
 }
+.mega__grid:has(> :nth-child(7)) {
+  grid-template-columns: minmax(0, 1.2fr);
+  column-gap: var(--sp-4);
+}
+.mega__grid:has(> :nth-child(7)) > * + * {
+  padding-left: var(--sp-4);
+}
+.mega__grid:has(> :nth-child(7)) .mega__item {
+  padding-inline: var(--sp-2);
+}
 .mega__grid > .mega__col--aside {
   margin-left: var(--sp-4);
 }
