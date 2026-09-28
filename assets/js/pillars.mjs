@@ -7,7 +7,7 @@
 //
 // 없어도 되는 기능이다: 스크립트가 안 도는 날에는 html.js-pillars 가 안 붙고, 그러면 CSS 가
 // 모든 줄을 검게 세우고 액자에는 첫 장을 걸어 둔다. 읽는 데에 빠지는 것이 없다.
-import { scrollStage } from "./frame.mjs?v=6be0daf57a4a";
+import { scrollStage } from "./frame.mjs?v=9085f46c8b0e";
 
 // 화면 어느 높이를 읽는 것으로 본다는 뜻.
 const FOCUS = 0.42;
@@ -21,7 +21,9 @@ export function initPillars() {
   const state = new Map();
   for (const box of boxes) {
     state.set(box, {
-      rows: [...box.querySelectorAll(".cpil")],
+      // 줄은 기둥 목록의 .cpil 이거나, 같은 규칙을 빌려 쓰는 판의 [data-pillar-row] 다
+      // (사업 상세의 제품 쇼케이스 — blocks-story.mjs productShowcase).
+      rows: [...box.querySelectorAll(".cpil, [data-pillar-row]")],
       shots: [...box.querySelectorAll("[data-pillar-art]")],
       at: -1,
     });
