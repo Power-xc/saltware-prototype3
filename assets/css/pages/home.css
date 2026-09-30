@@ -1564,28 +1564,19 @@ html.js-intro .intro--film {
   height: 100%;
   object-fit: cover;
 }
-.intro--out .intro__surface {
-  animation: intro-wipe 0.66s var(--ease) both;
+html.intro-iris body {
+  animation: intro-wipe 1.3s cubic-bezier(0.76, 0, 0.24, 1) both;
 }
 .intro--out .intro__surface {
-  background: var(--bg-page);
-}
-.intro--out .intro__film {
-  opacity: 0;
-  transition: opacity 0.12s linear;
+  visibility: hidden;
 }
 .intro__dot {
-  --intro-dot: 12px;
   position: absolute;
-  left: calc(50% - var(--intro-dot) / 2);
-  top: calc(50% - var(--intro-dot) / 2);
-  width: var(--intro-dot);
-  height: var(--intro-dot);
-  border-radius: var(--radius-circle);
+  inset: 0;
   background: var(--c-accent-500);
   opacity: 0;
 }
-.intro--out .intro__dot {
+html.intro-iris .intro__dot {
   opacity: 1;
 }
 .intro__bar {
@@ -1651,10 +1642,10 @@ html.js-intro .intro--film {
 }
 @keyframes intro-wipe {
   from {
-    clip-path: inset(0 0 0 0);
+    clip-path: circle(var(--iris-r0) at var(--iris-x) var(--iris-y));
   }
   to {
-    clip-path: inset(100% 0 0 0);
+    clip-path: circle(var(--iris-r1) at var(--iris-x) var(--iris-y));
   }
 }
 @keyframes intro-hint {
@@ -1678,20 +1669,20 @@ html.js-intro.intro-done .hcards > .hcard {
   animation: hero-in 0.6s var(--ease) backwards;
 }
 html.js-intro.intro-done .hcards > .hcard:nth-child(1) {
-  animation-delay: 0.42s;
+  animation-delay: 0.08s;
 }
 html.js-intro.intro-done .hcards > .hcard:nth-child(2) {
-  animation-delay: 0.49s;
+  animation-delay: 0.14s;
 }
 html.js-intro.intro-done .hcards > .hcard:nth-child(3) {
-  animation-delay: 0.56s;
+  animation-delay: 0.2s;
 }
 html.js-intro.intro-done .hcards > .hcard:nth-child(4) {
-  animation-delay: 0.63s;
+  animation-delay: 0.26s;
 }
 html.js-intro.intro-done .hcards > .hcard:nth-child(5) {
-  animation-delay: 0.7s;
+  animation-delay: 0.32s;
 }
 html.js-intro.intro-done .hcards > .hcard:nth-child(6) {
-  animation-delay: 0.77s;
+  animation-delay: 0.38s;
 }

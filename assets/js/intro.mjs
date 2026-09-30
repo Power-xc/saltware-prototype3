@@ -1,8 +1,15 @@
-// 인트로 — 필름을 틀고, 끝나면(또는 건너뛰면) 면을 걷으며 점을 제목의 마침표로 날린다.
+// 인트로 — 필름을 틀고, 끝나면(또는 건너뛰면) 필름의 마지막 점이 원형 창이 되어 커지며 히어로를 연다.
 //
-// 필름은 design-resources/35-intro-film 이 굽는다. 마지막 장면은 지면 바탕색 위 가운데에 점 하나다 —
-// 여기서 같은 자리 · 같은 크기의 DOM 점을 세워 그 점을 이어받는다. 크기는 판 높이의
-// END_DOT 이다(edl.mjs 와 같은 값 — spec 시험이 둘을 대조한다).
+// 필름은 design-resources/35-intro-film 이 굽는다. 마지막 장면은 지면 바탕색 위 가운데에 점 하나다 — 로고의 가장 큰
+// 결정이다. 여기서 같은 자리 · 같은 크기의 원을 세워 그 점을 이어받는다. 크기는 판 높이의 END_DOT 이다(edl.mjs 와
+// 같은 값 — spec 시험이 둘을 대조한다).
+//
+// 넘김은 원형 와이프다(사령관 2026-09-30 "그 솔트웨어 동그라미 단색으로 가도 되니까 그게 커지면서 히어로 섹션으로 쭉
+// 나오게"). 앞 벌은 면이 위에서부터 걷히고 점이 제목의 마침표로 날아갔다 — 그 비행은 걷었다. 이제 지면 전체(body)를
+// 그 점 크기의 원으로 오려 두고, 원을 화면 모서리까지 키운다. 원 밖은 캔버스의 지면 바탕색이라 필름의 마지막 판과 같고,
+// 가림막의 주황 면(__dot)은 그 원 안에서만 보여 처음에는 필름의 점 그대로다. 원이 커지는 사이 주황이 스러지며 원 안으로
+// 히어로가 선다 — 제목 · 카드의 등장(intro-done)도 원 안에서 같이 흐른다. 마침표는 제 등장(dot-in)대로 원이 다 열리기
+// 전에 제자리에 앉는다. 움직이는 것은 clip-path(원)와 주황 면의 opacity 뿐이다 — 배치는 한 번도 건드리지 않는다.
 //
 // 소리: 브라우저는 누르기 전의 소리를 막는다. 소리부터 틀어 보고, 막히면 소리 없이 틀고
 // "소리 켜기"를 세운다. 같은 사이트에서 이미 누른 적이 있으면 처음부터 소리가 난다.
@@ -16,11 +23,15 @@
 //
 // 갇히지 않게: 필름이 FALLBACK_MS 안에 시작하지 못하면(느린 망 · 자동재생 금지) 곧장 넘긴다.
 // 스크립트가 못 내려오면 가림막은 CSS 의 intro-gone 으로 같은 시각에 사라진다.
+// 움직임 줄이기를 켠 사람은 부팅 스크립트가 애초에 필름을 틀지 않는다. ?intro 로 억지로 틀었으면 원은 열리지 않고
+// 가림막이 곧장 사라져 히어로가 다 선 채로 드러난다.
 
 const FALLBACK_MS = 3600;
-const WIPE_MS = 660; // CSS intro-wipe 와 같은 값 — 면이 걷히는 시간
-const FLIGHT_MS = 820; // 점이 제목의 마침표에 닿는 시간
-// 면도 점도 다 끝난 뒤에 지운다. 먼저 지우면 점이 날다 만다.
+const WIPE_MS = 1300; // CSS intro-wipe 와 같은 값 — 원이 화면 모서리까지 커지는 시간
+// 주황 면이 스러지는 시간 — 원이 막 커지기 시작하는 동안이다. 이름은 점이 제목으로 날던 앞 벌의 것이다
+// (spec 시험이 뒷정리 순서를 이 이름으로 잰다).
+const FLIGHT_MS = 600;
+// 원도 주황도 다 끝난 뒤에 지운다. 먼저 지우면 원이 열리다 만 채 지면이 튀어나온다.
 const CLEAN_MS = Math.max(WIPE_MS, FLIGHT_MS) + 80;
 const END_DOT = 0.026;
 const PASS_KEYS = new Set(["Tab", "Shift", "Control", "Alt", "Meta", "CapsLock"]);
@@ -33,28 +44,31 @@ function filmScale(film) {
   return (vh * Math.max(r.width / vw, r.height / vh)) || r.height;
 }
 
-/** 필름의 마지막 점 자리에 DOM 점을 세우고 제목 끝의 마침표로 날린다. 둘은 같은 주황이다. */
-function flyDot(veil, film) {
+/**
+ * 필름의 마지막 점 자리 · 크기로 원형 창을 세우고 연다. 원의 자리는 몸(body) 기준 좌표다 — 지면이 스크롤돼 있어도
+ * 화면 가운데(필름의 점)에서 열린다. 열지 못하면 false — 그때는 가림막을 곧장 치운다(움직임 줄이기 · 잴 수 없음).
+ */
+function openIris(veil, film) {
   const dot = veil.querySelector(".intro__dot");
-  const target = document.querySelector(".hero__dot");
-  if (!dot || !target || typeof dot.animate !== "function") return;
-  dot.style.setProperty("--intro-dot", `${(END_DOT * filmScale(film)).toFixed(1)}px`);
-  const from = dot.getBoundingClientRect();
-  const to = target.getBoundingClientRect();
-  // 제목이 아직 자리를 안 잡았으면 날리지 않는다 — 엉뚱한 곳으로 가느니 그냥 사라지는 게 낫다.
-  if (!to.width || !from.width) return;
-  const dx = to.left + to.width / 2 - (from.left + from.width / 2);
-  const dy = to.top + to.height / 2 - (from.top + from.height / 2);
-  // 목적지는 마침표 글자 상자다 — 점의 지름은 그 줄 높이의 7분의 1쯤이다.
-  const s = Math.min(1, (to.height * 0.14) / from.width);
-  dot.animate(
-    [
-      { translate: "0 0", scale: 1, opacity: 1 },
-      { translate: `${dx}px ${dy}px`, scale: s, opacity: 1, offset: 0.88 },
-      { translate: `${dx}px ${dy}px`, scale: s, opacity: 0 },
-    ],
-    { duration: FLIGHT_MS, easing: "cubic-bezier(0.62, 0, 0.2, 1)", fill: "forwards" },
-  );
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || typeof dot?.animate !== "function") return false;
+  const view = veil.getBoundingClientRect();
+  if (!view.width || !view.height) return false;
+  const page = document.body.getBoundingClientRect();
+  const set = (name, v) => document.body.style.setProperty(name, `${v.toFixed(1)}px`);
+  set("--iris-x", view.left + view.width / 2 - page.left);
+  set("--iris-y", view.top + view.height / 2 - page.top);
+  set("--iris-r0", (END_DOT * filmScale(film)) / 2);
+  // 화면 모서리까지 — 다 열린 원이 곧 오리지 않은 지면이라, 뒷정리에서 원을 걷어도 아무것도 튀지 않는다.
+  set("--iris-r1", Math.hypot(view.width, view.height) / 2 + 2);
+  document.documentElement.classList.add("intro-iris");
+  // 점이 지름 160px 쯤으로 부풀 때까지(1440 실측)는 필름의 점 그대로 주황이고, 그다음 곧 스러지며 원 안의 히어로가
+  // 비친다. 일찍 옅어지기 시작하면 연한 주황 원판이 크게 번져 한동안 화면을 물들였다(실측 — 앞 판 0.45).
+  dot.animate([{ opacity: 1 }, { opacity: 1, offset: 0.66 }, { opacity: 0 }], {
+    duration: FLIGHT_MS,
+    easing: "linear",
+    fill: "forwards",
+  });
+  return true;
 }
 
 function soundButton(veil, film) {
@@ -91,18 +105,23 @@ export function initIntro() {
     if (e.button !== 0 || e.target.closest(".intro__bar")) return;
     finish();
   };
+  // 원을 여는 일과 면을 걷는 일(intro--out — 면이 투명해지고 원 밖은 캔버스가 받는다)은 한 프레임에 같이 일어나야 한다.
+  // 하나라도 먼저 오면 한 프레임 동안 지면 전체가 드러나거나 필름 없는 빈 면이 선다.
   function finish() {
     if (root.classList.contains("intro-done")) return;
-    root.classList.add("intro-done");
-    veil.classList.add("intro--out");
     film.pause();
-    flyDot(veil, film);
     removeEventListener("keydown", onKey);
     veil.removeEventListener("pointerdown", onPress);
-    setTimeout(() => {
+    const opened = openIris(veil, film);
+    root.classList.add("intro-done");
+    veil.classList.add("intro--out");
+    const clean = () => {
       veil.remove();
-      root.classList.remove("js-intro");
-    }, CLEAN_MS);
+      root.classList.remove("js-intro", "intro-iris");
+      for (const k of ["--iris-x", "--iris-y", "--iris-r0", "--iris-r1"]) document.body.style.removeProperty(k);
+    };
+    if (opened) setTimeout(clean, CLEAN_MS);
+    else clean();
   }
 
   // 여기서부터는 스크립트가 시계를 쥔다 — CSS 의 대비책(intro-gone)을 멈춘다.

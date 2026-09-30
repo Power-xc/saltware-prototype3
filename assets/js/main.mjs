@@ -1,8 +1,8 @@
-import { initAnalytics } from "./analytics.mjs?v=526637b4ceb5";
-import { initNav } from "./nav.mjs?v=526637b4ceb5";
-import { initReveal } from "./reveal.mjs?v=526637b4ceb5";
-import { initFaq, initCaseFilter, initFooterGroups } from "./disclosure.mjs?v=526637b4ceb5";
-import { initAttribution } from "./attribution.mjs?v=526637b4ceb5";
+import { initAnalytics } from "./analytics.mjs?v=39284038e6ff";
+import { initNav } from "./nav.mjs?v=39284038e6ff";
+import { initReveal } from "./reveal.mjs?v=39284038e6ff";
+import { initFaq, initCaseFilter, initFooterGroups } from "./disclosure.mjs?v=39284038e6ff";
+import { initAttribution } from "./attribution.mjs?v=39284038e6ff";
 
 // 초기화 하나가 던져도 나머지는 산다 — 첫 화면 스크립트는 서로 독립이다.
 const run = (name, init) => {
@@ -27,37 +27,37 @@ const when = (sel, load) => {
   load().catch((e) => console.warn(`${sel} init failed:`, e));
 };
 when("[data-contact-form]", () =>
-  import("./contact-form.mjs?v=526637b4ceb5").then(({ initContactForm }) => initContactForm()),
+  import("./contact-form.mjs?v=39284038e6ff").then(({ initContactForm }) => initContactForm()),
 );
 when("[data-hcards]", () =>
-  import("./hero-object.mjs?v=526637b4ceb5").then(({ initHeroObject }) => initHeroObject()),
+  import("./hero-object.mjs?v=39284038e6ff").then(({ initHeroObject }) => initHeroObject()),
 );
 when("[data-newsletter-form]", () =>
-  import("./newsletter.mjs?v=526637b4ceb5").then(({ initNewsletter }) => initNewsletter()),
+  import("./newsletter.mjs?v=39284038e6ff").then(({ initNewsletter }) => initNewsletter()),
 );
-when("[data-bunav]", () => import("./bunav.mjs?v=526637b4ceb5").then(({ initBunav }) => initBunav()));
-when("[data-rail]", () => import("./rail.mjs?v=526637b4ceb5").then(({ initRails }) => initRails()));
-when("[data-filter]", () => import("./filters.mjs?v=526637b4ceb5").then(({ initFilters }) => initFilters()));
-when("[data-count]", () => import("./counter.mjs?v=526637b4ceb5").then(({ initCounters }) => initCounters()));
-when("[data-paged]", () => import("./pager.mjs?v=526637b4ceb5").then(({ initPagers }) => initPagers()));
+when("[data-bunav]", () => import("./bunav.mjs?v=39284038e6ff").then(({ initBunav }) => initBunav()));
+when("[data-rail]", () => import("./rail.mjs?v=39284038e6ff").then(({ initRails }) => initRails()));
+when("[data-filter]", () => import("./filters.mjs?v=39284038e6ff").then(({ initFilters }) => initFilters()));
+when("[data-count]", () => import("./counter.mjs?v=39284038e6ff").then(({ initCounters }) => initCounters()));
+when("[data-paged]", () => import("./pager.mjs?v=39284038e6ff").then(({ initPagers }) => initPagers()));
 when("[data-year-stage]", () =>
-  import("./year-stage.mjs?v=526637b4ceb5").then(({ initYearStage }) => initYearStage()),
+  import("./year-stage.mjs?v=39284038e6ff").then(({ initYearStage }) => initYearStage()),
 );
 when("[data-pillars]", () =>
-  import("./pillars.mjs?v=526637b4ceb5").then(({ initPillars }) => initPillars()),
+  import("./pillars.mjs?v=39284038e6ff").then(({ initPillars }) => initPillars()),
 );
 when("[data-scrollcord]", () =>
-  import("./scrollcord.mjs?v=526637b4ceb5").then(({ initScrollcord }) => initScrollcord()),
+  import("./scrollcord.mjs?v=39284038e6ff").then(({ initScrollcord }) => initScrollcord()),
 );
-when("[data-stage]", () => import("./stage.mjs?v=526637b4ceb5").then(({ initStage }) => initStage()));
-when("[data-parallax]", () => import("./parallax.mjs?v=526637b4ceb5").then(({ initParallax }) => initParallax()));
+when("[data-stage]", () => import("./stage.mjs?v=39284038e6ff").then(({ initStage }) => initStage()));
+when("[data-parallax]", () => import("./parallax.mjs?v=39284038e6ff").then(({ initParallax }) => initParallax()));
 when("video[data-ambient]", () =>
-  import("./ambient-video.mjs?v=526637b4ceb5").then(({ initAmbientVideo }) => initAmbientVideo()),
+  import("./ambient-video.mjs?v=39284038e6ff").then(({ initAmbientVideo }) => initAmbientVideo()),
 );
-when("[data-spot]", () => import("./spot.mjs?v=526637b4ceb5").then(({ initSpot }) => initSpot()));
-when("[data-reel]", () => import("./reel.mjs?v=526637b4ceb5").then(({ initReels }) => initReels()));
-when("[data-intro]", () => import("./intro.mjs?v=526637b4ceb5").then(({ initIntro }) => initIntro()));
+when("[data-spot]", () => import("./spot.mjs?v=39284038e6ff").then(({ initSpot }) => initSpot()));
+when("[data-reel]", () => import("./reel.mjs?v=39284038e6ff").then(({ initReels }) => initReels()));
+when("[data-intro]", () => import("./intro.mjs?v=39284038e6ff").then(({ initIntro }) => initIntro()));
 when("[data-preview]", () =>
-  import("./ir-preview.mjs?v=526637b4ceb5").then(({ initIrPreview }) => initIrPreview()),
+  import("./ir-preview.mjs?v=39284038e6ff").then(({ initIrPreview }) => initIrPreview()),
 );
 
