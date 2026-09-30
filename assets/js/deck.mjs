@@ -1,6 +1,6 @@
 // 겹친 행사 카드 넘기기 — partials/compositions-cards.mjs agendaCards 가 찍은 [data-deck] 마다 하나.
 //
-// 자리는 장마다 data-deck-at(0 이 앞) 하나다. 넘기면 앞장이 .is-out 으로 빠지는 동안 뒤 장이 한 칸씩 올라오고,
+// 자리는 장마다 data-deck-at(0 이 앞) 하나다. 넘기면(단추 · 오른쪽으로 비친 끝) 앞장이 .is-out 으로 빠지는 동안 뒤 장이 한 칸씩 앞으로 오고,
 // 빠진 장은 맨 뒤 자리로 옮겨 스며든다(pages/home.css .deck). 앞장만 누를 수 있다 — 뒤 장은 inert 다.
 // 모션 최소 설정이면 빠지는 장면 없이 바로 바뀐다.
 
@@ -24,7 +24,7 @@ function init(deck) {
     else el.setAttribute("aria-hidden", "true");
   };
 
-  btn.addEventListener("click", () => {
+  const next = () => {
     if (busy) return;
     busy = true;
     const out = cards.find((c) => c.dataset.deckAt === "0");
@@ -43,7 +43,10 @@ function init(deck) {
     if (REDUCED.matches) return settle();
     out.classList.add("is-out");
     setTimeout(settle, OUT_MS);
-  });
+  };
+  btn.addEventListener("click", next);
+  // 오른쪽으로 비친 끝을 눌러도 넘어간다 — 쪽 끝을 엄지로 넘기는 손짓(사령관 2026-09-30 "오른쪽 끝에 옆으로").
+  deck.querySelector("[data-deck-edge]")?.addEventListener("click", next);
 
   deck.classList.add("is-live");
 }

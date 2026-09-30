@@ -458,8 +458,10 @@
   gap: var(--sp-1);
 }
 .goal__q {
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-size: var(--fs-h4);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: var(--tracking-snug);
 }
 .goal__a {
   font-size: var(--fs-sm);
@@ -892,13 +894,12 @@
 }
 .logos__eyebrow {
   margin: 0;
-  color: var(--text-muted);
 }
 .logos .logos__label {
-  font-size: clamp(22px, 2vw, 28px);
+  font-size: var(--fs-h3);
   font-weight: 700;
   line-height: 1.3;
-  letter-spacing: var(--tracking-tight);
+  letter-spacing: var(--tracking-snug);
   color: var(--text-primary);
 }
 .logos__belts {
@@ -1088,7 +1089,7 @@ a.story:hover {
   font-size: var(--fs-body);
   font-weight: 700;
   line-height: 1.4;
-  letter-spacing: var(--tracking-tight);
+  letter-spacing: var(--tracking-snug);
   color: var(--text-primary);
 }
 .story--lead .story__title {
@@ -1243,7 +1244,8 @@ a.story:hover .story__more {
 }
 .bento__label {
   font-size: var(--fs-h4);
-  font-weight: 600;
+  font-weight: 700;
+  line-height: 1.4;
 }
 .bento__desc {
   font-size: var(--fs-sm);
@@ -1254,7 +1256,6 @@ a.story:hover .story__more {
   padding-top: var(--sp-2);
 }
 .split:has(> .bento) > .split__head .lede {
-  margin-top: var(--sp-4);
   max-width: 30ch;
 }
 .bento__cell--0 .bento__label {
@@ -1572,8 +1573,8 @@ html.js-intro.intro-done .hcards > .hcard:nth-child(6) {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  padding-top: var(--sp-7);
-  container-type: inline-size;
+  --deck-peek: var(--sp-6);
+  padding-right: var(--deck-peek);
   --deck-base: var(--bg-page);
 }
 .section--stone .deck {
@@ -1586,13 +1587,15 @@ html.js-intro.intro-done .hcards > .hcard:nth-child(6) {
   display: none;
 }
 .deck__pile {
+  position: relative;
   display: grid;
   flex: 1 1 auto;
+  container-type: inline-size;
 }
 .deck__card {
   grid-area: 1 / 1;
   background: linear-gradient(var(--bg-card), var(--bg-card)), var(--deck-base);
-  transform-origin: 50% 0;
+  transform-origin: 100% 50%;
   transition:
     transform var(--dur-content) var(--ease),
     filter var(--dur-content) var(--ease),
@@ -1604,40 +1607,51 @@ html.js-intro.intro-done .hcards > .hcard:nth-child(6) {
 }
 .deck__card[data-deck-at="1"] {
   z-index: 2;
-  transform: translateY(-13px) scale(0.95);
-  filter: brightness(0.78);
+  transform: translateX(12px) scale(0.94);
+  filter: brightness(0.86);
 }
 .deck__card[data-deck-at="2"] {
   z-index: 1;
-  transform: translateY(-26px) scale(0.9);
-  filter: brightness(0.56);
+  transform: translateX(24px) scale(0.88);
+  filter: brightness(0.66);
 }
 .deck a.deck__card:hover {
   transform: none;
 }
 @media (hover: hover) {
   .deck:hover .deck__card[data-deck-at="1"] {
-    transform: translateY(-20px) scale(0.95) rotate(-1.4deg);
-    filter: brightness(0.88);
+    transform: translateX(18px) scale(0.94) rotate(1.6deg);
+    filter: brightness(0.96);
   }
   .deck:hover .deck__card[data-deck-at="2"] {
-    transform: translateY(-38px) scale(0.9) rotate(1.6deg);
-    filter: brightness(0.7);
+    transform: translateX(31px) scale(0.88) rotate(3deg);
+    filter: brightness(0.8);
   }
 }
 .deck__card.is-out {
   z-index: 4;
-  transform: translateY(24px) scale(0.96);
+  transform: translateX(28px) scale(0.94);
   opacity: 0;
   transition:
     transform var(--dur-page) var(--ease),
     opacity 0.16s ease-in;
 }
+.deck__edge {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: calc(var(--deck-peek) + var(--sp-2));
+}
+.deck.is-live .deck__edge {
+  cursor: pointer;
+}
 .deck__next {
   position: absolute;
   z-index: 5;
   right: var(--sp-4);
-  top: calc(var(--sp-7) + 1px + (100cqw - 2px) / (var(--cover-ratio)) - 15px);
+  top: calc(1px + (100cqw - 2px) / (var(--cover-ratio)) - 15px);
   display: none;
   align-items: center;
   gap: var(--sp-2);
