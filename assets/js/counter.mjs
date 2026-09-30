@@ -17,7 +17,9 @@ export function initCounters() {
     if (!Number.isFinite(end)) return;
     const text = numText(el);
     if (!text) return;
-    const write = (v) => (text.nodeValue = String(v));
+    // 조판이 천 단위 쉼표(1,800)로 섰으면 세는 동안에도 쉼표를 둔다 — 끝에서 글자 폭이 튀지 않게.
+    const grouped = text.nodeValue.includes(",");
+    const write = (v) => (text.nodeValue = grouped ? v.toLocaleString("en-US") : String(v));
     const t0 = performance.now();
     const step = (now) => {
       const p = Math.min(1, (now - t0) / DUR);

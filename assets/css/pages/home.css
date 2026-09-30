@@ -878,6 +878,134 @@
     --logo-gap: var(--sp-6);
   }
 }
+.logos {
+  --logo-cell: 176px;
+  --logo-row: 96px;
+  --logo-gap: 0px;
+  --logo-line: color-mix(in srgb, var(--border-control) 85%, transparent);
+  gap: var(--sp-6);
+}
+.logos__head {
+  display: grid;
+  justify-items: center;
+  gap: var(--sp-2);
+}
+.logos__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin: 0;
+}
+.logos__count {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-variant-numeric: tabular-nums;
+}
+.logos__count::before {
+  content: "";
+  width: 1px;
+  height: 0.9em;
+  background: var(--border-strong);
+}
+.logos .logos__label {
+  font-size: clamp(18px, 1.5vw, 21px);
+  font-weight: 600;
+  letter-spacing: var(--tracking-snug);
+  color: var(--text-primary);
+}
+.logos__belts {
+  gap: 0;
+}
+.logos__belt {
+  border-bottom: 1px solid var(--logo-line);
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+}
+.logos__belt:first-child {
+  border-top: 1px solid var(--logo-line);
+}
+.logos__wall,
+.logos__track {
+  gap: 0;
+}
+.logos__item {
+  position: relative;
+  width: var(--logo-cell);
+  height: var(--logo-row);
+  align-content: center;
+}
+.logos__item::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  bottom: 20%;
+  left: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--logo-line) 30%,
+    var(--logo-line) 70%,
+    transparent
+  );
+  pointer-events: none;
+}
+.logos__item:hover {
+  transform: none;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    color-mix(in srgb, var(--bg-card) 72%, transparent) 50%,
+    transparent
+  );
+}
+.logos__mark {
+  transition: transform var(--dur-hover) var(--ease);
+}
+.logos__item:hover .logos__mark {
+  transform: translateY(-4px);
+}
+.logos__tag {
+  position: absolute;
+  left: 50%;
+  bottom: var(--sp-3);
+  width: auto;
+  translate: -50% 0;
+  font-size: var(--fs-2xs);
+}
+@media (max-width: 1279px) {
+  .logos {
+    --logo-cell: 156px;
+  }
+}
+@media (max-width: 1080px) {
+  .logos {
+    --logo-cell: 140px;
+    --logo-row: 84px;
+  }
+}
+@media (max-width: 640px) {
+  .logos {
+    --logo-cell: 128px;
+    --logo-row: 68px;
+    gap: var(--sp-5);
+  }
+  .logos__belt {
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 8%,
+      #000 92%,
+      transparent 100%
+    );
+  }
+}
 .stories {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
