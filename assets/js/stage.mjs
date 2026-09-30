@@ -13,7 +13,7 @@
 //  - 스크립트가 안 돌면 html.js-stage 가 붙지 않는다. CSS 의 겹치기·축소 규칙은 전부
 //    그 클래스 안에 있으므로 카드는 그냥 세로로 늘어서고 글은 제자리에 선다.
 //  - prefers-reduced-motion 이면 아무것도 하지 않는다(클래스도 붙이지 않는다).
-import { scrollStage } from "./frame.mjs?v=390f21cfb88b";
+import { scrollStage } from "./frame.mjs?v=b4f216fba616";
 
 export function initStage() {
   const stages = [...document.querySelectorAll("[data-stage]")];

@@ -1,30 +1,30 @@
 
 .feat--company {
-  --card-media: url("/saltware-prototype3/media/company/hub-feature.jpg?v=ae59df90566a");
+  --card-media: url("/saltware-prototype3/media/company/hub-feature.jpg?v=61bc3bdaf577");
 }
 .hub-card--company-capabilities {
-  --card-media: url("/saltware-prototype3/media/company/card-capabilities.jpg?v=ae59df90566a");
+  --card-media: url("/saltware-prototype3/media/company/card-capabilities.jpg?v=61bc3bdaf577");
 }
 .hub-card--company-esg {
-  --card-media: url("/saltware-prototype3/media/company/card-esg.jpg?v=ae59df90566a");
+  --card-media: url("/saltware-prototype3/media/company/card-esg.jpg?v=61bc3bdaf577");
 }
 .hub-card--company-partners {
-  --card-media: url("/saltware-prototype3/media/company/card-partners.jpg?v=ae59df90566a");
+  --card-media: url("/saltware-prototype3/media/company/card-partners.jpg?v=61bc3bdaf577");
 }
 .hub-card--company-history {
-  --card-media: url("/saltware-prototype3/media/company/card-history.jpg?v=ae59df90566a");
+  --card-media: url("/saltware-prototype3/media/company/card-history.jpg?v=61bc3bdaf577");
 }
 .hub-card--company-ir {
-  --card-media: url("/saltware-prototype3/media/company/card-ir.jpg?v=ae59df90566a");
+  --card-media: url("/saltware-prototype3/media/company/card-ir.jpg?v=61bc3bdaf577");
 }
 .hub-card--company-careers {
-  --card-media: url("/saltware-prototype3/media/company/card-careers.jpg?v=ae59df90566a");
+  --card-media: url("/saltware-prototype3/media/company/card-careers.jpg?v=61bc3bdaf577");
 }
 .hub-card--company-location {
-  --card-media: url("/saltware-prototype3/media/company/card-location.jpg?v=ae59df90566a");
+  --card-media: url("/saltware-prototype3/media/company/card-location.jpg?v=61bc3bdaf577");
 }
 .hub-card--company-brand {
-  --card-media: url("/saltware-prototype3/media/company/card-brand.jpg?v=ae59df90566a");
+  --card-media: url("/saltware-prototype3/media/company/card-brand.jpg?v=61bc3bdaf577");
 }
 @media (min-width: 1080px) {
   .hub-grid--3 {
@@ -61,10 +61,57 @@
   font-weight: 600;
   color: var(--text-primary);
 }
+.cstats--quad {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media (max-width: 1080px) {
+  .cstats--quad {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 @media (max-width: 640px) {
   .cstats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--sp-5) var(--sp-4);
+  }
+}
+.cfacts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin: var(--sp-1) 0 0;
+}
+.cfact {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-5);
+  padding: var(--sp-4) 0;
+}
+.cfact + .cfact {
+  border-top: 1px solid var(--border-control);
+}
+.cfact__label {
+  flex: none;
+  width: 6em;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.cfact__value {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font-size: var(--fs-h4);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+@media (max-width: 640px) {
+  .cfact {
+    flex-direction: column;
+    gap: var(--sp-1);
+  }
+  .cfact__label {
+    width: auto;
   }
 }
 .cintro {
@@ -327,6 +374,44 @@
   margin-bottom: 0;
   color: var(--text-primary);
 }
+.cceo__press {
+  margin-top: var(--sp-8);
+  padding-top: var(--sp-6);
+  border-top: 1px solid var(--border-control);
+}
+.cceo__press-head {
+  margin: 0 0 var(--sp-5);
+  font-size: var(--fs-h4);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: var(--tracking-snug);
+  color: var(--text-primary);
+}
+.cceo__quotes {
+  display: grid;
+  gap: var(--sp-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cceo__read .cceo__quote-text {
+  margin: 0;
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+.cceo__quote-src {
+  display: inline-block;
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.cceo__quote-src:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
 @media (max-width: 1080px) {
   .cceo__set {
     grid-template-columns: minmax(0, 1fr);
@@ -372,7 +457,7 @@
 }
 .cclose--art::before {
   z-index: -2;
-  background-image: url("/saltware-prototype3/media/hub/hub-insights.jpg?v=ae59df90566a");
+  background-image: url("/saltware-prototype3/media/hub/hub-insights.jpg?v=61bc3bdaf577");
   background-position: center;
   background-size: cover;
   filter: var(--art-tone);

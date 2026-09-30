@@ -6,9 +6,10 @@
 //
 // 쪽은 주소에 남기지 않는다. 이 목록은 갈래 하나의 최근분이라 3쪽을 남에게 보낼 일이
 // 없고, 히스토리에 쌓이면 뒤로 가기가 목록 안을 맴돈다.
-import { markFirstVisible } from "./rows.mjs?v=390f21cfb88b";
+import { markFirstVisible } from "./rows.mjs?v=b4f216fba616";
 
 const SIZE_MIN = 1;
+const WIDE = 9;
 
 export function initPagers() {
   for (const box of document.querySelectorAll("[data-paged]")) {
@@ -77,10 +78,14 @@ export function initPagers() {
       // 44px 단추로 다 서면 390 폭에서 세 줄로 접혔다(지난 행사, 2026-09-27 실측). 넷인 것은
       // 390 폭 목록 칸(326px)에 화살표 둘과 함께 한 줄로 서는 최대 수라서다(44px × 6 + 틈).
       const lo = Math.max(1, Math.min(page - 2, last - 3));
+      // 넓은 화면도 창이 있다 — 아홉 쪽까지는 다 세우고 그보다 길면 지금 쪽 둘레 아홉만(--distant).
+      // 뉴스룸이 스무 쪽 가까이 되자 단추 줄이 목록 칸에서 두 줄로 접혔다(2026-09-30 실측, 1440 폭).
+      const loWide = Math.max(1, Math.min(page - 4, last - (WIDE - 1)));
       pages.forEach((b, i) => {
         if (i + 1 === page) b.setAttribute("aria-current", "page");
         else b.removeAttribute("aria-current");
         b.classList.toggle("pager__num--far", i + 1 < lo || i + 1 > lo + 3);
+        b.classList.toggle("pager__num--distant", i + 1 < loWide || i + 1 > loWide + WIDE - 1);
       });
       prev.disabled = page === 1;
       next.disabled = page === last;

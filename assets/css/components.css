@@ -1344,6 +1344,26 @@
 .doc__source a {
   color: var(--text-accent);
 }
+.doc__refs {
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+.doc__refs li + li {
+  margin-top: var(--sp-1);
+}
+.doc__refs a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--border-control);
+}
+.doc__refs a:hover {
+  color: var(--text-primary);
+}
 .doc .cta-row {
   margin-top: var(--sp-6);
 }
@@ -1494,6 +1514,9 @@
   .pager__num--far {
     display: none;
   }
+}
+.pager__num--distant {
+  display: none;
 }
 .pager__nums {
   display: flex;
@@ -2707,7 +2730,7 @@ a.tile .tile__desc {
   text-wrap: balance;
 }
 .feat--art {
-  --card-media: url("/saltware-prototype3/media/insight/feature.jpg?v=ae59df90566a");
+  --card-media: url("/saltware-prototype3/media/insight/feature.jpg?v=61bc3bdaf577");
 }
 .feat[class*="feat--"] .feat__lead::before {
   content: "";
@@ -2943,19 +2966,19 @@ a.tile .tile__desc {
   }
 }
 .hub-card--cases {
-  --card-media: url("/saltware-prototype3/media/insight/card-cases.jpg?v=ae59df90566a");
+  --card-media: url("/saltware-prototype3/media/insight/card-cases.jpg?v=61bc3bdaf577");
 }
 .hub-card--industry {
-  --card-media: url("/saltware-prototype3/media/insight/card-industry.jpg?v=ae59df90566a");
+  --card-media: url("/saltware-prototype3/media/insight/card-industry.jpg?v=61bc3bdaf577");
 }
 .hub-card--report {
-  --card-media: url("/saltware-prototype3/media/insight/card-report.jpg?v=ae59df90566a");
+  --card-media: url("/saltware-prototype3/media/insight/card-report.jpg?v=61bc3bdaf577");
 }
 .hub-card--library {
-  --card-media: url("/saltware-prototype3/media/insight/card-library.jpg?v=ae59df90566a");
+  --card-media: url("/saltware-prototype3/media/insight/card-library.jpg?v=61bc3bdaf577");
 }
 .hub-card--news {
-  --card-media: url("/saltware-prototype3/media/insight/card-news.jpg?v=ae59df90566a");
+  --card-media: url("/saltware-prototype3/media/insight/card-news.jpg?v=61bc3bdaf577");
 }
 .hubcol {
   display: flex;
@@ -4246,6 +4269,13 @@ html.is-scrolled .floating__top {
 .card--band .card__more:focus-visible::before {
   translate: 3px 0;
   color: var(--text-primary);
+}
+:is(.onward__links, .card--band) .card__more:has(.ext-mark)::before {
+  content: none;
+}
+:is(.onward__links, .card--band) .card__more .ext-mark {
+  order: -1;
+  margin-left: 0;
 }
 :is(.story__cover, .brief__cover) img {
   transition: scale var(--dur-content) var(--ease);
