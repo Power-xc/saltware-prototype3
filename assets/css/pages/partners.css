@@ -84,7 +84,7 @@
   font-size: var(--fs-h3);
   font-weight: 700;
   line-height: 1.32;
-  letter-spacing: var(--tracking-heading);
+  letter-spacing: var(--tracking-snug);
   color: var(--text-primary);
 }
 .ptile__line {
@@ -97,7 +97,7 @@
 .ptile__desc {
   margin: 0;
   font-size: var(--fs-xs);
-  line-height: 1.75;
+  line-height: 1.6;
   color: var(--text-muted);
   max-width: var(--measure);
 }
@@ -313,7 +313,7 @@
 .pmark__desc {
   margin: 0;
   font-size: var(--fs-sm);
-  line-height: 1.75;
+  line-height: 1.6;
   color: var(--text-muted);
 }
 .pmark--acronis {

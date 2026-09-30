@@ -126,12 +126,13 @@
 .caps-year__title {
   margin: 0 0 var(--sp-2);
   font-size: var(--fs-h4);
-  line-height: 1.35;
+  line-height: 1.4;
+  letter-spacing: var(--tracking-snug);
 }
 .caps-year__desc {
   margin: 0;
   font-size: var(--fs-sm);
-  line-height: 1.62;
+  line-height: 1.6;
   color: var(--text-secondary);
   max-width: 56ch;
 }
@@ -237,7 +238,7 @@
 .caps-part__desc {
   margin: 0;
   font-size: var(--fs-sm);
-  line-height: 1.62;
+  line-height: 1.6;
   color: var(--text-secondary);
   max-width: var(--measure);
 }

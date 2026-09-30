@@ -6,9 +6,9 @@ body[data-route="/company/careers"] {
   margin-bottom: 1.75rem;
 }
 .crx__title {
-  font-size: clamp(1.625rem, 1.1rem + 2.1vw, 2.5rem);
-  line-height: 1.25;
-  letter-spacing: var(--tracking-snug);
+  font-size: var(--fs-h2);
+  line-height: 1.3;
+  letter-spacing: var(--tracking-tight);
   margin: 0;
 }
 .crx__lede {
@@ -71,15 +71,15 @@ body[data-route="/company/careers"] {
   margin: 0 0 0.75rem;
 }
 .crval__title {
-  font-size: clamp(1.375rem, 1rem + 1.4vw, 2.125rem);
+  font-size: var(--fs-h3-lg);
   font-weight: 700;
   line-height: 1.3;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-snug);
   margin: 0 0 0.75rem;
 }
 .crval__desc {
-  font-size: 0.9375rem;
-  line-height: 1.75;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
   color: var(--text-secondary);
   margin: 0;
 }
@@ -204,10 +204,10 @@ a.cropen__row:focus-visible .cropen__title {
   color: var(--text-muted);
 }
 .cropen__title {
-  font-size: clamp(1.125rem, 0.95rem + 0.7vw, 1.4375rem);
+  font-size: var(--fs-h3);
   font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: -0.01em;
+  line-height: 1.3;
+  letter-spacing: var(--tracking-snug);
 }
 .cropen__desc {
   font-size: 0.9375rem;
@@ -254,9 +254,9 @@ a.cropen__row:focus-visible .cropen__title {
 .crsup__q {
   margin: 0;
   padding: 1.35rem 0 1.1rem;
-  font-size: clamp(1.25rem, 1rem + 1vw, 1.875rem);
+  font-size: var(--fs-h3-lg);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-snug);
   transition: color 0.35s ease;
 }
 .crsup__body {
@@ -400,12 +400,13 @@ html.js-scrollcord .crstep__item.is-on .crstep__n {
   margin-top: auto;
 }
 .crstep__title {
-  font-size: clamp(1.0625rem, 0.9rem + 0.5vw, 1.375rem);
-  letter-spacing: -0.01em;
+  font-size: var(--fs-h3);
+  line-height: 1.3;
+  letter-spacing: var(--tracking-snug);
   margin: 0 0 0.45rem;
 }
 .crstep__desc {
-  font-size: 0.9375rem;
+  font-size: var(--fs-sm);
   line-height: 1.6;
   color: var(--text-muted);
   margin: 0;

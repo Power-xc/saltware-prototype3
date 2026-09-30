@@ -183,6 +183,8 @@ a.cpil:focus-visible {
 .cpil__title {
   font-size: var(--fs-h4);
   font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: var(--tracking-snug);
   color: var(--text-primary);
   transition: color var(--dur-content) var(--ease);
 }

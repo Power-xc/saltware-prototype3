@@ -1570,7 +1570,8 @@ a.press:focus-visible .press__cover img {
 .press__title {
   font-size: var(--fs-h4);
   font-weight: 700;
-  line-height: 1.45;
+  line-height: 1.4;
+  letter-spacing: var(--tracking-snug);
   transition: color var(--dur-hover) var(--ease);
 }
 a.press:hover .press__title {
@@ -2609,7 +2610,7 @@ a.tile .tile__desc {
   text-wrap: balance;
 }
 .feat--art {
-  --card-media: url("/saltware-prototype3/media/insight/feature.jpg?v=55fb5cad91d7");
+  --card-media: url("/saltware-prototype3/media/insight/feature.jpg?v=06cb03077548");
 }
 .feat[class*="feat--"] .feat__lead::before {
   content: "";
@@ -2845,19 +2846,19 @@ a.tile .tile__desc {
   }
 }
 .hub-card--cases {
-  --card-media: url("/saltware-prototype3/media/insight/card-cases.jpg?v=55fb5cad91d7");
+  --card-media: url("/saltware-prototype3/media/insight/card-cases.jpg?v=06cb03077548");
 }
 .hub-card--industry {
-  --card-media: url("/saltware-prototype3/media/insight/card-industry.jpg?v=55fb5cad91d7");
+  --card-media: url("/saltware-prototype3/media/insight/card-industry.jpg?v=06cb03077548");
 }
 .hub-card--report {
-  --card-media: url("/saltware-prototype3/media/insight/card-report.jpg?v=55fb5cad91d7");
+  --card-media: url("/saltware-prototype3/media/insight/card-report.jpg?v=06cb03077548");
 }
 .hub-card--library {
-  --card-media: url("/saltware-prototype3/media/insight/card-library.jpg?v=55fb5cad91d7");
+  --card-media: url("/saltware-prototype3/media/insight/card-library.jpg?v=06cb03077548");
 }
 .hub-card--news {
-  --card-media: url("/saltware-prototype3/media/insight/card-news.jpg?v=55fb5cad91d7");
+  --card-media: url("/saltware-prototype3/media/insight/card-news.jpg?v=06cb03077548");
 }
 .hubcol {
   display: flex;
@@ -3888,6 +3889,9 @@ a.brief:hover {
 .briefs--agenda {
   display: flex;
   flex-wrap: wrap;
+}
+.briefs--agenda,
+.rail--agenda {
   --cover-ratio: 10 / 7;
 }
 .brief--banner .brief__cover img {
@@ -3898,13 +3902,6 @@ a.brief:hover {
 }
 .brief[hidden] {
   display: none;
-}
-@media (max-width: 860px) {
-  .section:has(.briefs--agenda) .sec-side {
-    position: static;
-    flex-wrap: wrap;
-    margin-top: var(--sp-5);
-  }
 }
 .brief__badge--past {
   background: transparent;

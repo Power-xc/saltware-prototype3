@@ -69,6 +69,7 @@
   --fs-hero: clamp(38px, 6.4vw, 88px);
   --fs-h2: clamp(30px, 2.8vw, 40px);
   --fs-h3: 22px;
+  --fs-h3-lg: clamp(24px, 2.1vw, 30px);
   --fs-h4: 17px;
   --fs-lede: 18px;
   --fs-body: 17px;

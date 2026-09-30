@@ -656,6 +656,45 @@
     width: calc(100% - var(--rail-peek));
   }
 }
+.rail--agenda {
+  --rail-bleed: calc(50vw - 50%);
+  margin-right: calc(-1 * var(--rail-bleed));
+  padding-top: var(--sp-1);
+  padding-right: var(--rail-bleed);
+}
+.rail-wrap:has(> .rail--agenda)::before,
+.rail-wrap:has(> .rail--agenda)::after {
+  display: none;
+}
+.section:has(.rail--agenda) {
+  overflow-x: clip;
+}
+@media (max-width: 860px) {
+  .section:has(> .container > .rail-wrap > .rail--agenda) > .container > .section__head {
+    padding-right: 0;
+  }
+  .rail-wrap:has(> .rail--agenda) {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+  .rail-wrap > .rail--agenda {
+    grid-column: 1 / -1;
+  }
+  .rail-wrap:has(> .rail--agenda) .rail__ticks {
+    display: none;
+  }
+  .rail-wrap:has(> .rail--agenda) .sec-side {
+    position: static;
+  }
+  .rail--agenda > .rail__card {
+    width: calc((100% - var(--gap-tile) - var(--rail-peek)) / 2);
+  }
+}
+@media (max-width: 640px) {
+  .rail--agenda > .rail__card {
+    width: calc(100% - var(--rail-peek));
+  }
+}
 .logos {
   display: grid;
   gap: var(--sp-5);
@@ -1564,133 +1603,4 @@ html.js-intro.intro-done .hcards > .hcard:nth-child(5) {
 }
 html.js-intro.intro-done .hcards > .hcard:nth-child(6) {
   animation-delay: 0.77s;
-}
-.briefs--agenda > .deck {
-  flex: 0 0 calc((100% - var(--gap-tile) * 3) / 4);
-}
-.deck {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  --deck-peek: var(--sp-6);
-  padding-right: var(--deck-peek);
-  --deck-base: var(--bg-page);
-}
-.section--stone .deck {
-  --deck-base: var(--c-neutral-700);
-}
-.section--inverse .deck {
-  --deck-base: var(--c-neutral-800);
-}
-.deck[hidden] {
-  display: none;
-}
-.deck__pile {
-  position: relative;
-  display: grid;
-  flex: 1 1 auto;
-  container-type: inline-size;
-}
-.deck__card {
-  grid-area: 1 / 1;
-  background: linear-gradient(var(--bg-card), var(--bg-card)), var(--deck-base);
-  transform-origin: 100% 50%;
-  transition:
-    transform var(--dur-content) var(--ease),
-    filter var(--dur-content) var(--ease),
-    opacity var(--dur-page) var(--ease),
-    border-color var(--dur-hover) var(--ease);
-}
-.deck__card[data-deck-at="0"] {
-  z-index: 3;
-}
-.deck__card[data-deck-at="1"] {
-  z-index: 2;
-  transform: translateX(12px) scale(0.94);
-  filter: brightness(0.86);
-}
-.deck__card[data-deck-at="2"] {
-  z-index: 1;
-  transform: translateX(24px) scale(0.88);
-  filter: brightness(0.66);
-}
-.deck a.deck__card:hover {
-  transform: none;
-}
-@media (hover: hover) {
-  .deck:hover .deck__card[data-deck-at="1"] {
-    transform: translateX(18px) scale(0.94) rotate(1.6deg);
-    filter: brightness(0.96);
-  }
-  .deck:hover .deck__card[data-deck-at="2"] {
-    transform: translateX(31px) scale(0.88) rotate(3deg);
-    filter: brightness(0.8);
-  }
-}
-.deck__card.is-out {
-  z-index: 4;
-  transform: translateX(28px) scale(0.94);
-  opacity: 0;
-  transition:
-    transform var(--dur-page) var(--ease),
-    opacity 0.16s ease-in;
-}
-.deck__edge {
-  position: absolute;
-  z-index: 5;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: calc(var(--deck-peek) + var(--sp-2));
-}
-.deck.is-live .deck__edge {
-  cursor: pointer;
-}
-.deck__next {
-  position: absolute;
-  z-index: 5;
-  right: var(--sp-4);
-  top: calc(1px + (100cqw - 2px) / (var(--cover-ratio)) - 15px);
-  display: none;
-  align-items: center;
-  gap: var(--sp-2);
-  height: 30px;
-  padding: 0 var(--sp-3);
-  border: 1px solid transparent;
-  border-radius: var(--radius-pill);
-  background: var(--scrim-ink-80);
-  backdrop-filter: blur(8px);
-  color: var(--text-on-inverse);
-  font: inherit;
-  font-size: var(--fs-xs);
-  font-weight: 600;
-  cursor: pointer;
-  transition: border-color var(--dur-hover) var(--ease);
-}
-.deck.is-live .deck__next {
-  display: inline-flex;
-}
-.deck__next:hover,
-.deck__next:focus-visible {
-  border-color: var(--text-on-inverse);
-}
-.deck__count {
-  opacity: 0.72;
-  font-variant-numeric: tabular-nums;
-}
-@media (prefers-reduced-motion: reduce) {
-  .deck__card {
-    transition: none;
-  }
-}
-@media (max-width: 860px) {
-  .briefs--agenda > .deck {
-    flex-basis: calc((100% - var(--sp-4)) / 2);
-  }
-}
-@media (max-width: 640px) {
-  .briefs--agenda > .deck {
-    flex-basis: 100%;
-  }
 }
