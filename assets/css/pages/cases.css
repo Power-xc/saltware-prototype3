@@ -279,12 +279,17 @@
 .cdoc__part:has(> .cdoc__rows:last-child) + .cdoc__part {
   margin-top: var(--sp-6);
 }
-.cdoc__stack {
+.cdoc__stack,
+.cdoc__press {
   margin-top: var(--sp-8);
   padding-top: var(--sp-5);
   border-top: 1px solid var(--rule-track);
 }
-.cdoc__stack-name {
+.cdoc__press .cdoc__note {
+  margin-bottom: var(--sp-3);
+}
+.cdoc__stack-name,
+.cdoc__press-name {
   margin: 0 0 var(--sp-3);
   font-size: var(--fs-label);
   font-weight: 700;

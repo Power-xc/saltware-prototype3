@@ -238,3 +238,78 @@
 @media (max-width: 640px) {
   :is(.bu--databricks, .bu--data-platform) .caps { grid-template-columns: minmax(0, 1fr); }
 }
+.bu--databricks .whyc--n5 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.bu--databricks .whyc--n5 .whyc__card {
+  grid-column: span 2;
+  height: clamp(360px, 27vw, 420px);
+}
+.bu--databricks .whyc--n5 .whyc__card:nth-child(n + 4) {
+  grid-column: span 3;
+}
+@media (max-width: 1080px) {
+  .bu--databricks .whyc--n5 .whyc__card {
+    height: clamp(420px, 60vw, 520px);
+  }
+}
+@media (max-width: 640px) {
+  .bu--databricks .whyc--n5 .whyc__card {
+    height: 440px;
+  }
+}
+.bu--data-platform .section--inverse .env--public {
+  background: var(--c-white);
+  color: var(--c-neutral-900);
+  --text-primary: var(--c-neutral-900);
+  --text-secondary: var(--c-neutral-700);
+  --text-muted: var(--c-neutral-600);
+  --text-faint: var(--c-neutral-550);
+}
+.bu--data-platform .section--inverse .env--public p:not(.eyebrow) {
+  color: var(--text-muted);
+}
+.bu--data-platform .section--inverse .env p.env__name {
+  color: var(--text-primary);
+}
+.bu--data-platform .section--inverse .env p.env__where {
+  color: var(--text-faint);
+}
+.bu--data-platform .section--inverse .envs__hub {
+  background: var(--c-neutral-900);
+}
+.bu--data-platform .section--inverse .envs__hub p.envs__hub-name {
+  color: var(--text-on-inverse);
+}
+.bu--data-platform .tstack__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-5);
+}
+.bu--data-platform .tstack__logo {
+  height: clamp(30px, 2.6vw, 40px);
+}
+.bu--data-platform .tstack__logo + .tstack__logo {
+  padding-left: var(--sp-5);
+  border-left: 1px solid var(--border-control);
+}
+@media (max-width: 640px) {
+  .bu--data-platform .tstack__title {
+    gap: var(--sp-4);
+  }
+  .bu--data-platform .tstack__logo {
+    height: 26px;
+  }
+  .bu--data-platform .tstack__logo + .tstack__logo {
+    padding-left: var(--sp-4);
+  }
+}
+.bu--databricks .ils:has(> :nth-child(2):last-child) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 640px) {
+  .bu--databricks .ils:has(> :nth-child(2):last-child) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

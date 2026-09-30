@@ -1,0 +1,31 @@
+
+.tstack--solo + .tiles {
+  margin-top: var(--sp-5);
+}
+.bu--identity div.tile,
+.bu--data-ai div.tile {
+  align-content: start;
+  gap: var(--sp-3);
+}
+.bu--identity div.tile .tile__name,
+.bu--data-ai div.tile .tile__name {
+  margin-top: var(--sp-1);
+}
+.tile__glyph--line {
+  order: -1;
+  justify-self: start;
+  width: 28px;
+  height: 28px;
+  margin-bottom: var(--sp-2);
+  opacity: 1;
+  color: var(--text-muted);
+}
+.tile__glyph--line svg .acc {
+  stroke: var(--c-brand-dot);
+}
+@media (max-width: 640px) {
+  .bu--identity .tiles:has(> div.tile),
+  .bu--data-ai .tiles:has(> div.tile) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

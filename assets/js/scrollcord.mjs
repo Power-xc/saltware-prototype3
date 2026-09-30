@@ -17,7 +17,7 @@
 //  - prefers-reduced-motion 이면 아무것도 하지 않는다(클래스도 붙이지 않는다).
 //  - 좁은 폭에서는 CSS 가 붙박이를 켜지 않는다. 이 스크립트는 그래도 돌지만, 판이
 //    흘러가는 동안 읽는 줄을 고르는 것뿐이라 해가 없다.
-import { scrollStage } from "./frame.mjs?v=c73e6ab144e9";
+import { scrollStage } from "./frame.mjs?v=390f21cfb88b";
 
 export function initScrollcord() {
   const stages = [...document.querySelectorAll("[data-scrollcord]")];
