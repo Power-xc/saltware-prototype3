@@ -3999,9 +3999,6 @@ a.brief:hover {
 .briefs--agenda {
   display: flex;
   flex-wrap: wrap;
-}
-.briefs--agenda,
-.rail--agenda {
   --cover-ratio: 10 / 7;
 }
 .brief--banner .brief__cover img {
@@ -4012,6 +4009,13 @@ a.brief:hover {
 }
 .brief[hidden] {
   display: none;
+}
+@media (max-width: 860px) {
+  .section:has(.briefs--agenda) .sec-side {
+    position: static;
+    flex-wrap: wrap;
+    margin-top: var(--sp-5);
+  }
 }
 .brief__badge--past {
   background: transparent;

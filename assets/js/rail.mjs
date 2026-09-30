@@ -4,9 +4,6 @@
 // 넘칠 것이 없으면 is-static 으로 버튼·눈금을 접는다(넓은 화면의 세 장짜리 레일).
 
 const pad = (n) => String(n).padStart(2, "0");
-// 모션 최소 설정이면 버튼도 미끄러지지 않고 바로 옮긴다 — behavior 를 적으면 CSS 의 scroll-behavior 를 덮는다.
-const REDUCED = matchMedia("(prefers-reduced-motion: reduce)");
-const glide = () => (REDUCED.matches ? "auto" : "smooth");
 
 /** 지금 몇 번째 장인지 — 트랙 왼쪽 선에 가장 가까운 카드가 기준이다. */
 function currentIndex(cards, track) {
@@ -62,10 +59,10 @@ function wire(wrap) {
   };
 
   prev.addEventListener("click", () =>
-    track.scrollBy({ left: -step(), behavior: glide() }),
+    track.scrollBy({ left: -step(), behavior: "smooth" }),
   );
   next.addEventListener("click", () =>
-    track.scrollBy({ left: step(), behavior: glide() }),
+    track.scrollBy({ left: step(), behavior: "smooth" }),
   );
   track.addEventListener("scroll", sync, { passive: true });
   addEventListener("resize", sync);

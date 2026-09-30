@@ -6,7 +6,7 @@
 //
 // 쪽은 주소에 남기지 않는다. 이 목록은 갈래 하나의 최근분이라 3쪽을 남에게 보낼 일이
 // 없고, 히스토리에 쌓이면 뒤로 가기가 목록 안을 맴돈다.
-import { markFirstVisible } from "./rows.mjs?v=b4f216fba616";
+import { markFirstVisible } from "./rows.mjs?v=b376ca501e83";
 
 const SIZE_MIN = 1;
 const WIDE = 9;
