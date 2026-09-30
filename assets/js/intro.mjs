@@ -16,6 +16,8 @@
 //
 // 소리: 브라우저는 누르기 전의 소리를 막는다. 소리부터 틀어 보고, 막히면 소리 없이 틀고
 // "소리 켜기"를 세운다. 같은 사이트에서 이미 누른 적이 있으면 처음부터 소리가 난다.
+// 막혔을 때는 첫 누름 · 첫 키가 넘기지 않고 소리를 켠다(사령관 2026-09-30 "소리 1차적으로 자동으로 켜지게"
+// — 아래 "아무 데나 누르면 넘긴다"(09-24)보다 앞선다). 두 번째부터 넘긴다. Escape 는 늘 넘긴다.
 //
 // 나가는 문: 건너뛰기 · 다시 보지 않기(이 브라우저에서는 다음부터 안 튼다) · 아무 키 · 화면 아무 데나
 // 누르기(사령관 2026-09-24 "다른 키 누르면 넘어가게", "화면 터치하거나 키보드 쳐도"). Tab 과 보조키만은
@@ -155,17 +157,27 @@ function flyDots(dots, target) {
   });
 }
 
-function soundButton(veil, film) {
+/**
+ * 소리는 켜고 시작한다(사령관 2026-09-30 "인트로는 소리 1차적으로 자동으로 켜지게"). 브라우저가 첫 방문의 소리
+ * 자동재생을 막으면 무음으로 틀고 소리를 "붙잡아" 둔다 — 그동안 화면을 처음 누르거나 키를 치면 건너뛰지 않고
+ * 소리가 켜진다(단추가 숨 쉬며 알린다). 소리를 켜는 건 사용자 동작 안에서만 되므로, 터치는 pointerdown 이 아니라
+ * click 에서 켠다(터치의 pointerdown 은 브라우저가 동작으로 치지 않는다). Escape 와 단추 셋은 늘 제 일을 한다.
+ */
+function soundControl(veil, film) {
   const btn = veil.querySelector("[data-intro-sound]");
   const sync = () => {
     btn.textContent = film.muted ? btn.dataset.off : btn.dataset.on;
     btn.setAttribute("aria-pressed", String(!film.muted));
   };
-  btn.addEventListener("click", () => {
-    film.muted = !film.muted;
+  const hold = (on) => veil.classList.toggle("intro--held", on);
+  const set = (muted) => {
+    hold(false);
+    film.muted = muted;
+    if (film.paused) film.play().catch(() => {});
     sync();
-  });
-  return sync;
+  };
+  btn.addEventListener("click", () => set(!film.muted));
+  return { sync, hold, held: () => veil.classList.contains("intro--held"), unmute: () => set(false) };
 }
 
 export function initIntro() {
@@ -180,14 +192,20 @@ export function initIntro() {
     return;
   }
 
+  const sound = soundControl(veil, film);
   const onKey = (e) => {
     if (PASS_KEYS.has(e.key) || e.repeat) return;
     if (e.target.closest?.(".intro__bar") && (e.key === "Enter" || e.key === " ")) return;
+    if (sound.held() && e.key !== "Escape") return sound.unmute();
     finish();
   };
   const onPress = (e) => {
     if (e.button !== 0 || e.target.closest(".intro__bar")) return;
+    if (sound.held()) return; // 이 누름은 소리를 켠다 — 뒤따르는 click 에서(onTap)
     finish();
+  };
+  const onTap = (e) => {
+    if (sound.held() && !e.target.closest(".intro__bar")) sound.unmute();
   };
   // 두 박자 — 모임(크림 면 위 결정 넷) 뒤에 조립(면 걷힘 · 히어로 등장 · 마침표 비행). 돌릴 수 없으면 곧장 조립.
   function finish() {
@@ -196,6 +214,8 @@ export function initIntro() {
     film.pause();
     removeEventListener("keydown", onKey);
     veil.removeEventListener("pointerdown", onPress);
+    veil.removeEventListener("click", onTap);
+    sound.hold(false);
     const dots = gatherDots(veil, film);
     const build = () => {
       if (dots) flyDots(dots, document.querySelector(".hero__dot"));
@@ -211,7 +231,6 @@ export function initIntro() {
 
   // 여기서부터는 스크립트가 시계를 쥔다 — CSS 의 대비책(intro-gone)을 멈춘다.
   veil.classList.add("intro--film");
-  const sync = soundButton(veil, film);
   const watchdog = setTimeout(finish, FALLBACK_MS);
   film.addEventListener("playing", () => clearTimeout(watchdog), { once: true });
   film.addEventListener("ended", finish);
@@ -224,14 +243,16 @@ export function initIntro() {
   });
   addEventListener("keydown", onKey);
   veil.addEventListener("pointerdown", onPress);
+  veil.addEventListener("click", onTap);
 
   film.muted = false;
   film
     .play()
     .catch(() => {
       film.muted = true;
+      sound.hold(true);
       return film.play();
     })
-    .then(sync)
+    .then(sound.sync)
     .catch(finish);
 }

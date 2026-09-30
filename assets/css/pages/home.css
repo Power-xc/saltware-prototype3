@@ -1585,6 +1585,17 @@ html.js-intro .intro--film {
   background: var(--bg-inverse);
   border-color: var(--text-on-inverse-muted);
 }
+.intro--held [data-intro-sound] {
+  animation: intro-cue 1.6s var(--ease) infinite;
+}
+@keyframes intro-cue {
+  50% {
+    border-color: var(--text-on-inverse);
+    box-shadow:
+      var(--shadow-lift),
+      0 0 0 6px var(--border-inverse);
+  }
+}
 .intro__btn--never {
   border-color: color-mix(in srgb, var(--bg-inverse) 28%, transparent);
   background: var(--text-on-inverse);

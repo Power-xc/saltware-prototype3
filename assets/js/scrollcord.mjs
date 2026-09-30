@@ -17,7 +17,7 @@
 //  - prefers-reduced-motion 이면 아무것도 하지 않는다(클래스도 붙이지 않는다).
 //  - 좁은 폭에서는 CSS 가 붙박이를 켜지 않는다. 이 스크립트는 그래도 돌지만, 판이
 //    흘러가는 동안 읽는 줄을 고르는 것뿐이라 해가 없다.
-import { scrollStage } from "./frame.mjs?v=e2184d6454f7";
+import { scrollStage } from "./frame.mjs?v=3851bb35f100";
 
 export function initScrollcord() {
   const stages = [...document.querySelectorAll("[data-scrollcord]")];
@@ -62,11 +62,8 @@ export function initScrollcord() {
     const travel = r.height - innerHeight;
     if (travel <= 0) return;
     const p = Math.max(0, Math.min(0.9999, -r.top / travel));
-    // 번호 말고 **진행률 그대로**도 내준다(2026-09-28). 인재상 네 칸은 레일이라
-    // 칸 경계에서 툭 끊기면 안 되고 0→1 사이를 이어서 써야 한다 — 미는 거리는
-    // 여기서 재지 않는다. 얼마나 미는지는 CSS 가 정한다(careers.css 의 --crv-travel).
-    // 앞서 있던 소비자 둘(사내복지 서랍 · 지원 절차)은 이 값을 보지 않는다.
-    stage.style.setProperty("--p", p.toFixed(4));
+    // 진행률 그대로(--p)를 내주던 줄은 걷었다(2026-09-30) — 받던 것은 인재상 가로 레일
+    // 하나였고 그 레일이 걷혔다. 남은 둘(사내복지 서랍 · 지원 절차)은 번호만 본다.
     open(stage, Math.floor(p * s.rows.length));
   };
 
