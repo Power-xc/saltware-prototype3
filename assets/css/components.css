@@ -369,6 +369,70 @@
   color: var(--text-on-inverse);
   border-color: var(--bg-inverse);
 }
+.irview {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: var(--sp-5);
+}
+.irview[hidden] {
+  display: none;
+}
+.irview__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(41, 37, 28, 0.52);
+}
+.irview__panel {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  width: min(960px, 100%);
+  height: min(88vh, 100%);
+  background: var(--bg-page);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-mega);
+  overflow: hidden;
+}
+.irview__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-5) var(--sp-5) var(--sp-4);
+  border-bottom: 1px solid var(--border-control);
+}
+.irview__date {
+  display: block;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.irview__title {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.4;
+}
+.irview__x {
+  flex: none;
+}
+.irview__body {
+  background: var(--bg-band);
+}
+.irview__frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.irview__foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-5);
+  border-top: 1px solid var(--border-control);
+}
 .btn {
   display: inline-flex;
   align-items: center;
@@ -1540,6 +1604,15 @@ a.press:hover .press__go {
 .press__go--none {
   background: transparent;
 }
+.press__go--doc {
+  width: auto;
+  height: auto;
+  padding: 2px var(--sp-2);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
 @media (max-width: 640px) {
   .press {
     grid-template-columns: minmax(0, 1fr);
@@ -2529,13 +2602,14 @@ a.tile .tile__desc {
   font-weight: 600;
 }
 .feat__title {
-  font-size: var(--fs-h3);
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: 800;
   letter-spacing: var(--tracking-snug);
-  line-height: 1.4;
+  line-height: 1.35;
+  text-wrap: balance;
 }
 .feat--art {
-  --card-media: url("/saltware-prototype3/media/insight/feature.jpg?v=b29b318f2cc9");
+  --card-media: url("/saltware-prototype3/media/insight/feature.jpg?v=55fb5cad91d7");
 }
 .feat[class*="feat--"] .feat__lead::before {
   content: "";
@@ -2771,19 +2845,19 @@ a.tile .tile__desc {
   }
 }
 .hub-card--cases {
-  --card-media: url("/saltware-prototype3/media/insight/card-cases.jpg?v=b29b318f2cc9");
+  --card-media: url("/saltware-prototype3/media/insight/card-cases.jpg?v=55fb5cad91d7");
 }
 .hub-card--industry {
-  --card-media: url("/saltware-prototype3/media/insight/card-industry.jpg?v=b29b318f2cc9");
+  --card-media: url("/saltware-prototype3/media/insight/card-industry.jpg?v=55fb5cad91d7");
 }
 .hub-card--report {
-  --card-media: url("/saltware-prototype3/media/insight/card-report.jpg?v=b29b318f2cc9");
+  --card-media: url("/saltware-prototype3/media/insight/card-report.jpg?v=55fb5cad91d7");
 }
 .hub-card--library {
-  --card-media: url("/saltware-prototype3/media/insight/card-library.jpg?v=b29b318f2cc9");
+  --card-media: url("/saltware-prototype3/media/insight/card-library.jpg?v=55fb5cad91d7");
 }
 .hub-card--news {
-  --card-media: url("/saltware-prototype3/media/insight/card-news.jpg?v=b29b318f2cc9");
+  --card-media: url("/saltware-prototype3/media/insight/card-news.jpg?v=55fb5cad91d7");
 }
 .hubcol {
   display: flex;
@@ -3583,6 +3657,21 @@ html.js-reveal
   .feat__side {
     animation: none;
   }
+}
+body[data-route^="/business/"],
+body[data-route^="/company/careers"],
+body[data-route^="/company/location"],
+body[data-route^="/company/ir"],
+body[data-route^="/company/esg"],
+body[data-route^="/company/partners"],
+body[data-route^="/insights/cases"],
+body[data-route^="/insights/industry"],
+body[data-route^="/insights/news"],
+body[data-route^="/insights/resources"],
+body[data-route^="/insights/technology"],
+body[data-route^="/insights/events"] {
+  --bg-page: var(--c-neutral-200);
+  --text-muted: var(--c-neutral-650);
 }
 .pbanner {
   padding-top: var(--hero-pt);

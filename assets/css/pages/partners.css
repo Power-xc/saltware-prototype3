@@ -185,3 +185,243 @@
     object-fit: cover;
   }
 }
+.pmarks {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pmark + .pmark {
+  border-top: 1px solid var(--border-control);
+}
+.pmark[hidden] {
+  display: none;
+}
+.pmark[hidden] + .pmark {
+  border-top: 0;
+}
+.pmark__q {
+  display: grid;
+  grid-template-columns: 148px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--sp-4);
+  width: 100%;
+  padding: var(--sp-4) var(--sp-1);
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+}
+.pmark__q--flat {
+  grid-template-columns: 148px minmax(0, 1fr);
+  cursor: default;
+}
+.pmark__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
+.pmark__logo img {
+  height: var(--logo-h, 34px);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: brightness(var(--logo-b, 1));
+}
+.pmark__name {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+.pmark__icon {
+  font-size: var(--fs-lede);
+  line-height: 1;
+  color: var(--text-faint);
+  transition: transform var(--dur-hover) var(--ease);
+}
+.pmark__q[aria-expanded="true"] .pmark__icon {
+  transform: rotate(45deg);
+}
+.pmark__q[aria-expanded="true"] .pmark__name {
+  color: var(--text-accent);
+}
+.pmark__a {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition:
+    grid-template-rows var(--dur-content) var(--ease),
+    opacity var(--dur-content) var(--ease),
+    display var(--dur-content) allow-discrete;
+}
+.pmark__a > * {
+  min-height: 0;
+  overflow: hidden;
+}
+.pmark__a[hidden] {
+  display: none;
+  grid-template-rows: 0fr;
+  opacity: 0;
+}
+@starting-style {
+  .pmark__a:not([hidden]) {
+    grid-template-rows: 0fr;
+    opacity: 0;
+  }
+}
+.pmark__body {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  align-items: center;
+  gap: var(--sp-7);
+  padding: var(--sp-2) var(--sp-1) var(--sp-7) 0;
+}
+.pmark--word .pmark__body {
+  grid-template-columns: minmax(0, 1fr);
+  padding-left: 148px;
+}
+.pmark__disc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  border: 1px solid var(--border-control);
+  border-radius: var(--radius-circle);
+}
+.pmark__disc img {
+  height: calc(var(--logo-h, 34px) * var(--disc-k, 2.1));
+  width: auto;
+  max-width: 132px;
+  object-fit: contain;
+  filter: brightness(var(--logo-b, 1));
+}
+.pmark--trendmicro,
+.pmark--nginx-plus,
+.pmark--sapie {
+  --disc-k: 3.1;
+}
+.pmark__kick {
+  margin: 0 0 var(--sp-2);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  color: var(--text-accent);
+}
+.pmark__desc {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+.pmark--acronis {
+  --logo-h: 32px;
+  --logo-b: 1.6;
+}
+.pmark--cato {
+  --logo-h: 44px;
+  --logo-b: 0.6;
+}
+.pmark--confluent {
+  --logo-h: 28px;
+  --logo-b: 0.55;
+}
+.pmark--couchbase {
+  --logo-h: 34px;
+  --logo-b: 1.6;
+}
+.pmark--datadog {
+  --logo-h: 36px;
+  --logo-b: 1.14;
+}
+.pmark--edb {
+  --logo-h: 44px;
+  --logo-b: 0.45;
+}
+.pmark--gitlab {
+  --logo-h: 28px;
+  --logo-b: 1.54;
+}
+.pmark--kong {
+  --logo-h: 38px;
+  --logo-b: 0.96;
+}
+.pmark--mongodb {
+  --logo-h: 40px;
+}
+.pmark--sailpoint {
+  --logo-h: 32px;
+  --logo-b: 0.94;
+}
+.pmark--snowflake {
+  --logo-h: 30px;
+  --logo-b: 0.36;
+}
+.pmark--strategy {
+  --logo-h: 30px;
+  --logo-b: 0.5;
+}
+.pmark--trendmicro {
+  --logo-h: 30px;
+}
+.pmark--veeam {
+  --logo-h: 30px;
+  --logo-b: 0.88;
+}
+.pmark--wisetech {
+  --logo-h: 25px;
+  --logo-b: 0.55;
+}
+.pmark--xabyss {
+  --logo-h: 44px;
+  --logo-b: 0.55;
+}
+.pmark--kubernetes {
+  --logo-h: 42px;
+  --logo-b: 1.05;
+}
+.pmark--nginx-plus {
+  --logo-h: 34px;
+  --logo-b: 0.92;
+}
+.pmark--sapie-reco,
+.pmark--sapie-bot {
+  --logo-h: 36px;
+}
+.pmark--sapie {
+  --logo-h: 34px;
+}
+@media (max-width: 640px) {
+  .pmark__q {
+    grid-template-columns: 88px minmax(0, 1fr) auto;
+    gap: var(--sp-3);
+  }
+  .pmark__q--flat {
+    grid-template-columns: 88px minmax(0, 1fr);
+  }
+  .pmark__logo {
+    height: 34px;
+  }
+  .pmark__logo img {
+    height: calc(var(--logo-h, 34px) * 0.82);
+  }
+  .pmark__name {
+    font-size: var(--fs-sm);
+  }
+  .pmark__body,
+  .pmark--word .pmark__body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sp-4);
+    padding: 0 0 var(--sp-6);
+  }
+  .pmark__disc {
+    width: 148px;
+    height: 148px;
+  }
+  .pmark__disc img {
+    height: calc(var(--logo-h, 34px) * 1.6);
+    max-width: 96px;
+  }
+}

@@ -6,7 +6,7 @@
 //
 // 없어도 되는 기능이다. 이 파일이 안 돌면 왼쪽은 첫 해에 멈추고, 오른쪽 연혁은
 // 덩이마다 제 연도를 이고 있어 그대로 다 읽힌다.
-import { scrollStage } from "./frame.mjs?v=69bf9cb5d34e";
+import { scrollStage } from "./frame.mjs?v=593972d740d1";
 
 export function initYearStage() {
   for (const box of document.querySelectorAll("[data-year-stage]")) {

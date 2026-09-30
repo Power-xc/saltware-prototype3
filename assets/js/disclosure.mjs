@@ -3,10 +3,16 @@
 
 import { track } from './analytics.mjs';
 
+/** 아코디언. `[data-faq]` 판 안에서 패널을 가리키는 버튼을 누르면 그 패널이 열린다.
+    `[2026-09-28]` 버튼을 `.faq__q` 가 아니라 **aria 로** 찾는다 — 파트너사 지면이 같은
+    장치를 제 조판(.pmark__q)으로 쓰기 때문이다. 클래스로 찾으면 같은 배선을 한 벌 더
+    복사해야 하고, 두 벌이 갈리는 순간 한쪽만 고쳐진다. 조건은 그대로다: 판 안에 있고,
+    열림 상태를 말하며(aria-expanded), 무엇을 여는지 가리킨다(aria-controls).
+    FAQ 마크업은 이 조건을 이미 다 만족한다. */
 export function initFaq() {
   document.querySelectorAll('[data-faq]').forEach((root) => {
     root.addEventListener('click', (e) => {
-      const btn = e.target.closest('.faq__q');
+      const btn = e.target.closest('[aria-expanded][aria-controls]');
       if (!btn || !root.contains(btn)) return;
       const open = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', String(!open));
