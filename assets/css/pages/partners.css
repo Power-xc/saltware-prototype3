@@ -56,21 +56,15 @@
 .ptile__kick {
   margin: 0;
   font-size: var(--fs-label);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--tracking-label);
   color: var(--text-accent);
 }
 .ptile__badge {
   align-self: start;
   margin: 0;
-  padding: var(--sp-1) var(--sp-3);
-  border-radius: var(--radius-sm);
   background: var(--bg-panel);
-  font-size: var(--fs-2xs);
-  font-weight: 700;
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--text-accent);
+  color: var(--text-secondary);
 }
 .ptiles--market .ptile__body {
   gap: var(--sp-2);
@@ -78,12 +72,13 @@
 }
 .ptiles--market .ptile__name {
   font-size: var(--fs-h4);
+  line-height: var(--lh-title);
 }
 .ptile__name {
   margin: 0;
   font-size: var(--fs-h3);
   font-weight: 700;
-  line-height: 1.32;
+  line-height: var(--lh-heading);
   letter-spacing: var(--tracking-snug);
   color: var(--text-primary);
 }
@@ -129,12 +124,7 @@
   opacity: 0.55;
 }
 .ptile__tag {
-  padding: var(--sp-1) var(--sp-3);
-  border-radius: var(--radius-sm);
   background: var(--bg-panel);
-  font-size: var(--fs-2xs);
-  font-weight: 600;
-  letter-spacing: var(--tracking-label);
   color: var(--text-secondary);
 }
 .ptiles--rows {
@@ -230,9 +220,10 @@
   filter: brightness(var(--logo-b, 1));
 }
 .pmark__name {
-  font-size: var(--fs-body);
+  font-size: var(--fs-h4);
   font-weight: 600;
-  line-height: 1.5;
+  line-height: var(--lh-title);
+  letter-spacing: var(--tracking-base);
   color: var(--text-primary);
 }
 .pmark__icon {
@@ -306,7 +297,7 @@
 .pmark__kick {
   margin: 0 0 var(--sp-2);
   font-size: var(--fs-label);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--tracking-label);
   color: var(--text-accent);
 }

@@ -54,7 +54,7 @@
 .cstack__body h3 {
   margin: 0 0 var(--sp-4);
   font-size: var(--fs-h3);
-  line-height: 1.28;
+  line-height: var(--lh-heading);
   color: var(--text-on-inverse);
 }
 .cstack__body p {
@@ -175,7 +175,7 @@ a.cpil:focus-visible {
 }
 .cpil__eyebrow {
   font-size: var(--fs-label);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--tracking-label);
   color: var(--text-muted);
   transition: color var(--dur-content) var(--ease);
@@ -289,7 +289,7 @@ html.js-pillars .cpils__shot.cpils__shot--all {
 }
 .cpils__mark b {
   margin-right: 0.12em;
-  font-size: clamp(40px, 4vw, 64px);
+  font-size: var(--fs-stat);
   font-weight: 700;
   letter-spacing: var(--tracking-tight);
 }
@@ -327,7 +327,7 @@ html.js-pillars .cpils__mark.is-on {
 }
 .cstack--text .cstack__n {
   margin: 0;
-  font-size: clamp(44px, 4.4vw, 72px);
+  font-size: var(--fs-stat);
   font-weight: 700;
   line-height: 1;
   letter-spacing: var(--tracking-tight);
@@ -340,7 +340,7 @@ html.js-pillars .cpils__mark.is-on {
 .cstack__kick {
   margin: 0 0 var(--sp-2);
   font-size: var(--fs-label);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--tracking-label);
   color: var(--text-muted);
 }
@@ -461,9 +461,9 @@ html.js-pillars .cpils__mark.is-on {
 .whyc__title {
   margin: 0;
   max-width: 17em;
-  font-size: clamp(22px, 1.9vw, 27px);
+  font-size: var(--fs-h3-lg);
   font-weight: 700;
-  line-height: 1.34;
+  line-height: var(--lh-heading);
   letter-spacing: var(--tracking-snug);
   color: var(--c-white);
   text-wrap: balance;
@@ -562,16 +562,16 @@ html.js-pillars .cpils__mark.is-on {
 }
 .cstack--sol .cstack__body h3 {
   margin: 0;
-  font-size: clamp(24px, 2vw, 30px);
-  line-height: 1.25;
+  font-size: var(--fs-h3-lg);
+  line-height: var(--lh-heading);
   letter-spacing: var(--tracking-snug);
   color: var(--text-on-inverse);
 }
-.cstack__lead {
+.cstack__body .cstack__lead {
   margin: 0;
   max-width: 34ch;
-  font-size: var(--fs-sm);
-  line-height: 1.6;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--text-on-inverse-muted);
 }
 .cstack__foot {

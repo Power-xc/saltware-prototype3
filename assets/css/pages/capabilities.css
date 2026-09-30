@@ -231,8 +231,10 @@
 }
 .caps-part__name {
   margin: 0 0 var(--sp-2);
-  font-size: var(--fs-body);
+  font-size: var(--fs-h4);
   font-weight: 700;
+  line-height: var(--lh-title);
+  letter-spacing: var(--tracking-snug);
   color: var(--text-primary);
 }
 .caps-part__desc {

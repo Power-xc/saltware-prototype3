@@ -75,20 +75,21 @@
   filter: var(--art-tone);
 }
 :is(.bu--databricks, .bu--data-platform) .env__where {
-  font-size: var(--fs-2xs);
-  font-weight: 700;
+  font-size: var(--fs-label);
+  font-weight: 600;
   letter-spacing: var(--tracking-label);
   color: var(--text-faint);
 }
 :is(.bu--databricks, .bu--data-platform) .env__name {
   font-size: var(--fs-h3);
   font-weight: 700;
-  letter-spacing: var(--tracking-tight);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-snug);
 }
 :is(.bu--databricks, .bu--data-platform) .env__desc {
   font-size: var(--fs-sm);
   color: var(--text-muted);
-  line-height: 1.75;
+  line-height: var(--lh-body);
 }
 :is(.bu--databricks, .bu--data-platform) .env__list {
   display: grid;
@@ -134,13 +135,14 @@
 }
 :is(.bu--databricks, .bu--data-platform) .cap__name {
   font-size: var(--fs-h4);
-  font-weight: 600;
+  font-weight: 700;
+  line-height: var(--lh-title);
   letter-spacing: var(--tracking-snug);
 }
 :is(.bu--databricks, .bu--data-platform) .cap__desc {
   font-size: var(--fs-sm);
   color: var(--text-on-inverse-muted);
-  line-height: 1.7;
+  line-height: var(--lh-body);
 }
 :is(.bu--databricks, .bu--data-platform) .cap__detail {
   font-size: var(--fs-xs);

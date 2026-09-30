@@ -34,7 +34,7 @@
   background-repeat: no-repeat;
 }
 .hyr__stage--company {
-  --stage-media: url("/saltware-prototype3/media/company/history.jpg?v=8314437d2864");
+  --stage-media: url("/saltware-prototype3/media/company/history.jpg?v=f2b4fafefb02");
   --stage-ratio: 16 / 9;
   --stage-ground: var(--bg-band);
 }

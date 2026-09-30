@@ -101,7 +101,7 @@ html.js-pillars .aisol__shot:not(.is-on) .aisol__cap > * {
 }
 .aisol__count b {
   margin-right: 0.12em;
-  font-size: clamp(40px, 4vw, 64px);
+  font-size: var(--fs-stat);
   font-weight: 700;
   letter-spacing: var(--tracking-tight);
   color: var(--text-on-inverse);
@@ -114,7 +114,7 @@ html.js-pillars .aisol__shot:not(.is-on) .aisol__cap > * {
 }
 .aisol__tag {
   font-size: var(--fs-label);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--tracking-label);
   color: var(--text-accent-on-inverse);
 }
@@ -146,7 +146,7 @@ html.js-pillars .aisol__item.is-on {
   align-items: baseline;
   gap: var(--sp-3);
   font-size: var(--fs-label);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--tracking-label);
 }
 .aisol__n {
@@ -166,21 +166,21 @@ html.js-pillars .aisol__item.is-on {
 }
 .aisol__pain-label {
   font-size: var(--fs-label);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--tracking-label);
   color: var(--text-accent);
 }
 .aisol__name {
   margin: 0;
-  font-size: var(--fs-display);
-  line-height: var(--lh-display);
-  letter-spacing: var(--tracking-display);
+  font-size: var(--fs-h3-lg);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-snug);
   color: var(--text-primary);
 }
 .aisol__desc {
   max-width: 40em;
   font-size: var(--fs-body);
-  line-height: 1.65;
+  line-height: var(--lh-body);
   color: var(--text-secondary);
 }
 .aisol__points {
@@ -228,7 +228,7 @@ html.js-pillars
   background: var(--bg-page);
 }
 .aisol__num {
-  font-size: clamp(34px, 3.2vw, 48px);
+  font-size: var(--fs-stat-sm);
   font-weight: 700;
   line-height: 1;
   letter-spacing: var(--tracking-tight);
@@ -243,7 +243,7 @@ html.js-pillars
 .aisol__stat-label {
   flex: 1 1 14em;
   font-size: var(--fs-xs);
-  line-height: 1.5;
+  line-height: var(--lh-body);
   color: var(--text-muted);
 }
 .aisol__press ul {
@@ -256,7 +256,7 @@ html.js-pillars
 .aisol__label {
   margin-bottom: var(--sp-2);
   font-size: var(--fs-label);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--tracking-label);
   color: var(--text-muted);
 }
@@ -329,7 +329,7 @@ html.js-pillars
   display: block;
   margin-bottom: 2px;
   font-size: var(--fs-label);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--tracking-label);
   color: var(--text-muted);
 }

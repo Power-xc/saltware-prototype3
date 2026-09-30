@@ -1,0 +1,13 @@
+
+.bu--product .tile {
+  align-content: start;
+  gap: var(--sp-3);
+}
+.bu--product .tile .tile__name {
+  margin-top: var(--sp-1);
+}
+@media (max-width: 640px) {
+  .bu--product .tiles:has(> :is(div, a).tile) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

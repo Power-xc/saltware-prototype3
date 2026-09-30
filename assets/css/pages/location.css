@@ -19,8 +19,8 @@
 }
 .lo__title {
   font-size: var(--fs-h3);
-  line-height: 1.3;
-  letter-spacing: var(--tracking-tight);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-snug);
   margin: 0 0 var(--sp-5);
 }
 .lorows {

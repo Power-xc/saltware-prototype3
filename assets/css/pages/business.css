@@ -47,7 +47,7 @@
 .bhero__unit {
   margin: 0 0 var(--sp-3);
   font-size: var(--fs-label);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--tracking-label);
   color: var(--text-on-inverse);
   opacity: 0.76;
@@ -85,7 +85,7 @@
 .bhero__lede {
   margin: 0;
   max-width: 30ch;
-  font-size: clamp(20px, 1.9vw, 29px);
+  font-size: var(--fs-lede-lg);
   font-weight: 500;
   line-height: 1.5;
   color: var(--text-primary);
