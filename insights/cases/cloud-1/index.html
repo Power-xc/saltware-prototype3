@@ -4,18 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>AWS 보안 점검을 사람 손에서 떼어낸 사례 — 솔트웨어</title>
-    <meta name="description" content="ISMS-P 핵심 항목을 기준으로 AWS 설정을 자동 점검하는 SCR을 넣었습니다. 점검 한 번에 한 달이 걸리던 일이 30분대로 줄었다고 고객사와 함께 발표했습니다." />
+    <meta name="description" content="ISMS-P 103개 핵심 항목을 기준으로 AWS 설정을 자동 점검하는 SCR을 AWS 마켓플레이스로 공급했습니다. 기존 유사 점검 서비스가 사전 협의부터 결과까지 통상 한 달 넘게 걸리던 진단을, 계정 권한에 동의하면 30분 안팎에 받아 봅니다." />
     <link rel="canonical" href="https://www.saltware.co.kr/insights/cases/cloud-1" />
     <meta property="og:title" content="AWS 보안 점검을 사람 손에서 떼어낸 사례 — 솔트웨어" />
-    <meta property="og:description" content="ISMS-P 핵심 항목을 기준으로 AWS 설정을 자동 점검하는 SCR을 넣었습니다. 점검 한 번에 한 달이 걸리던 일이 30분대로 줄었다고 고객사와 함께 발표했습니다." />
+    <meta property="og:description" content="ISMS-P 103개 핵심 항목을 기준으로 AWS 설정을 자동 점검하는 SCR을 AWS 마켓플레이스로 공급했습니다. 기존 유사 점검 서비스가 사전 협의부터 결과까지 통상 한 달 넘게 걸리던 진단을, 계정 권한에 동의하면 30분 안팎에 받아 봅니다." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/saltware-prototype3/media/social/og-default.jpg" />
-    <link rel="icon" href="/saltware-prototype3/favicon.png?v=10ba0c3717a7" type="image/png" />
-    <link rel="apple-touch-icon" href="/saltware-prototype3/favicon.png?v=10ba0c3717a7" />
-    <link rel="stylesheet" href="/saltware-prototype3/assets/css/tokens.css?v=10ba0c3717a7" />
-    <link rel="stylesheet" href="/saltware-prototype3/assets/css/base.css?v=10ba0c3717a7" />
-    <link rel="stylesheet" href="/saltware-prototype3/assets/css/components.css?v=10ba0c3717a7" />
-        <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/cases.css?v=10ba0c3717a7" />
+    <link rel="icon" href="/saltware-prototype3/favicon.png?v=c73e6ab144e9" type="image/png" />
+    <link rel="apple-touch-icon" href="/saltware-prototype3/favicon.png?v=c73e6ab144e9" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/tokens.css?v=c73e6ab144e9" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/base.css?v=c73e6ab144e9" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/components.css?v=c73e6ab144e9" />
+        <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/cases.css?v=c73e6ab144e9" />
   </head>
   <body class="" data-route="/insights/cases/cloud-1">
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -139,7 +139,7 @@
     <div class="pressled__aside"><a class="cdoc__back" href="/saltware-prototype3/insights/cases" data-ga-event="insight_detail_click">
     <span class="cdoc__back-mark" aria-hidden="true">←</span>
     <span>고객 사례</span>
-  </a><p class="eyebrow">커머스 · 백패커(idus)</p><h1>AWS 보안 점검을 사람 손에서 떼어낸 사례</h1><dl class="cdoc__facts"><div class="cdoc__fact"><dt>산업</dt><dd>커머스</dd></div><div class="cdoc__fact"><dt>사업</dt><dd>클라우드 · AWS</dd></div></dl><p class="cdoc__note">백패커(idus) 사례는 2026.08 공동 발표 내용입니다. 나머지 셋은 고객사명을 공개하지 않은 수행 영역입니다.</p><nav class="kin" aria-label="클라우드 · AWS의 다른 사례">
+  </a><p class="eyebrow">커머스 · 백패커(idus)</p><h1>AWS 보안 점검을 사람 손에서 떼어낸 사례</h1><dl class="cdoc__facts"><div class="cdoc__fact"><dt>산업</dt><dd>커머스</dd></div><div class="cdoc__fact"><dt>사업</dt><dd>클라우드 · AWS</dd></div><div class="cdoc__fact"><dt>출처</dt><dd>공개 자료 1건</dd></div></dl><p class="cdoc__note">백패커(idus) 사례는 2026.08.26 보도 내용입니다. 나머지 셋은 고객사명을 공개하지 않은 수행 영역입니다.</p><nav class="kin" aria-label="클라우드 · AWS의 다른 사례">
     <p class="kin__head">클라우드 · AWS의 다른 사례</p>
     <a class="kin__row" href="/saltware-prototype3/insights/cases/cloud-2" data-ga-event="case_detail_click">
       <span class="kin__body">
@@ -164,31 +164,39 @@
     <div class="pressled__list">
       <article class="cdoc">
         
-        <p class="lede">ISMS-P 핵심 항목을 기준으로 AWS 설정을 자동 점검하는 SCR을 넣었습니다. 점검 한 번에 한 달이 걸리던 일이 30분대로 줄었다고 고객사와 함께 발표했습니다.</p>
+        <p class="lede">ISMS-P 103개 핵심 항목을 기준으로 AWS 설정을 자동 점검하는 SCR을 AWS 마켓플레이스로 공급했습니다. 기존 유사 점검 서비스가 사전 협의부터 결과까지 통상 한 달 넘게 걸리던 진단을, 계정 권한에 동의하면 30분 안팎에 받아 봅니다.</p>
         <figure class="cdoc__cover"><img src="/saltware-prototype3/media/case/logo-plate-dark.jpg?v=a6887632ca7e" alt="" width="1260" height="540" loading="lazy" decoding="async" /></figure>
         <ul class="cdoc__metrics"><li class="cdoc__metric">
-      <p class="cdoc__metric-label">보안 점검 한 번에 걸리던 시간</p>
-      <p class="cdoc__metric-value">한 달 → 30분대</p>
+      <p class="cdoc__metric-label">진단 결과까지(기존 유사 서비스 통상 1개월 이상)</p>
+      <p class="cdoc__metric-value">30분 안팎</p>
     </li><li class="cdoc__metric">
-      <p class="cdoc__metric-label">자동 점검의 기준</p>
-      <p class="cdoc__metric-value">ISMS-P</p>
+      <p class="cdoc__metric-label">자동 점검 기준 · ISMS-P 핵심 항목</p>
+      <p class="cdoc__metric-value">103개</p>
     </li><li class="cdoc__metric">
-      <p class="cdoc__metric-label">고객사와 공동 발표</p>
+      <p class="cdoc__metric-label">AWS 마켓플레이스로 공급</p>
       <p class="cdoc__metric-value">2026.08</p>
     </li></ul>
         <div class="cdoc__body"><section class="cdoc__part"><h2 class="cdoc__part-head">
       <span class="cdoc__part-no" aria-hidden="true">01</span>
       <span class="cdoc__part-say">과제</span>
-    </h2><p>ISMS-P 핵심 항목을 기준으로 AWS 설정이 규정에 맞는지 확인하는 일을 사람이 손으로 해 왔습니다. 항목을 하나씩 열어 보는 방식이라 점검을 한 번 돌리는 데 한 달이 걸렸습니다.</p></section><section class="cdoc__part"><h2 class="cdoc__part-head">
+    </h2><p>AWS 환경이 ISMS-P 기준에 맞는지 확인하는 보안 점검은, 기존 유사 서비스에서 사전 협의부터 결과 도출까지 통상 한 달 넘게 걸렸습니다.</p></section><section class="cdoc__part"><h2 class="cdoc__part-head">
       <span class="cdoc__part-no" aria-hidden="true">02</span>
       <span class="cdoc__part-say">수행</span>
-    </h2><p>ISMS-P 핵심 항목을 점검 규칙으로 옮기고, AWS 설정을 자동으로 훑어 어긋난 항목을 찾아내는 SCR을 넣었습니다. 손으로 확인하던 절차가 규칙으로 고정되면서 같은 기준이 매번 같은 방식으로 적용됩니다.</p></section><section class="cdoc__part"><h2 class="cdoc__part-head">
+    </h2><p>ISMS-P 103개 핵심 항목을 오픈소스 클라우드 보안 도구 Prowler 기반의 점검 규칙으로 옮긴 SCR을, 백패커에 AWS 마켓플레이스로 공급했습니다. 계정 권한에 동의하면 별도의 사전 절차 없이 AWS 설정을 자동으로 훑습니다.</p></section><section class="cdoc__part"><h2 class="cdoc__part-head">
       <span class="cdoc__part-no" aria-hidden="true">03</span>
       <span class="cdoc__part-say">결과</span>
-    </h2><p>점검 한 번에 한 달이 걸리던 일이 30분대로 줄었습니다. 이 내용은 2026년 8월 고객사와 함께 공개 발표했습니다.</p></section></div>
+    </h2><p>진단 결과는 30분 안팎, 짧게는 수십 분 안에 나옵니다. 이 내용은 2026년 8월 26일 아이티데일리가 보도했습니다.</p></section></div>
         <div class="cdoc__stack">
     <p class="cdoc__stack-name">적용 기술</p>
-    <ul class="cdoc__stack-list"><li>AWS</li><li>ISMS-P</li><li>SCR</li></ul>
+    <ul class="cdoc__stack-list"><li>AWS</li><li>ISMS-P</li><li>Prowler</li><li>SCR</li></ul>
+  </div>
+        <div class="cdoc__src">
+    <p class="cdoc__src-name">출처</p>
+    <ul class="cdoc__src-list"><li><a class="cdoc__src-row" href="https://www.itdaily.kr/news/articleView.html?idxno=241217" target="_blank" rel="noopener noreferrer" data-ga-event="case_source_click">
+        <span class="cdoc__src-date">2026.08.26</span>
+        <span class="cdoc__src-title">솔트웨어, 백패커에 AWS 보안 점검 서비스 'SCR' 공급</span>
+        <span class="cdoc__src-outlet">아이티데일리<span class="ext-mark" aria-hidden="true">↗</span></span>
+      </a></li></ul>
   </div>
       </article>
     </div>
@@ -254,6 +262,6 @@
   </button>
 </aside>
 
-    <script type="module" src="/saltware-prototype3/assets/js/main.mjs?v=10ba0c3717a7"></script>
+    <script type="module" src="/saltware-prototype3/assets/js/main.mjs?v=c73e6ab144e9"></script>
   </body>
 </html>
