@@ -1525,19 +1525,28 @@ html.js-intro .intro--film {
   height: 100%;
   object-fit: cover;
 }
-html.intro-iris body {
-  animation: intro-wipe 1.3s cubic-bezier(0.76, 0, 0.24, 1) both;
-}
 .intro--out .intro__surface {
-  visibility: hidden;
+  animation: intro-wipe 0.66s var(--ease) both;
+}
+.intro--gather .intro__surface {
+  background: var(--bg-page);
+}
+.intro--gather .intro__film {
+  opacity: 0;
+  transition: opacity 0.12s linear;
 }
 .intro__dot {
+  --intro-dot: 12px;
   position: absolute;
-  inset: 0;
+  left: calc(50% - var(--intro-dot) / 2);
+  top: calc(50% - var(--intro-dot) / 2);
+  width: var(--intro-dot);
+  height: var(--intro-dot);
+  border-radius: var(--radius-circle);
   background: var(--c-accent-500);
   opacity: 0;
 }
-html.intro-iris .intro__dot {
+.intro--gather .intro__dot {
   opacity: 1;
 }
 .intro__bar {
@@ -1549,7 +1558,7 @@ html.intro-iris .intro__dot {
   animation: intro-hint 0.5s var(--ease) 0.6s both;
   transition: opacity 0.2s var(--ease);
 }
-.intro--out .intro__bar {
+.intro--gather .intro__bar {
   opacity: 0;
   pointer-events: none;
 }
@@ -1603,10 +1612,10 @@ html.intro-iris .intro__dot {
 }
 @keyframes intro-wipe {
   from {
-    clip-path: circle(var(--iris-r0) at var(--iris-x) var(--iris-y));
+    clip-path: inset(0 0 0 0);
   }
   to {
-    clip-path: circle(var(--iris-r1) at var(--iris-x) var(--iris-y));
+    clip-path: inset(100% 0 0 0);
   }
 }
 @keyframes intro-hint {
@@ -1626,26 +1635,59 @@ html.js-intro.intro-done .hero--home {
     scale: 1.03;
   }
 }
+html.js-intro.intro-done .hero__dot {
+  animation: dot-land 0.12s linear 0.66s both;
+}
+@keyframes dot-land {
+  from {
+    opacity: 0;
+  }
+}
+   면이 걷힌 순간 여섯 장이 이미 다 놓여 있으면 위(제목)는 살아 움직이는데 아래(카드)는 사진처럼 박혀 있어
+   반이 죽어 보였다. 인트로가 돌지 않은 지면은 건드리지 않는다 — 띠와 카드는 원래 제 규칙대로 온다.
+   fill 이 backwards 인 이유: forwards 로 끝값을 붙들면 띠의 hover · 카드의 hover · 펼침이 그 뒤로
+   translate 를 못 만진다. 끝값이 곧 원래 상태라 놓아 줘도 된다. */
+html.js-intro.intro-done .hero__layers > .hero__layer {
+  animation: hero-in 0.5s var(--ease) backwards;
+}
+html.js-intro.intro-done .hero__layers > .hero__layer:nth-child(1) {
+  animation-delay: 0.34s;
+}
+html.js-intro.intro-done .hero__layers > .hero__layer:nth-child(2) {
+  animation-delay: 0.39s;
+}
+html.js-intro.intro-done .hero__layers > .hero__layer:nth-child(3) {
+  animation-delay: 0.44s;
+}
+html.js-intro.intro-done .hero__layers > .hero__layer:nth-child(4) {
+  animation-delay: 0.49s;
+}
+html.js-intro.intro-done .hero__layers > .hero__layer:nth-child(5) {
+  animation-delay: 0.54s;
+}
+html.js-intro.intro-done .hero__layers > .hero__layer:nth-child(6) {
+  animation-delay: 0.59s;
+}
 html.js-intro.intro-done .hcards > .hcard {
   animation: hero-in 0.6s var(--ease) backwards;
 }
 html.js-intro.intro-done .hcards > .hcard:nth-child(1) {
-  animation-delay: 0.08s;
+  animation-delay: 0.56s;
 }
 html.js-intro.intro-done .hcards > .hcard:nth-child(2) {
-  animation-delay: 0.14s;
+  animation-delay: 0.63s;
 }
 html.js-intro.intro-done .hcards > .hcard:nth-child(3) {
-  animation-delay: 0.2s;
+  animation-delay: 0.7s;
 }
 html.js-intro.intro-done .hcards > .hcard:nth-child(4) {
-  animation-delay: 0.26s;
+  animation-delay: 0.77s;
 }
 html.js-intro.intro-done .hcards > .hcard:nth-child(5) {
-  animation-delay: 0.32s;
+  animation-delay: 0.84s;
 }
 html.js-intro.intro-done .hcards > .hcard:nth-child(6) {
-  animation-delay: 0.38s;
+  animation-delay: 0.91s;
 }
 .briefs--agenda > .deck {
   flex: 0 0 calc((100% - var(--gap-tile) * 3) / 4);
