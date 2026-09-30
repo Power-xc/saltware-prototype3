@@ -158,7 +158,8 @@ function setupSubmission(form, endpoint, topic, buSelect, submit, state) {
         lead_category: topic(),
         lead_business: business(),
       });
-      say("문의가 접수되었습니다. 영업일 기준 1일 내 회신드립니다.", "ok");
+      // 기한은 적지 않는다 — 사령관 2026-09-30 "못 지키면 어떡해"(data/content/contact.mjs promise 와 같은 사실).
+      say("문의가 접수되었습니다. 담당 분야 엔지니어가 확인하고 연락드립니다.", "ok");
       form.reset();
     } catch {
       say("전송에 실패했습니다. 잠시 후 다시 시도해 주세요.", "error");
