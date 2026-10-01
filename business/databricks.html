@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>데이터브릭스(Databricks) 레이크하우스 구축 | 솔트웨어</title>
+    <meta name="description" content="흩어진 데이터를 연결해 Databricks Data Intelligence Platform 위에 분석과 AI의 기반을 만듭니다. 현황 진단과 PoC부터 구축 · 이관, 운영까지 자체 인력이 맡습니다. Databricks DPP 파트너(2026.09)입니다." />
+    <link rel="canonical" href="https://www.saltware.co.kr/business/databricks" />
+    <meta name="robots" content="noindex" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="솔트웨어" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:title" content="데이터브릭스(Databricks) 레이크하우스 구축 | 솔트웨어" />
+    <meta property="og:description" content="흩어진 데이터를 연결해 Databricks Data Intelligence Platform 위에 분석과 AI의 기반을 만듭니다. 현황 진단과 PoC부터 구축 · 이관, 운영까지 자체 인력이 맡습니다. Databricks DPP 파트너(2026.09)입니다." />
+    <meta property="og:url" content="https://power-xc.github.io/saltware-prototype3/business/databricks" />
+    <meta property="og:image" content="https://power-xc.github.io/saltware-prototype3/media/shared/og/business-databricks.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="솔트웨어 로고 아래 '사업 · 데이터 · Databricks' 머리말과 '한곳에 모아야 분석도 AI도 됩니다' 제목" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image:alt" content="솔트웨어 로고 아래 '사업 · 데이터 · Databricks' 머리말과 '한곳에 모아야 분석도 AI도 됩니다' 제목" />
+    <link rel="icon" href="/saltware-prototype3/favicon.png?v=d4b964853b2e" type="image/png" />
+    <link rel="apple-touch-icon" href="/saltware-prototype3/favicon.png?v=d4b964853b2e" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/tokens.css?v=d4b964853b2e" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/base.css?v=d4b964853b2e" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/components.css?v=d4b964853b2e" />
+        <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/story.css?v=d4b964853b2e" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/business.css?v=d4b964853b2e" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/business-sections.css?v=d4b964853b2e" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/databricks.css?v=d4b964853b2e" />
+  </head>
+  <body class="bu bu--databricks" data-route="/business/databricks">
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+<header class="site-header" data-header>
+  <svg class="svg-sprite" width="0" height="0" aria-hidden="true" focusable="false"><symbol id="mega-chev" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
+  <div class="container site-header__bar">
+    <a class="site-header__logo" href="/saltware-prototype3/"><img class="wordmark" src="/saltware-prototype3/brand/saltware-logo-dark.svg?v=a406783206b0" width="170" height="28" alt="솔트웨어" /></a>
+    <nav class="gnb" aria-label="주 메뉴"><button type="button" class="gnb__item" data-mega="business" aria-expanded="false" aria-current="page">사업</button><button type="button" class="gnb__item" data-mega="insights" aria-expanded="false">인사이트</button><button type="button" class="gnb__item" data-mega="company" aria-expanded="false">회사소개</button></nav>
+    <div class="site-header__right">
+      <a href="/saltware-prototype3/contact.html" class="btn btn--dark btn--spark" data-ga-event="header_contact_click"><svg class="spark" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0A12 12 0 0 0 24 12A12 12 0 0 0 12 24A12 12 0 0 0 0 12A12 12 0 0 0 12 0Z"/></svg>문의하기</a>
+      <button type="button" class="site-header__burger" data-drawer-open aria-expanded="false" aria-controls="drawer" aria-haspopup="dialog">
+        <span class="sr-only">메뉴 열기</span><span aria-hidden="true">☰</span>
+      </button>
+    </div>
+  </div>
+  <div class="mega" data-mega-panel="business" hidden>
+      <div class="container mega__grid mega__grid--business"><div class="mega__col mega__col--intro">
+    <p class="mega__eyebrow">OUR BUSINESS</p>
+    <p class="mega__title">사업</p>
+    <p class="mega__desc">클라우드부터 AI까지,<br />고객의 비즈니스에 맞는 기술과 서비스를 제공합니다.</p>
+    <a href="/saltware-prototype3/business.html" class="mega__all">사업 전체보기 →</a>
+  </div><div class="mega__col">
+    <a class="mega__label mega__label--link" href="/saltware-prototype3/business/data-ai.html" data-ga-event="gnb_column_click">AI<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></a>
+    <p class="mega__coldesc">AI로 누리는 새로운 경험</p>
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/products/sapie-agent.html"><span class="mega__item-name">Sapie-Agent<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col">
+    <a class="mega__label mega__label--link" href="/saltware-prototype3/business/databricks.html" data-ga-event="gnb_column_click">Data<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></a>
+    <p class="mega__coldesc">데이터로 만드는 더 큰 가능성</p>
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/business/databricks.html"><span class="mega__item-name">Databricks<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/business/data-platform.html"><span class="mega__item-name">Starburst<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/business/data-platform.html"><span class="mega__item-name">Sapie-Lake<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col">
+    <a class="mega__label mega__label--link" href="/saltware-prototype3/business/cloud.html" data-ga-event="gnb_column_click">Cloud<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></a>
+    <p class="mega__coldesc">검증된 글로벌 클라우드 환경</p>
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/business/cloud.html"><span class="mega__item-name">AWS<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/business/redhat.html"><span class="mega__item-name">Red Hat<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col">
+    <a class="mega__label mega__label--link" href="/saltware-prototype3/business/identity.html" data-ga-event="gnb_column_click">Security<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></a>
+    <p class="mega__coldesc">계정 · 권한부터 생성형 AI 보안까지</p>
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/business/identity.html"><span class="mega__item-name">SailPoint<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/products/sapie-guardian.html"><span class="mega__item-name">Sapie-Guardian<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col">
+    <a class="mega__label mega__label--link" href="/saltware-prototype3/business/data-ai.html" data-ga-event="gnb_column_click">Platform<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></a>
+    <p class="mega__coldesc">데이터와 AI 에이전트를 한 환경에서</p>
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/business/data-ai.html"><span class="mega__item-name">Sapie-ADP<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col mega__col--aside">
+    <a class="mega__label mega__label--link" href="/saltware-prototype3/business.html#brands" data-ga-event="gnb_column_click">브랜드 · 계열사<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></a>
+    <p class="mega__coldesc">솔트웨어와 함께하는 브랜드</p>
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/products/fitcloud.html"><span class="mega__item-name">FitCloud<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/business/data-ai.html"><span class="mega__item-name">Sapie-AI<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="https://gafatec.co.kr/" target="_blank" rel="noopener noreferrer"><span class="mega__item-name">GAFATEC<span class="ext-mark" aria-hidden="true">↗</span><svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div></div>
+    </div><div class="mega" data-mega-panel="insights" hidden>
+      <div class="container mega__grid mega__grid--insights"><div class="mega__col mega__col--intro">
+    <p class="mega__eyebrow">INSIGHTS</p>
+    <p class="mega__title">인사이트</p>
+    <p class="mega__desc">고객의 비즈니스에 도움이 되는<br />솔트웨어의 경험과 인사이트를 공유합니다.</p>
+    <a href="/saltware-prototype3/insights.html" class="mega__all">인사이트 전체 보기 →</a>
+  </div><div class="mega__col">
+    <p class="mega__label">고객 인사이트</p>
+    
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/insights/cases.html"><span class="mega__item-name">고객 사례<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span><span class="mega__item-sum">여러 산업의 도입 경험과 사례를 확인하세요.</span></a></div>
+  </div><div class="mega__col">
+    <p class="mega__label">콘텐츠 · 자료</p>
+    
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/insights/technology.html"><span class="mega__item-name">리포트<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span><span class="mega__item-sum">클라우드 · 데이터 · AI 시장과 기술에 대한 분석 리포트</span></a><a class="mega__item" href="/saltware-prototype3/insights/resources.html"><span class="mega__item-name">자료실<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span><span class="mega__item-sum">회사소개서, 서비스 소개서 등 주요 자료를 내려받으세요.</span></a><a class="mega__item" href="/saltware-prototype3/insights/news.html#newsletter"><span class="mega__item-name">뉴스레터<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span><span class="mega__item-sum">솔트웨어의 최신 소식과 AWS · AI · Data 트렌드를 전해드립니다.</span></a></div>
+  </div><div class="mega__col">
+    <p class="mega__label">소식 · 행사</p>
+    
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/insights/events.html"><span class="mega__item-name">이벤트 · 세미나<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span><span class="mega__item-sum">세미나, 웨비나 등 주요 행사 소식을 확인하세요.</span></a><a class="mega__item" href="/saltware-prototype3/insights/news.html"><span class="mega__item-name">언론보도<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span><span class="mega__item-sum">언론에 실린 솔트웨어 소식입니다.</span></a></div>
+  </div></div>
+    </div><div class="mega" data-mega-panel="company" hidden>
+      <div class="container mega__grid mega__grid--company"><div class="mega__col mega__col--intro">
+    <p class="mega__eyebrow">ABOUT US</p>
+    <p class="mega__title">회사소개</p>
+    <p class="mega__desc">솔트웨어가 어떤 회사인지,<br />역량과 연혁을 한눈에 확인하세요.</p>
+    <a href="/saltware-prototype3/company.html" class="mega__all">회사소개 전체보기 →</a>
+  </div><div class="mega__col">
+    <p class="mega__label">기업 정보</p>
+    
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/company/about.html"><span class="mega__item-name">회사 소개<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/company/capabilities.html"><span class="mega__item-name">기술 역량<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/company/esg.html"><span class="mega__item-name">ESG 경영<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col">
+    <p class="mega__label">연혁 · 공시</p>
+    
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/company/history.html"><span class="mega__item-name">연혁<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/company/ir.html"><span class="mega__item-name">IR<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col">
+    <p class="mega__label">파트너</p>
+    
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/company/partners.html"><span class="mega__item-name">파트너사<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col">
+    <p class="mega__label">브랜드</p>
+    
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/company/brand.html"><span class="mega__item-name">CI · BI 가이드<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col">
+    <p class="mega__label">채용 · 안내</p>
+    
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/company/careers.html"><span class="mega__item-name">인재채용<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/company/location.html"><span class="mega__item-name">오시는 길<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div></div>
+    </div>
+  <span class="site-header__progress" aria-hidden="true"></span>
+</header>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="주 메뉴" hidden>
+  <div class="container drawer__inner">
+    <div class="drawer__top">
+      <a class="site-header__logo" href="/saltware-prototype3/"><img class="wordmark" src="/saltware-prototype3/brand/saltware-logo-dark.svg?v=a406783206b0" width="170" height="28" alt="솔트웨어" /></a>
+      <button type="button" class="btn btn--sm" data-drawer-close>닫기</button>
+    </div>
+    <div class="drawer__group">
+      <button type="button" class="drawer__toggle" aria-expanded="false">사업<span aria-hidden="true">+</span></button>
+      <div class="drawer__panel" hidden><a class="drawer__label drawer__label--link" href="/saltware-prototype3/business/data-ai.html">AI →</a><a href="/saltware-prototype3/products/sapie-agent.html">Sapie-Agent</a><a class="drawer__label drawer__label--link" href="/saltware-prototype3/business/databricks.html">Data →</a><a href="/saltware-prototype3/business/databricks.html">Databricks</a><a href="/saltware-prototype3/business/data-platform.html">Starburst</a><a href="/saltware-prototype3/business/data-platform.html">Sapie-Lake</a><a class="drawer__label drawer__label--link" href="/saltware-prototype3/business/cloud.html">Cloud →</a><a href="/saltware-prototype3/business/cloud.html">AWS</a><a href="/saltware-prototype3/business/redhat.html">Red Hat</a><a class="drawer__label drawer__label--link" href="/saltware-prototype3/business/identity.html">Security →</a><a href="/saltware-prototype3/business/identity.html">SailPoint</a><a href="/saltware-prototype3/products/sapie-guardian.html">Sapie-Guardian</a><a class="drawer__label drawer__label--link" href="/saltware-prototype3/business/data-ai.html">Platform →</a><a href="/saltware-prototype3/business/data-ai.html">Sapie-ADP</a><a class="drawer__label drawer__label--link" href="/saltware-prototype3/business.html#brands">브랜드 · 계열사 →</a><a href="/saltware-prototype3/products/fitcloud.html">FitCloud</a><a href="/saltware-prototype3/business/data-ai.html">Sapie-AI</a><a href="https://gafatec.co.kr/" target="_blank" rel="noopener noreferrer">GAFATEC<span class="ext-mark" aria-hidden="true">↗</span></a></div>
+    </div><div class="drawer__group">
+      <button type="button" class="drawer__toggle" aria-expanded="false">인사이트<span aria-hidden="true">+</span></button>
+      <div class="drawer__panel" hidden><p class="drawer__label">고객 인사이트</p><a href="/saltware-prototype3/insights/cases.html">고객 사례</a><p class="drawer__label">콘텐츠 · 자료</p><a href="/saltware-prototype3/insights/technology.html">리포트</a><a href="/saltware-prototype3/insights/resources.html">자료실</a><a href="/saltware-prototype3/insights/news.html#newsletter">뉴스레터</a><p class="drawer__label">소식 · 행사</p><a href="/saltware-prototype3/insights/events.html">이벤트 · 세미나</a><a href="/saltware-prototype3/insights/news.html">언론보도</a></div>
+    </div><div class="drawer__group">
+      <button type="button" class="drawer__toggle" aria-expanded="false">회사소개<span aria-hidden="true">+</span></button>
+      <div class="drawer__panel" hidden><p class="drawer__label">기업 정보</p><a href="/saltware-prototype3/company/about.html">회사 소개</a><a href="/saltware-prototype3/company/capabilities.html">기술 역량</a><a href="/saltware-prototype3/company/esg.html">ESG 경영</a><p class="drawer__label">연혁 · 공시</p><a href="/saltware-prototype3/company/history.html">연혁</a><a href="/saltware-prototype3/company/ir.html">IR</a><p class="drawer__label">파트너</p><a href="/saltware-prototype3/company/partners.html">파트너사</a><p class="drawer__label">브랜드</p><a href="/saltware-prototype3/company/brand.html">CI · BI 가이드</a><p class="drawer__label">채용 · 안내</p><a href="/saltware-prototype3/company/careers.html">인재채용</a><a href="/saltware-prototype3/company/location.html">오시는 길</a></div>
+    </div>
+    <a href="/saltware-prototype3/contact.html" class="btn btn--dark btn--block btn--spark" data-ga-event="header_contact_click"><svg class="spark" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0A12 12 0 0 0 24 12A12 12 0 0 0 12 24A12 12 0 0 0 0 12A12 12 0 0 0 12 0Z"/></svg>문의하기</a>
+  </div>
+</div>
+    <main id="main"><section class="bhero">
+  <div class="bhero__top" data-stage>
+    <div class="bhero__cover">
+      <video class="bhero__film" data-ambient autoplay muted loop playsinline preload="metadata" poster="/saltware-prototype3/media/business/cover-databricks.jpg?v=a406783206b0" aria-hidden="true"><source src="/saltware-prototype3/media/business/cover-databricks.mp4?v=a406783206b0" type="video/mp4" /></video>
+      <div class="bhero__say"><p class="bhero__unit">SOLUTION · DATABRICKS</p><h1 class="bhero__title">한곳에 모아야<br />분석도 AI도 됩니다</h1></div>
+    </div>
+  </div>
+  <div class="container bhero__read" data-reveal><p class="bhero__lede">흩어진 데이터를 연결하고 Databricks Data Intelligence Platform 위에서 분석과 AI가 이어질 기반을 만듭니다. 밖으로 옮길 수 없는 데이터는 Starburst 로 그 자리에서 연결합니다.</p><div class="bhero__act"><div class="cta-row"><a href="/saltware-prototype3/contact.html" class="btn btn--solid btn--lg" data-ga-event="bu_primary_cta" data-topic="inquiry">Databricks 도입 상담</a><a href="/saltware-prototype3/contact.html" class="btn btn--lg" data-ga-event="bu_secondary_cta" data-topic="diagnosis">PoC 설계 문의</a></div><p class="bhero__meta">Databricks Delivery Partner Program · AI Days Seoul 2026 부스 파트너</p></div></div>
+</section>
+<nav class="bnav" data-bunav aria-label="이 지면의 차례">
+  <div class="container bnav__in">
+    <p class="bnav__unit">SOLUTION · DATABRICKS</p>
+    <ul class="bnav__list"><li><a class="bnav__link" href="#s-challenge">문제</a></li><li><a class="bnav__link" href="#s-scope">수행 범위</a></li><li><a class="bnav__link" href="#s-tech">기술</a></li><li><a class="bnav__link" href="#s-architecture">구성</a></li><li><a class="bnav__link" href="#s-useCases">활용</a></li><li><a class="bnav__link" href="#s-cases">사례</a></li><li><a class="bnav__link" href="#s-proof">자격</a></li><li><a class="bnav__link" href="#s-process">진행 방식</a></li><li><a class="bnav__link" href="#s-news">소식</a></li><li><a class="bnav__link" href="#s-faq">FAQ</a></li></ul>
+  </div>
+</nav>
+<section id="s-challenge" class="section">
+  <div class="container"><div class="section__head section__head--split" data-reveal><p class="eyebrow">WHY DATA PLATFORM</p><h2>데이터가 있는데,<br />활용까지 너무 오래 걸립니다</h2><p class="lede">데이터 창고가 여러 개인 조직에서 나오는 상황입니다.</p></div><div class="whyc whyc--n5" data-reveal><article class="whyc__card">
+      <img class="whyc__shot" src="/saltware-prototype3/media/business/databricks-why-1.jpg?v=a406783206b0" alt="" loading="eager" decoding="async" />
+      <span class="whyc__veil" aria-hidden="true"></span>
+      <div class="whyc__text">
+        <span class="whyc__eyebrow"><b>01</b> / 05</span>
+        <h3 class="whyc__title">저장소가 계속 늘어납니다</h3>
+        <span class="whyc__desc">DW, 데이터레이크, 부서별 DB가 따로 굴러갑니다.</span>
+      </div>
+    </article><article class="whyc__card">
+      <img class="whyc__shot" src="/saltware-prototype3/media/business/databricks-why-2.jpg?v=a406783206b0" alt="" loading="lazy" decoding="async" />
+      <span class="whyc__veil" aria-hidden="true"></span>
+      <div class="whyc__text">
+        <span class="whyc__eyebrow"><b>02</b> / 05</span>
+        <h3 class="whyc__title">분석과 AI가 다른 데이터를 봅니다</h3>
+        <span class="whyc__desc">같은 질문에 팀마다 다른 답이 나옵니다.</span>
+      </div>
+    </article><article class="whyc__card">
+      <img class="whyc__shot" src="/saltware-prototype3/media/business/databricks-why-3.jpg?v=a406783206b0" alt="" loading="lazy" decoding="async" />
+      <span class="whyc__veil" aria-hidden="true"></span>
+      <div class="whyc__text">
+        <span class="whyc__eyebrow"><b>03</b> / 05</span>
+        <h3 class="whyc__title">비용이 예측되지 않습니다</h3>
+        <span class="whyc__desc">쿼리 하나에 얼마가 드는지 아무도 모릅니다.</span>
+      </div>
+    </article><article class="whyc__card">
+      <img class="whyc__shot" src="/saltware-prototype3/media/business/databricks-why-4.jpg?v=a406783206b0" alt="" loading="lazy" decoding="async" />
+      <span class="whyc__veil" aria-hidden="true"></span>
+      <div class="whyc__text">
+        <span class="whyc__eyebrow"><b>04</b> / 05</span>
+        <h3 class="whyc__title">필요한 데이터를 받는 데 시간이 걸립니다</h3>
+        <span class="whyc__desc">요청하고 기다리는 사이에 판단할 시점이 지나갑니다.</span>
+      </div>
+    </article><article class="whyc__card">
+      <img class="whyc__shot" src="/saltware-prototype3/media/business/databricks-why-5.jpg?v=a406783206b0" alt="" loading="lazy" decoding="async" />
+      <span class="whyc__veil" aria-hidden="true"></span>
+      <div class="whyc__text">
+        <span class="whyc__eyebrow"><b>05</b> / 05</span>
+        <h3 class="whyc__title">권한을 열어 주기가 조심스럽습니다</h3>
+        <span class="whyc__desc">누가 무엇을 볼 수 있는지 정리되지 않으면 개방도 통제도 어렵습니다.</span>
+      </div>
+    </article></div></div>
+</section>
+<section id="s-scope" class="section section--inverse">
+  <div class="container"><div class="section__head section__head--split" data-reveal><p class="eyebrow">WHAT SALTWARE DOES</p><h2>데이터를 모으는 것에서<br />끝내지 않습니다</h2><p class="lede">현황 진단부터 운영과 AI 확장까지 다섯 구간을 자체 인력이 수행합니다. 현업에서 실제로 쓰일 때까지 구축합니다.</p></div><div class="cstack cstack--sol cstack--n5" data-stage>
+    <div class="cstack__pin"><ul class="cstack__list" data-reveal><li class="cstack__item">
+      <div class="cstack__body" data-spot>
+        <p class="cstack__top"><span class="cstack__n" aria-hidden="true">01</span><span class="cstack__kick">ASSESS</span></p>
+        <h3>현황 진단</h3>
+        <p class="cstack__lead">기존 DW · 데이터레이크와 데이터 흐름을 보고 병목과 우선순위를 정리합니다.</p>
+        <div class="cstack__foot">
+          <ul class="cstack__points"><li>기존 DW·데이터레이크 확인</li><li>데이터 흐름과 병목</li><li>우선순위 정리</li></ul>
+          <span class="cstack__mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.6" cy="10.6" r="6.4" pathLength="1"/><path d="M15.3 15.3 L20.2 20.2" pathLength="1"/><path class="acc" d="M7.9 10.8 L9.9 12.7 L13.3 9.1" pathLength="1"/></svg></span>
+        </div>
+      </div>
+    </li><li class="cstack__item">
+      <div class="cstack__body" data-spot>
+        <p class="cstack__top"><span class="cstack__n" aria-hidden="true">02</span><span class="cstack__kick">DESIGN</span></p>
+        <h3>데이터 설계</h3>
+        <p class="cstack__lead">워크스페이스와 AWS 연동, 비용 구조, 보안 기준을 처음부터 잡습니다.</p>
+        <div class="cstack__foot">
+          <ul class="cstack__points"><li>워크스페이스 설계</li><li>AWS 연동 구성</li><li>비용 구조 설계</li><li>보안 기준 적용</li></ul>
+          <span class="cstack__mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="acc" d="M12 3.2 20.2 7.6 12 12 3.8 7.6 Z" pathLength="1"/><path d="M3.8 12 12 16.4 20.2 12" pathLength="1"/><path d="M3.8 16.4 12 20.8 20.2 16.4" pathLength="1"/></svg></span>
+        </div>
+      </div>
+    </li><li class="cstack__item">
+      <div class="cstack__body" data-spot>
+        <p class="cstack__top"><span class="cstack__n" aria-hidden="true">03</span><span class="cstack__kick">BUILD &amp; MIGRATE</span></p>
+        <h3>플랫폼 구축과 이관</h3>
+        <p class="cstack__lead">기존 DW 를 분석해 옮기고 파이프라인을 세운 뒤 정합성을 검증합니다.</p>
+        <div class="cstack__foot">
+          <ul class="cstack__points"><li>기존 DW 분석</li><li>이관 계획</li><li>파이프라인 구축</li><li>정합성 검증</li></ul>
+          <span class="cstack__mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse class="acc" cx="12" cy="5.6" rx="7.4" ry="2.6" pathLength="1"/><path d="M4.6 5.6 V12 C4.6 13.4 8 14.6 12 14.6 16 14.6 19.4 13.4 19.4 12 V5.6" pathLength="1"/><path d="M4.6 12 V18.4 C4.6 19.8 8 21 12 21 16 21 19.4 19.8 19.4 18.4 V12" pathLength="1"/></svg></span>
+        </div>
+      </div>
+    </li><li class="cstack__item">
+      <div class="cstack__body" data-spot>
+        <p class="cstack__top"><span class="cstack__n" aria-hidden="true">04</span><span class="cstack__kick">GOVERNANCE</span></p>
+        <h3>거버넌스</h3>
+        <p class="cstack__lead">카탈로그와 접근 권한 체계를 세우고 품질 기준과 이력 추적을 붙입니다.</p>
+        <div class="cstack__foot">
+          <ul class="cstack__points"><li>카탈로그 구성</li><li>접근 권한 체계</li><li>데이터 품질 기준</li><li>이력 추적</li></ul>
+          <span class="cstack__mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.6" cy="12" r="4.2" pathLength="1"/><path d="M11.8 12 H20.6" pathLength="1"/><path class="acc" d="M17.2 12 V15.4 M20.4 12 V14.4" pathLength="1"/></svg></span>
+        </div>
+      </div>
+    </li><li class="cstack__item">
+      <div class="cstack__body" data-spot>
+        <p class="cstack__top"><span class="cstack__n" aria-hidden="true">05</span><span class="cstack__kick">RUN &amp; AI</span></p>
+        <h3>운영과 AI 확장</h3>
+        <p class="cstack__lead">사용량을 지켜보며 쿼리를 다듬고 현업 교육과 AI 연계로 넓힙니다.</p>
+        <div class="cstack__foot">
+          <ul class="cstack__points"><li>사용량 모니터링</li><li>쿼리 최적화</li><li>현업 교육</li><li>AI 연계</li></ul>
+          <span class="cstack__mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4.4 C11 8.7 14.3 12 18.6 12 14.3 12 11 15.3 11 19.6 11 15.3 7.7 12 3.4 12 7.7 12 11 8.7 11 4.4 Z" pathLength="1"/><path class="acc" d="M18.4 3 V7 M16.4 5 H20.4" pathLength="1"/></svg></span>
+        </div>
+      </div>
+    </li></ul>
+      <div class="cstack__meter" aria-hidden="true"><span class="cstack__fill"></span><span class="cstack__count">01 — 05</span></div>
+    </div>
+  </div><div class="scope__boundary"><p class="eyebrow">BEFORE YOU ASK</p><div class="grid grid--2"><article class="card reveal"><h3 class="card__title">고객이 준비합니다</h3><ul class="list"><li class="list__item">이관 대상 데이터와 그 소유 부서</li><li class="list__item">먼저 성과를 볼 업무 한 가지</li><li class="list__item">데이터 접근 권한의 승인 주체</li></ul></article><article class="card reveal"><h3 class="card__title">이럴 땐 맞지 않습니다</h3><ul class="list"><li class="list__item">전사를 한 번에 옮기는 것이 전제인 경우 — 한 도메인부터 권합니다</li><li class="list__item">데이터를 밖으로 내보낼 수 없는 경우 — 그 자리에서 질의하는 Starburst 구성을 먼저 봅니다</li></ul></article></div></div><p class="footnote">라이선스 비용과 구축 비용은 별도로 산정합니다.</p></div>
+</section>
+<section id="s-tech" class="section">
+  <div class="container"><div class="section__head section__head--split" data-reveal><p class="eyebrow">PLATFORM</p><h2>Databricks 위에서<br />현업이 쓸 때까지 구축합니다</h2><p class="lede">플랫폼은 Databricks Data Intelligence Platform 을 쓰고, 라이선스 공급 뒤 도입부터 운영까지는 솔트웨어 인력이 수행합니다.</p></div><div class="tstack" data-reveal>
+    <article class="tstack__layer tstack__layer--top" data-spot>
+      <p class="tstack__tag"><span>솔트웨어</span>OUR TEAM</p>
+      <div class="tstack__grid">
+        <div class="tstack__intro">
+          <h3 class="tstack__name">도입부터 운영까지 자체 인력이 수행</h3>
+          <p class="tstack__desc">현황 진단과 데이터 설계로 시작해 기존 DW 를 이관하고 정합성을 검증하며, 권한 체계를 세운 뒤 운영과 AI 연계까지 이어서 합니다. 2026년 9월 Databricks 와 프로젝트를 공동 수행하는 Delivery Partner Program 자격을 받았습니다.</p>
+          <a class="tstack__go" href="/saltware-prototype3/business/data-ai.html" data-ga-event="related_business_click">AI 데이터 플랫폼 · Sapie-ADP 보기</a>
+        </div>
+        <ul class="tstack__mods"><li class="tstack__mod">
+      <span class="tstack__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.6" cy="10.6" r="6.4" pathLength="1"/><path d="M15.3 15.3 L20.2 20.2" pathLength="1"/><path class="acc" d="M7.9 10.8 L9.9 12.7 L13.3 9.1" pathLength="1"/></svg></span>
+      
+      <span class="tstack__label">현황 진단 · 데이터 설계</span>
+    </li><li class="tstack__mod">
+      <span class="tstack__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse class="acc" cx="12" cy="5.6" rx="7.4" ry="2.6" pathLength="1"/><path d="M4.6 5.6 V12 C4.6 13.4 8 14.6 12 14.6 16 14.6 19.4 13.4 19.4 12 V5.6" pathLength="1"/><path d="M4.6 12 V18.4 C4.6 19.8 8 21 12 21 16 21 19.4 19.8 19.4 18.4 V12" pathLength="1"/></svg></span>
+      
+      <span class="tstack__label">구축과 이관 · 정합성 검증</span>
+    </li><li class="tstack__mod">
+      <span class="tstack__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.6" cy="12" r="4.2" pathLength="1"/><path d="M11.8 12 H20.6" pathLength="1"/><path class="acc" d="M17.2 12 V15.4 M20.4 12 V14.4" pathLength="1"/></svg></span>
+      
+      <span class="tstack__label">거버넌스 · 권한 체계</span>
+    </li><li class="tstack__mod">
+      <span class="tstack__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4.4 C11 8.7 14.3 12 18.6 12 14.3 12 11 15.3 11 19.6 11 15.3 7.7 12 3.4 12 7.7 12 11 8.7 11 4.4 Z" pathLength="1"/><path class="acc" d="M18.4 3 V7 M16.4 5 H20.4" pathLength="1"/></svg></span>
+      
+      <span class="tstack__label">운영 · AI 연계</span>
+    </li></ul>
+      </div>
+    </article>
+    <article class="tstack__layer tstack__layer--base">
+      <p class="tstack__tag"><span>Data Intelligence Platform</span>PARTNER</p>
+      <div class="tstack__grid">
+        <div class="tstack__intro">
+          <h3 class="tstack__title"><img class="tstack__logo" src="/saltware-prototype3/media/partner/logo/databricks.svg?v=a406783206b0" width="76" height="46" alt="Databricks" loading="lazy" /></h3>
+          <p class="tstack__desc">데이터 엔지니어링 · 분석 · 거버넌스 · AI 를 한 플랫폼에서 다룹니다. 솔트웨어는 AWS 위에 구축하고 기존 시스템과 연계합니다.</p>
+        </div>
+        <div class="tstack__proof">
+          
+          <ul class="tstack__facts"><li>Data Engineering — Lakeflow · Delta Lake</li><li>Analytics · BI — Databricks SQL · AI/BI</li><li>Governance — Unity Catalog(권한 · 계보 · 카탈로그)</li><li>AI · ML — Mosaic AI</li></ul>
+        </div>
+      </div>
+    </article>
+  </div><p class="footnote">아래층은 Databricks 제품 기능이고, 위층은 솔트웨어의 수행 범위입니다. 어떤 기능을 어디까지 쓸지는 진단 단계에서 함께 정합니다.</p></div>
+</section>
+<section id="s-architecture" class="section">
+  <div class="container"><div class="section__head section__head--split" data-reveal><p class="eyebrow">ARCHITECTURE</p><h2>기존 환경을 버리지 않고<br />연결할 수 있어야 합니다</h2><p class="lede">쓰던 시스템을 한 번에 걷어내지 않습니다. 옮길 것과 그 자리에 둘 것을 나눠 단계로 잇습니다.</p></div><figure class="arch">
+    
+    <div class="arch__flow" data-reveal><div class="arch__col"><div class="arch__node">
+      <span class="arch__mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.2 21.2 V4.4 a1.6 1.6 0 0 1 1.6 -1.6 h10.4 a1.6 1.6 0 0 1 1.6 1.6 V21.2" pathLength="1"/><line x1="8.6" y1="8.2" x2="8.6" y2="8.21" pathLength="1"/><line x1="12" y1="8.2" x2="12" y2="8.21" pathLength="1"/><line x1="15.4" y1="8.2" x2="15.4" y2="8.21" pathLength="1"/><line x1="8.6" y1="12.2" x2="8.6" y2="12.21" pathLength="1"/><line x1="12" y1="12.2" x2="12" y2="12.21" pathLength="1"/><line x1="15.4" y1="12.2" x2="15.4" y2="12.21" pathLength="1"/><path class="acc" d="M10.2 21.2 v-4.4 h3.6 v4.4" pathLength="1"/><line x1="3.4" y1="21.2" x2="20.6" y2="21.2" pathLength="1"/></svg></span>
+      <span class="arch__kicker eyebrow">WHERE DATA LIVES</span>
+      <span class="arch__name">Sources</span>
+      <ul class="arch__items"><li>ERP · CRM</li><li>DB · 로그 · 파일</li></ul>
+    </div></div><div class="arch__link"><span class="arch__dot" aria-hidden="true"></span></div><div class="arch__col"><div class="arch__node">
+      <span class="arch__mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="8.98" x2="12" y2="5.78" pathLength="1"/><line x1="14.62" y1="13.51" x2="17.38" y2="15.11" pathLength="1"/><line x1="9.38" y1="13.51" x2="6.62" y2="15.11" pathLength="1"/><circle class="acc" cx="12" cy="12" r="2.9" pathLength="1"/><circle cx="12" cy="3.6" r="2.1" pathLength="1"/><circle cx="19.27" cy="16.2" r="2.1" pathLength="1"/><circle cx="4.73" cy="16.2" r="2.1" pathLength="1"/></svg></span>
+      <span class="arch__kicker eyebrow">MOVE OR CONNECT</span>
+      <span class="arch__name">Ingest · Federation</span>
+      <ul class="arch__items"><li>옮길 데이터는 적재</li><li>옮길 수 없는 데이터는 그 자리에서 연결 (Starburst)</li></ul>
+    </div></div><div class="arch__link"><span class="arch__dot" aria-hidden="true"></span></div><div class="arch__col"><div class="arch__node">
+      <span class="arch__mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse class="acc" cx="12" cy="5.6" rx="7.4" ry="2.6" pathLength="1"/><path d="M4.6 5.6 V12 C4.6 13.4 8 14.6 12 14.6 16 14.6 19.4 13.4 19.4 12 V5.6" pathLength="1"/><path d="M4.6 12 V18.4 C4.6 19.8 8 21 12 21 16 21 19.4 19.8 19.4 18.4 V12" pathLength="1"/></svg></span>
+      <span class="arch__kicker eyebrow">ONE FOUNDATION</span>
+      <span class="arch__name">Data Intelligence Platform</span>
+      <ul class="arch__items"><li>Data Engineering — Lakeflow · Delta Lake</li><li>Analytics · BI — Databricks SQL</li><li>Governance — 권한 · 계보 · 카탈로그</li></ul>
+    </div><div class="arch__node">
+      <span class="arch__mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4.4 C11 8.7 14.3 12 18.6 12 14.3 12 11 15.3 11 19.6 11 15.3 7.7 12 3.4 12 7.7 12 11 8.7 11 4.4 Z" pathLength="1"/><path class="acc" d="M18.4 3 V7 M16.4 5 H20.4" pathLength="1"/></svg></span>
+      <span class="arch__kicker eyebrow">WHERE IT IS USED</span>
+      <span class="arch__name">Analytics · AI · Apps</span>
+      <ul class="arch__items"><li>현업이 실제로 쓰는 자리</li></ul>
+    </div></div></div>
+  </figure><p class="footnote">일반화한 구성입니다. 실제 구성은 진단 후 고객 환경에 맞춰 설계합니다.</p></div>
+</section>
+<section id="s-useCases" class="section section--stone">
+  <div class="container"><div class="section__head section__head--split" data-reveal><p class="eyebrow">USE CASES</p><h2>먼저 검증할 업무부터<br />데이터를 붙입니다</h2><p class="lede">쓸 곳을 먼저 정하고 플랫폼을 세웁니다. 업무 네 가지와, 그때 함께 맡기시는 범위입니다.</p></div><div class="uct" data-pillars>
+    <div class="uct__list" data-reveal><button type="button" class="uct__row" data-pillar-row aria-controls="uct-0">
+        <span class="uct__n" aria-hidden="true">01</span>
+        <span class="uct__name">운영 · 정비</span>
+        <span class="uct__go" aria-hidden="true">→</span>
+      </button><button type="button" class="uct__row" data-pillar-row aria-controls="uct-1">
+        <span class="uct__n" aria-hidden="true">02</span>
+        <span class="uct__name">고객 · 서비스</span>
+        <span class="uct__go" aria-hidden="true">→</span>
+      </button><button type="button" class="uct__row" data-pillar-row aria-controls="uct-2">
+        <span class="uct__n" aria-hidden="true">03</span>
+        <span class="uct__name">프로젝트 · 문서</span>
+        <span class="uct__go" aria-hidden="true">→</span>
+      </button><button type="button" class="uct__row" data-pillar-row aria-controls="uct-3">
+        <span class="uct__n" aria-hidden="true">04</span>
+        <span class="uct__name">생산 · 설비</span>
+        <span class="uct__go" aria-hidden="true">→</span>
+      </button></div>
+    <div class="uct__stage"><article class="uct__panel" id="uct-0" data-pillar-art="0">
+        <h3 class="uct__kick"><span class="uct__pn">01</span>운영 · 정비</h3>
+        <div class="uct__flow">
+          <div class="uct__step"><p class="uct__label">먼저 막히는 곳</p><p class="uct__env">설비와 시스템이 남기는 상태·이력 데이터가 여러 곳에 쌓입니다.</p></div>
+          <div class="uct__step"><p class="uct__label">같이 보는 것</p><p class="uct__need">장애와 상태를 한 화면에서 보고 원인을 좁힙니다.</p></div>
+        </div>
+        <div class="uct__scope"><p class="uct__label">함께 맡기시는 범위</p><div class="uct__chips"><a class="uct__chip" href="#s-scope" data-ga-event="bu_usecase_scope"><span class="uct__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.6" cy="10.6" r="6.4" pathLength="1"/><path d="M15.3 15.3 L20.2 20.2" pathLength="1"/><path class="acc" d="M7.9 10.8 L9.9 12.7 L13.3 9.1" pathLength="1"/></svg></span>현황 진단</a><a class="uct__chip" href="#s-scope" data-ga-event="bu_usecase_scope"><span class="uct__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse class="acc" cx="12" cy="5.6" rx="7.4" ry="2.6" pathLength="1"/><path d="M4.6 5.6 V12 C4.6 13.4 8 14.6 12 14.6 16 14.6 19.4 13.4 19.4 12 V5.6" pathLength="1"/><path d="M4.6 12 V18.4 C4.6 19.8 8 21 12 21 16 21 19.4 19.8 19.4 18.4 V12" pathLength="1"/></svg></span>플랫폼 구축과 이관</a></div></div>
+      </article><article class="uct__panel" id="uct-1" data-pillar-art="1">
+        <h3 class="uct__kick"><span class="uct__pn">02</span>고객 · 서비스</h3>
+        <div class="uct__flow">
+          <div class="uct__step"><p class="uct__label">먼저 막히는 곳</p><p class="uct__env">채널마다 고객 데이터가 따로 있습니다.</p></div>
+          <div class="uct__step"><p class="uct__label">같이 보는 것</p><p class="uct__need">행동과 수요를 한 기준으로 보고 판단합니다.</p></div>
+        </div>
+        <div class="uct__scope"><p class="uct__label">함께 맡기시는 범위</p><div class="uct__chips"><a class="uct__chip" href="#s-scope" data-ga-event="bu_usecase_scope"><span class="uct__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="acc" d="M12 3.2 20.2 7.6 12 12 3.8 7.6 Z" pathLength="1"/><path d="M3.8 12 12 16.4 20.2 12" pathLength="1"/><path d="M3.8 16.4 12 20.8 20.2 16.4" pathLength="1"/></svg></span>데이터 설계</a><a class="uct__chip" href="#s-scope" data-ga-event="bu_usecase_scope"><span class="uct__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.6" cy="12" r="4.2" pathLength="1"/><path d="M11.8 12 H20.6" pathLength="1"/><path class="acc" d="M17.2 12 V15.4 M20.4 12 V14.4" pathLength="1"/></svg></span>거버넌스</a></div></div>
+      </article><article class="uct__panel" id="uct-2" data-pillar-art="2">
+        <h3 class="uct__kick"><span class="uct__pn">03</span>프로젝트 · 문서</h3>
+        <div class="uct__flow">
+          <div class="uct__step"><p class="uct__label">먼저 막히는 곳</p><p class="uct__env">문서와 산출물이 부서·연도별로 흩어져 있습니다.</p></div>
+          <div class="uct__step"><p class="uct__label">같이 보는 것</p><p class="uct__need">필요한 근거를 찾는 시간을 줄입니다.</p></div>
+        </div>
+        <div class="uct__scope"><p class="uct__label">함께 맡기시는 범위</p><div class="uct__chips"><a class="uct__chip" href="#s-scope" data-ga-event="bu_usecase_scope"><span class="uct__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse class="acc" cx="12" cy="5.6" rx="7.4" ry="2.6" pathLength="1"/><path d="M4.6 5.6 V12 C4.6 13.4 8 14.6 12 14.6 16 14.6 19.4 13.4 19.4 12 V5.6" pathLength="1"/><path d="M4.6 12 V18.4 C4.6 19.8 8 21 12 21 16 21 19.4 19.8 19.4 18.4 V12" pathLength="1"/></svg></span>플랫폼 구축과 이관</a><a class="uct__chip" href="#s-scope" data-ga-event="bu_usecase_scope"><span class="uct__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4.4 C11 8.7 14.3 12 18.6 12 14.3 12 11 15.3 11 19.6 11 15.3 7.7 12 3.4 12 7.7 12 11 8.7 11 4.4 Z" pathLength="1"/><path class="acc" d="M18.4 3 V7 M16.4 5 H20.4" pathLength="1"/></svg></span>운영과 AI 확장</a></div></div>
+      </article><article class="uct__panel" id="uct-3" data-pillar-art="3">
+        <h3 class="uct__kick"><span class="uct__pn">04</span>생산 · 설비</h3>
+        <div class="uct__flow">
+          <div class="uct__step"><p class="uct__label">먼저 막히는 곳</p><p class="uct__env">공정 데이터가 설비 단위로만 남습니다.</p></div>
+          <div class="uct__step"><p class="uct__label">같이 보는 것</p><p class="uct__need">품질 편차를 확인하고 예측에 씁니다.</p></div>
+        </div>
+        <div class="uct__scope"><p class="uct__label">함께 맡기시는 범위</p><div class="uct__chips"><a class="uct__chip" href="#s-scope" data-ga-event="bu_usecase_scope"><span class="uct__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="acc" d="M12 3.2 20.2 7.6 12 12 3.8 7.6 Z" pathLength="1"/><path d="M3.8 12 12 16.4 20.2 12" pathLength="1"/><path d="M3.8 16.4 12 20.8 20.2 16.4" pathLength="1"/></svg></span>데이터 설계</a><a class="uct__chip" href="#s-scope" data-ga-event="bu_usecase_scope"><span class="uct__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4.4 C11 8.7 14.3 12 18.6 12 14.3 12 11 15.3 11 19.6 11 15.3 7.7 12 3.4 12 7.7 12 11 8.7 11 4.4 Z" pathLength="1"/><path class="acc" d="M18.4 3 V7 M16.4 5 H20.4" pathLength="1"/></svg></span>운영과 AI 확장</a></div></div>
+      </article></div>
+  </div><p class="footnote">수행 사례가 아니라 업무 유형입니다. 수행 사례는 아래 프로젝트 사례에서 확인하실 수 있습니다.</p></div>
+</section>
+<section id="s-cases" class="section">
+  <div class="container"><div class="section__head" data-reveal><p class="eyebrow">CASES</p><h2>프로젝트 사례</h2><p class="lede">항공 · 통신 · 건설 분야 대기업의 데이터 플랫폼 구축과 전환 사례입니다.</p></div><div class="grid grid--3"><article class="card card--band card--art reveal"><img class="card__art" src="/saltware-prototype3/media/case/databricks-1.jpg?v=a406783206b0" alt="" width="1000" height="625" loading="lazy" decoding="async" /><p class="eyebrow">항공 · 대기업</p><h3 class="card__title">레이크하우스 구축과 데이터 통합</h3></article><article class="card card--band card--art reveal"><img class="card__art" src="/saltware-prototype3/media/case/databricks-2.jpg?v=a406783206b0" alt="" width="1000" height="625" loading="lazy" decoding="async" /><p class="eyebrow">통신 · 대기업</p><h3 class="card__title">기존 DW 전환</h3></article><article class="card card--band card--art reveal"><img class="card__art" src="/saltware-prototype3/media/case/databricks-3.jpg?v=a406783206b0" alt="" width="1000" height="625" loading="lazy" decoding="async" /><p class="eyebrow">EPC · 대기업</p><h3 class="card__title">프로젝트 데이터 표준화</h3></article></div><p class="footnote">고객사명과 세부 수치는 비공개입니다. 수행 횟수는 위 파트너 구획을 보십시오.</p></div>
+</section>
+<section id="s-proof" class="section">
+  <div class="container"><div class="section__aside"><div class="section__head" data-reveal><p class="eyebrow">PARTNERSHIP</p><h2>Databricks 와<br />함께 수행합니다</h2><p class="lede">도입 대행과 구축 수행은 다릅니다. 자격과 함께 실제로 진행한 횟수를 적습니다.</p></div><div><div class="pfs"><div class="pf">
+      <p class="pf__name">Databricks Delivery Partner Program</p>
+      <p class="pf__means">Databricks 와 데이터 · AI 프로젝트를 공동 수행하는 자격</p>
+      <p class="pf__does">데이터 엔지니어링 · 플랫폼 구축 · AI 솔루션 역량을 갖춘 파트너가 대상인 공동 딜리버리(Co-delivery) 프로그램입니다 (2026.09).</p>
+      
+    </div><div class="pf">
+      <p class="pf__name">구축 4곳 · PoC 6건</p>
+      <p class="pf__means">자격과 별개로 실제로 옮겨 본 횟수</p>
+      <p class="pf__does">2025년 10월 이후 항공 · 통신 · 카드 · 제조 고객사에서 진행했습니다. 고객사명은 비공개입니다.</p>
+      
+    </div><div class="pf">
+      <p class="pf__name">Databricks AI Days Seoul 2026</p>
+      <p class="pf__means">부스 파트너 참가 (2026.04)</p>
+      <p class="pf__does">이기종 DB 에 흩어진 데이터를 Databricks 로 통합 · 표준화해 집계 테이블까지 만드는 과정을, Genie 자연어 분석과 Sapie-Guardian 보안까지 한 시나리오로 시연했습니다.</p>
+      
+    </div><div class="pf">
+      <p class="pf__name">Starburst 전략적 파트너십</p>
+      <p class="pf__means">밖으로 옮길 수 없는 데이터를 그 자리에서 잇는 엔진</p>
+      <p class="pf__does">Trino 기반 Starburst Enterprise 공급 협약입니다 (2026.08). 공공 · 국방 · 국가 전략 산업 · 금융이 대상입니다.</p>
+      
+    </div><div class="pf">
+      <p class="pf__name">AWS 파트너</p>
+      <p class="pf__means">Databricks 가 올라가는 클라우드 인프라 수행 역량</p>
+      <p class="pf__does">2014년부터 AWS 파트너로 사업해 왔고, Databricks 를 AWS 위에 구축합니다.</p>
+      
+    </div></div><p class="footnote">기준일 2026.09 · 출처 파트너 공식 발표 및 보도자료</p></div></div></div>
+</section>
+<section id="s-process" class="section section--inverse">
+  <div class="container"><div class="section__head" data-reveal><p class="eyebrow">HOW WE WORK</p><h2>진행 방식</h2></div><div class="flowline flowline--n4">
+    <span class="flowline__rail" aria-hidden="true"><span class="flowline__fill"></span></span>
+    <ol class="flowline__steps" data-reveal><li class="flowline__step">
+      <span class="flowline__node" aria-hidden="true"></span>
+      <div class="flowline__card">
+        <p class="flowline__top"><span class="flowline__no">01</span><span class="flowline__mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.6" cy="10.6" r="6.4" pathLength="1"/><path d="M15.3 15.3 L20.2 20.2" pathLength="1"/><path class="acc" d="M7.9 10.8 L9.9 12.7 L13.3 9.1" pathLength="1"/></svg></span></p>
+        <h3 class="flowline__title">현황 진단</h3>
+        <p class="flowline__desc">지금 데이터가 어디에 어떻게 쌓이는지 봅니다.</p>
+      </div>
+    </li><li class="flowline__step">
+      <span class="flowline__node" aria-hidden="true"></span>
+      <div class="flowline__card">
+        <p class="flowline__top"><span class="flowline__no">02</span><span class="flowline__mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 17.6 a7.8 7.8 0 0 1 15.6 0" pathLength="1"/><line class="acc" x1="12" y1="17.6" x2="16.2" y2="12.6" pathLength="1"/><circle class="acc" cx="12" cy="17.6" r="1.2" pathLength="1"/></svg></span></p>
+        <h3 class="flowline__title">PoC</h3>
+        <p class="flowline__desc">한 도메인만 먼저 올려 성과를 확인합니다. 여기서 멈추기로 해도 기존 환경은 그대로 남습니다.</p>
+      </div>
+    </li><li class="flowline__step">
+      <span class="flowline__node" aria-hidden="true"></span>
+      <div class="flowline__card">
+        <p class="flowline__top"><span class="flowline__no">03</span><span class="flowline__mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse class="acc" cx="12" cy="5.6" rx="7.4" ry="2.6" pathLength="1"/><path d="M4.6 5.6 V12 C4.6 13.4 8 14.6 12 14.6 16 14.6 19.4 13.4 19.4 12 V5.6" pathLength="1"/><path d="M4.6 12 V18.4 C4.6 19.8 8 21 12 21 16 21 19.4 19.8 19.4 18.4 V12" pathLength="1"/></svg></span></p>
+        <h3 class="flowline__title">구축과 이관</h3>
+        <p class="flowline__desc">워크스페이스를 세우고 데이터를 옮깁니다.</p>
+      </div>
+    </li><li class="flowline__step">
+      <span class="flowline__node" aria-hidden="true"></span>
+      <div class="flowline__card">
+        <p class="flowline__top"><span class="flowline__no">04</span><span class="flowline__mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.4" width="18" height="12.8" rx="2.4" pathLength="1"/><path d="M9 20.2 H15 M12 17.2 V20.2" pathLength="1"/><path class="acc" d="M6.2 11.4 H8.8 L10.4 8.2 L12.8 14.4 L14.4 11.4 H17.8" pathLength="1"/></svg></span></p>
+        <h3 class="flowline__title">운영과 확산</h3>
+        <p class="flowline__desc">비용과 권한을 관리하며 도메인을 늘립니다.</p>
+      </div>
+    </li></ol>
+  </div></div>
+</section>
+<section class="section">
+  <div class="container"><div class="section__head section__head--split" data-reveal><p class="eyebrow">INSIGHTS</p><h2>Databricks 플랫폼에서<br />지금 보고 있는 것</h2><p class="lede">Databricks 플랫폼 변경 중 거버넌스와 파이프라인 운영에 바로 닿는 것을 정리해 공개합니다.</p></div><div class="ils" data-reveal><a class="il" href="/saltware-prototype3/insights/technology.html" data-ga-event="bu_insight_click"><span class="il__meta"><span class="il__tag">거버넌스</span><span class="il__date">2026.08.04</span></span>
+      <span class="il__title">Databricks Unity AI Gateway 정식 출시 예정: Unity Catalog 기반 엔터프라이즈 AI 거버넌스</span></a><a class="il" href="/saltware-prototype3/insights/technology.html" data-ga-event="bu_insight_click"><span class="il__meta"><span class="il__tag">파이프라인</span><span class="il__date">2026.07.09</span></span>
+      <span class="il__title">Databricks Lakeflow 연속 실행 잡·파이프라인 동작 변경: 2026년 8월 적용 예정</span></a></div><p class="footnote">출처 · 솔트웨어 기술 인사이트. 항목을 누르면 전체 목록으로 이동합니다.</p></div>
+</section>
+<section id="s-news" class="section">
+  <div class="container"><div class="section__aside"><div class="section__head" data-reveal><p class="eyebrow">NEWS</p><h2>이 사업의 소식</h2></div><div><ol class="inews" data-reveal><li><a class="inews__row" href="https://www.itdaily.kr/news/articleView.html?idxno=241460" data-ga-event="bu_news_click" target="_blank" rel="noopener noreferrer"><span class="inews__date">2026.09.08</span>
+        <span class="inews__title">솔트웨어, 데이터브릭스 DPP 파트너 자격 획득</span>
+        <span class="inews__outlet">아이티데일리</span>
+        <span class="inews__go" aria-hidden="true">↗</span></a></li><li><a class="inews__row" href="https://n.news.naver.com/mnews/article/366/0001188918?sid=105" data-ga-event="bu_news_click" target="_blank" rel="noopener noreferrer"><span class="inews__date">2026.08.28</span>
+        <span class="inews__title">솔트웨어, 스타버스트와 맞손…온프레미스 AI 데이터 사업 확대</span>
+        <span class="inews__outlet">조선비즈</span>
+        <span class="inews__go" aria-hidden="true">↗</span></a></li><li><a class="inews__row" href="http://www.itdaily.kr/news/articleView.html?idxno=238721" data-ga-event="bu_news_click" target="_blank" rel="noopener noreferrer"><span class="inews__date">2026.04.02</span>
+        <span class="inews__title">솔트웨어, ‘데이터브릭스 AI 데이 서울 2026’ 참가</span>
+        <span class="inews__outlet">아이티데일리</span>
+        <span class="inews__go" aria-hidden="true">↗</span></a></li></ol><p class="footnote">회사 게시판의 언론보도 가운데 이 사업의 제품 · 파트너 · 고객 이름이 나오는 기사를 최근 순으로 모았습니다.</p></div></div></div>
+</section>
+<section id="s-faq" class="section">
+  <div class="container"><div class="grid grid--2 faq__grid">
+    <div class="section__head">
+      <p class="eyebrow">FAQ</p>
+      <h2>기술 검토와<br />자주 묻는 질문</h2>
+      <p class="lede">도입 검토 단계에서 자주 나오는 질문입니다.</p>
+      <div class="faq__cta"><a href="/saltware-prototype3/contact.html" class="btn btn--md" data-ga-event="bu_tech_asset_click" data-topic="asset">기술 자료 요청하기</a></div>
+    </div>
+    <div class="faq" data-faq><div class="faq__item">
+      <button type="button" class="faq__q" id="faq-q0" aria-controls="faq-a0" aria-expanded="true">비용은 무엇에 따라 달라집니까?<span class="faq__icon" aria-hidden="true">+</span></button>
+      <div class="faq__a" id="faq-a0" role="region" aria-labelledby="faq-q0"><div class="faq__body">라이선스와 구축 비용이 분리됩니다. 라이선스는 쓰신 만큼 계산되고, 구축은 옮길 데이터와 파이프라인 수, 연동할 시스템 범위에 따라 달라집니다. 사용 비용은 워크스페이스 설계 단계에서 구조를 함께 잡습니다.</div></div>
+    </div><div class="faq__item">
+      <button type="button" class="faq__q" id="faq-q1" aria-controls="faq-a1" aria-expanded="false">Databricks 파트너 자격이 있습니까?<span class="faq__icon" aria-hidden="true">+</span></button>
+      <div class="faq__a" id="faq-a1" role="region" aria-labelledby="faq-q1" hidden><div class="faq__body">2026년 9월 Databricks Delivery Partner Program(DPP) 자격을 받았습니다. Databricks 와 데이터 · AI 프로젝트를 공동으로 수행(Co-delivery)하는 파트너 프로그램입니다.</div></div>
+    </div><div class="faq__item">
+      <button type="button" class="faq__q" id="faq-q2" aria-controls="faq-a2" aria-expanded="false">어떤 산업에서 해 봤습니까?<span class="faq__icon" aria-hidden="true">+</span></button>
+      <div class="faq__a" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden><div class="faq__body">2025년 10월 이후 항공 · 통신 · 카드 · 제조 고객사에서 구축 4곳, PoC 6건을 진행했습니다. 고객사명은 공개하지 않습니다.</div></div>
+    </div><div class="faq__item">
+      <button type="button" class="faq__q" id="faq-q3" aria-controls="faq-a3" aria-expanded="false">기존 DW와 병행할 수 있습니까?<span class="faq__icon" aria-hidden="true">+</span></button>
+      <div class="faq__a" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden><div class="faq__body">병행 운영하면서 도메인 단위로 옮기는 방식을 권합니다.</div></div>
+    </div><div class="faq__item">
+      <button type="button" class="faq__q" id="faq-q4" aria-controls="faq-a4" aria-expanded="false">온프레미스 데이터는 어떻게 합니까?<span class="faq__icon" aria-hidden="true">+</span></button>
+      <div class="faq__a" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden><div class="faq__body">Starburst로 그 자리에서 조회하도록 구성합니다.</div></div>
+    </div></div>
+  </div></div>
+</section>
+<section class="section section--stone">
+  <div class="container"><div class="section__head" data-reveal><p class="eyebrow">INDUSTRIES</p><h2>산업별로 이어 보기</h2><p class="lede">통신과 항공 지면에서 데이터 플랫폼 구축이 어떤 자리에 들어가는지 이어서 보세요.</p></div><div class="tiles" data-reveal><a class="tile" href="/saltware-prototype3/industries/telecom.html" data-ga-event="industry_click"><h3 class="tile__name">통신</h3><span class="tile__desc">기존 DW 의 레이크하우스 전환</span><span class="tile__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="3" cy="3" r="1.7" fill="currentColor"/><circle cx="21" cy="3" r="1.7" fill="currentColor"/><circle cx="7.5" cy="7.5" r="1.7" fill="currentColor"/><circle cx="16.5" cy="7.5" r="1.7" fill="currentColor"/><circle cx="12" cy="12" r="1.7" fill="currentColor"/><circle cx="12" cy="16.5" r="1.7" fill="currentColor"/><circle cx="12" cy="21" r="1.7" fill="currentColor"/></svg></span></a><a class="tile" href="/saltware-prototype3/industries/aviation.html" data-ga-event="industry_click"><h3 class="tile__name">항공</h3><span class="tile__desc">레이크하우스 구축과 데이터 통합</span><span class="tile__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="3" r="1.7" fill="currentColor"/><circle cx="12" cy="7.5" r="1.7" fill="currentColor"/><circle cx="3" cy="12" r="1.7" fill="currentColor"/><circle cx="7.5" cy="12" r="1.7" fill="currentColor"/><circle cx="12" cy="12" r="1.7" fill="currentColor"/><circle cx="16.5" cy="12" r="1.7" fill="currentColor"/><circle cx="21" cy="12" r="1.7" fill="currentColor"/><circle cx="7.5" cy="21" r="1.7" fill="currentColor"/><circle cx="16.5" cy="21" r="1.7" fill="currentColor"/></svg></span></a><a class="tile" href="/saltware-prototype3/industries/public.html" data-ga-event="industry_click"><h3 class="tile__name">공공</h3><span class="tile__desc">시스템 현대화와 데이터 활용</span><span class="tile__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="3" cy="7.5" r="1.7" fill="currentColor"/><circle cx="7.5" cy="7.5" r="1.7" fill="currentColor"/><circle cx="12" cy="7.5" r="1.7" fill="currentColor"/><circle cx="16.5" cy="7.5" r="1.7" fill="currentColor"/><circle cx="21" cy="7.5" r="1.7" fill="currentColor"/><circle cx="12" cy="12" r="1.7" fill="currentColor"/><circle cx="12" cy="16.5" r="1.7" fill="currentColor"/><circle cx="7.5" cy="21" r="1.7" fill="currentColor"/><circle cx="16.5" cy="21" r="1.7" fill="currentColor"/></svg></span></a><a class="tile" href="/saltware-prototype3/industries/finance.html" data-ga-event="industry_click"><h3 class="tile__name">금융</h3><span class="tile__desc">보안·계정 권한·데이터 기반</span><span class="tile__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="3" r="1.7" fill="currentColor"/><circle cx="7.5" cy="7.5" r="1.7" fill="currentColor"/><circle cx="16.5" cy="7.5" r="1.7" fill="currentColor"/><circle cx="3" cy="12" r="1.7" fill="currentColor"/><circle cx="21" cy="12" r="1.7" fill="currentColor"/><circle cx="7.5" cy="16.5" r="1.7" fill="currentColor"/><circle cx="16.5" cy="16.5" r="1.7" fill="currentColor"/><circle cx="12" cy="21" r="1.7" fill="currentColor"/></svg></span></a><a class="tile" href="/saltware-prototype3/industries/manufacturing.html" data-ga-event="industry_click"><h3 class="tile__name">제조</h3><span class="tile__desc">AI 에이전트와 데이터 운영</span><span class="tile__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="7.5" cy="3" r="1.7" fill="currentColor"/><circle cx="16.5" cy="3" r="1.7" fill="currentColor"/><circle cx="3" cy="7.5" r="1.7" fill="currentColor"/><circle cx="21" cy="7.5" r="1.7" fill="currentColor"/><circle cx="3" cy="16.5" r="1.7" fill="currentColor"/><circle cx="21" cy="16.5" r="1.7" fill="currentColor"/><circle cx="7.5" cy="21" r="1.7" fill="currentColor"/><circle cx="16.5" cy="21" r="1.7" fill="currentColor"/></svg></span></a><a class="tile" href="/saltware-prototype3/industries/education.html" data-ga-event="industry_click"><h3 class="tile__name">교육</h3><span class="tile__desc">입시 상담 챗봇과 수업 플랫폼</span><span class="tile__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="7.5" cy="7.5" r="1.7" fill="currentColor"/><circle cx="12" cy="7.5" r="1.7" fill="currentColor"/><circle cx="16.5" cy="7.5" r="1.7" fill="currentColor"/><circle cx="3" cy="16.5" r="1.7" fill="currentColor"/><circle cx="7.5" cy="16.5" r="1.7" fill="currentColor"/><circle cx="12" cy="16.5" r="1.7" fill="currentColor"/><circle cx="16.5" cy="16.5" r="1.7" fill="currentColor"/><circle cx="21" cy="16.5" r="1.7" fill="currentColor"/></svg></span></a><a class="tile" href="/saltware-prototype3/industries/commerce.html" data-ga-event="industry_click"><h3 class="tile__name">커머스</h3><span class="tile__desc">트래픽 성장 구간의 이전과 운영</span><span class="tile__glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="3" r="1.7" fill="currentColor"/><circle cx="7.5" cy="7.5" r="1.7" fill="currentColor"/><circle cx="16.5" cy="7.5" r="1.7" fill="currentColor"/><circle cx="3" cy="12" r="1.7" fill="currentColor"/><circle cx="21" cy="12" r="1.7" fill="currentColor"/><circle cx="3" cy="16.5" r="1.7" fill="currentColor"/><circle cx="21" cy="16.5" r="1.7" fill="currentColor"/><circle cx="3" cy="21" r="1.7" fill="currentColor"/><circle cx="21" cy="21" r="1.7" fill="currentColor"/></svg></span></a><a class="tile" href="/saltware-prototype3/industries.html" data-ga-event="industry_click"><h3 class="tile__name">전체 산업</h3><span class="tile__desc">산업별 사업 구성을 한 번에 보기</span></a></div><nav class="onward" aria-label="이어서 볼 곳"><div class="onward__group"><p class="onward__label">RELATED BUSINESS</p><div class="onward__links"><a href="/saltware-prototype3/business/cloud.html" class="card__more" data-ga-event="related_business_click">클라우드 · AWS</a><a href="/saltware-prototype3/business/data-ai.html" class="card__more" data-ga-event="related_business_click">AI 데이터 플랫폼 · Sapie-ADP</a><a href="/saltware-prototype3/business/data-platform.html" class="card__more" data-ga-event="related_business_click">데이터 플랫폼 · Sapie-Lake</a></div></div></nav></div>
+</section>
+<section class="section section--inverse section--art" data-parallax><img class="section__art" src="/saltware-prototype3/media/business/cover-databricks.jpg?v=a406783206b0" alt="" loading="lazy" decoding="async" /><div class="container">
+      <h2>한 도메인만 먼저<br />올려 보셔도 됩니다</h2>
+      <p class="lede">전사 전환 전에 작은 범위로 성과를 확인하는 방식을 권합니다.</p>
+      <div class="cta-row"><a href="/saltware-prototype3/contact.html" class="btn btn--solid btn--lg" data-ga-event="bu_primary_cta" data-topic="inquiry">Databricks 도입 상담</a><a href="/saltware-prototype3/contact.html" class="btn btn--lg" data-ga-event="bu_secondary_cta" data-topic="diagnosis">PoC 설계 문의</a></div>
+      <ul class="list closing__promise"><li class="list__item">담당 분야 엔지니어가 확인하고 연락드립니다</li><li class="list__item">처음에는 연락처와 지금 상황만 받습니다</li></ul>
+    </div></section></main>
+    <footer class="site-footer">
+  <div class="container footer__top">
+    <a class="site-header__logo" href="/saltware-prototype3/"><img class="wordmark" src="/saltware-prototype3/brand/saltware-logo.svg?v=a406783206b0" width="170" height="28" alt="솔트웨어" loading="lazy" /></a>
+    <p class="footer__intro">솔트웨어는 AWS 클라우드 운영, 데이터 플랫폼, 업무 AI, 계정·권한 보안, 엔터프라이즈 오픈소스 사업을 합니다. 사업별 내용과 문의 창구는 아래에 있습니다.</p>
+  </div>
+  <div class="container footer__groups"><details class="footer__group" open>
+      <summary class="footer__label">사업<span class="footer__chev" aria-hidden="true"></span></summary>
+      <div class="footer__list"><a href="/saltware-prototype3/business/cloud.html">클라우드 · AWS</a><a href="/saltware-prototype3/business/redhat.html">클라우드 · Red Hat</a><a href="/saltware-prototype3/business/databricks.html">데이터 · Databricks</a><a href="/saltware-prototype3/business/data-platform.html">데이터 · Starburst</a><a href="/saltware-prototype3/business/data-ai.html">AI 데이터 플랫폼 · Sapie-ADP</a><a href="/saltware-prototype3/business/data-platform.html">데이터 플랫폼 · Sapie-Lake</a><a href="/saltware-prototype3/business/identity.html">보안 · SailPoint</a><a href="/saltware-prototype3/products/sapie-guardian.html">보안 · Sapie-Guardian</a></div>
+    </details><details class="footer__group" open>
+      <summary class="footer__label">인사이트<span class="footer__chev" aria-hidden="true"></span></summary>
+      <div class="footer__list"><a href="/saltware-prototype3/insights/cases.html">고객 사례</a><a href="/saltware-prototype3/insights/industry.html">산업 인사이트</a><a href="/saltware-prototype3/insights/technology.html">기술 인사이트</a><a href="/saltware-prototype3/insights/resources.html">가이드 · 자료실</a><a href="/saltware-prototype3/insights/news.html">언론보도</a><a href="/saltware-prototype3/insights/events.html">이벤트 · 세미나</a></div>
+    </details><details class="footer__group" open>
+      <summary class="footer__label">회사<span class="footer__chev" aria-hidden="true"></span></summary>
+      <div class="footer__list"><a href="/saltware-prototype3/company/about.html">회사 소개</a><a href="/saltware-prototype3/company/capabilities.html">기술 역량</a><a href="/saltware-prototype3/company/esg.html">ESG 경영</a><a href="/saltware-prototype3/company/partners.html">파트너사</a><a href="/saltware-prototype3/company/history.html">연혁</a><a href="/saltware-prototype3/company/brand.html">CI · BI 가이드</a><a href="/saltware-prototype3/company/ir.html">IR</a><a href="/saltware-prototype3/company/careers.html">인재채용</a><a href="/saltware-prototype3/company/location.html">오시는 길</a></div>
+    </details><details class="footer__group" open>
+      <summary class="footer__label">브랜드 · 자회사<span class="footer__chev" aria-hidden="true"></span></summary>
+      <div class="footer__list"><a href="https://www.fitcloud.co.kr/" data-ga-event="fitcloud_outbound" target="_blank" rel="noopener noreferrer">FitCloud<span class="ext-mark" aria-hidden="true">↗</span></a><a href="/saltware-prototype3/business/data-ai.html">Sapie-AI</a><a href="https://gafatec.co.kr/" data-ga-event="gahwatech_outbound" target="_blank" rel="noopener noreferrer">GAFATEC<span class="ext-mark" aria-hidden="true">↗</span></a></div>
+    </details><details class="footer__group" open>
+      <summary class="footer__label">문의<span class="footer__chev" aria-hidden="true"></span></summary>
+      <div class="footer__list"><a href="/saltware-prototype3/contact.html" data-ga-event="footer_contact_click">문의하기</a><a href="/saltware-prototype3/company/careers.html">채용 문의</a></div>
+    </details></div>
+  <div class="container footer__info">
+    <div class="footer__where">
+      <address class="footer__addr">
+        <span class="footer__firm">솔트웨어㈜</span>
+        <span>경기도 과천시 과천대로12길 117 과천펜타원 G동 7층</span>
+        <span>TEL 02-6249-6111 · FAX 02-6249-6121</span>
+        <a href="/saltware-prototype3/company/location.html" class="footer__map">오시는 길</a>
+      </address>
+      <div class="footer__social"><a href="https://www.youtube.com/@saltware_youtube" class="footer__sns" target="_blank" rel="noopener noreferrer">YouTube<span class="ext-mark" aria-hidden="true">↗</span></a><a href="https://www.instagram.com/saltware_official" class="footer__sns" target="_blank" rel="noopener noreferrer">Instagram<span class="ext-mark" aria-hidden="true">↗</span></a><a href="https://www.facebook.com/Saltware.co.kr" class="footer__sns" target="_blank" rel="noopener noreferrer">Facebook<span class="ext-mark" aria-hidden="true">↗</span></a></div>
+    </div>
+    <div class="footer__careers">
+    <p class="footer__careers-head">기술을 이해하고<br />문제를 해결하는 사람</p>
+    <a href="/saltware-prototype3/company/careers.html" class="footer__careers-link" data-ga-event="footer_careers_click">채용 보기 →</a>
+  </div>
+  </div>
+  <div class="container footer__bottom">
+    <p class="footer__copy">© 2003–2026 솔트웨어㈜.</p>
+    
+  </div>
+</footer> <aside class="floating" aria-label="빠른 이동">
+  <a
+    class="floating__ask"
+    href="/saltware-prototype3/contact.html"
+    data-ga-event="floating_contact_click"
+    aria-label="문의하기"
+  >
+    <svg class="spark floating__spark" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0A12 12 0 0 0 24 12A12 12 0 0 0 12 24A12 12 0 0 0 0 12A12 12 0 0 0 12 0Z"/></svg
+    ><span class="floating__label" aria-hidden="true">문의하기</span>
+  </a>
+  <button type="button" class="floating__top" data-to-top data-ga-event="back_to_top_click">
+    <span class="sr-only">맨 위로</span><span aria-hidden="true">↑</span>
+  </button>
+</aside>
+
+    <script type="module" src="/saltware-prototype3/assets/js/main.mjs?v=d4b964853b2e"></script>
+  </body>
+</html>

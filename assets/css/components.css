@@ -513,10 +513,13 @@
   padding-top: var(--sp-8);
 }
 .section--band {
-  background: var(--bg-band);
+  background: var(--band-face, var(--bg-band));
 }
 .section--card {
   background: var(--bg-card);
+}
+.section--card + .section--band > .container {
+  padding-top: var(--seam-py, var(--section-py));
 }
 .section--band > .container,
 .section--card > .container,
@@ -1579,7 +1582,7 @@
   aspect-ratio: 1200 / 630;
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--bg-band);
+  background: var(--plate-face, var(--bg-band));
 }
 .press__cover img {
   width: 100%;
@@ -1765,9 +1768,9 @@ a.inews__row:focus-visible .inews__go {
 }
 .dl {
   display: grid;
-  grid-template-columns: var(--row-lead) minmax(0, 1fr) auto;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
   align-items: center;
-  column-gap: var(--sp-6);
+  column-gap: var(--sp-5);
   padding-block: var(--sp-5);
   border-bottom: 1px solid var(--border-hair);
   transition: background var(--dur-hover) var(--ease);
@@ -1795,6 +1798,22 @@ a.dl:hover {
   font-size: var(--fs-xs);
   color: var(--text-faint);
 }
+.dl__kind {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 46px;
+  padding: 4px 8px;
+  border: 1px solid var(--border-hair);
+  border-radius: var(--radius-sm);
+  background: var(--bg-band);
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-label);
+}
+a.dl:hover .dl__kind {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
 .dl__act {
   justify-self: end;
   display: inline-flex;
@@ -1812,16 +1831,114 @@ a.dl:hover {
 a.dl:hover .dl__act {
   background: var(--c-neutral-700);
 }
-.dl--pending .dl__title {
+.dlcards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-7) var(--sp-6);
+}
+.dlcard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-4);
+  color: inherit;
+  text-decoration: none;
+}
+.dlcard__art {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border: 1px solid var(--border-hair);
+  border-radius: var(--radius-md);
+  transition: opacity var(--dur-hover) var(--ease);
+}
+.dlcard:hover .dlcard__art {
+  opacity: 0.88;
+}
+.dlcard__body {
+  display: grid;
+  gap: 4px;
+}
+.dlcard__kind {
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  color: var(--text-primary);
+}
+.dlcard__title {
+  font-size: var(--fs-h4);
+  font-weight: 600;
+  line-height: var(--lh-title);
+  letter-spacing: var(--tracking-base);
+}
+.dlcard__desc {
+  font-size: var(--fs-sm);
   color: var(--text-muted);
 }
-.dl--pending .dl__desc {
+.dlcard__act {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  padding: 9px var(--sp-5);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--bg-inverse);
+  color: var(--text-on-inverse);
+  transition: background var(--dur-hover) var(--ease);
+}
+.dlcard:hover .dlcard__act {
+  background: var(--c-neutral-700);
+}
+@media (max-width: 1080px) {
+  .dlcards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .dlcards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.dlwait {
+  margin-top: var(--sp-5);
+  padding: var(--sp-5) var(--sp-6);
+  border: 1px dashed var(--border-control);
+  border-radius: var(--radius-md);
+  background: var(--plate-face, var(--bg-band));
+}
+.dlwait__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  margin: 0 0 var(--sp-3);
+  font-size: var(--fs-xs);
+  font-weight: 600;
   color: var(--text-faint);
 }
-.dl__act--pending {
-  background: var(--bg-band);
-  color: var(--text-faint);
-  border: 1px solid var(--border-hair);
+.dlwait__ask {
+  flex: none;
+  color: var(--text-accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.dlwait__ask:hover {
+  text-decoration: underline;
+}
+.dlwait__n {
+  font-family: var(--font-mono);
+}
+.dlwait__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px var(--sp-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
 }
 @media (max-width: 640px) {
   .dl {
@@ -1833,6 +1950,13 @@ a.dl:hover .dl__act {
   .dl__act {
     width: auto;
     padding: 9px var(--sp-4);
+  }
+  .dlwait {
+    padding: var(--sp-5);
+  }
+  .dlwait__list {
+    display: grid;
+    gap: var(--sp-2);
   }
 }
 .bg__origins {
@@ -1866,6 +1990,7 @@ a.dl:hover .dl__act {
 }
 .bg__stage--light {
   background: var(--bg-card);
+  box-shadow: var(--tile-lift, none);
 }
 .bg__stage--dark {
   background: var(--bg-inverse);
@@ -1874,7 +1999,7 @@ a.dl:hover .dl__act {
   font-size: var(--fs-label);
   font-weight: 600;
   letter-spacing: var(--tracking-label);
-  color: var(--text-faint);
+  color: var(--text-primary);
 }
 .bg__stage--dark .bg__stage-label {
   color: var(--text-on-inverse-muted);
@@ -1977,7 +2102,7 @@ a.dl:hover .dl__act {
   background: var(--c-accent-550);
 }
 .bg__chip--ground {
-  background: var(--bg-page);
+  background: var(--c-neutral-100);
 }
 .bg__color-name {
   font-weight: 600;
@@ -2021,6 +2146,9 @@ a.bg__asset:hover {
   color: var(--text-faint);
   font-weight: 500;
   text-align: right;
+}
+a.bg__asset .bg__asset-hint {
+  white-space: nowrap;
 }
 .site-footer {
   background: var(--bg-inverse);
@@ -2358,6 +2486,7 @@ a.bg__asset:hover {
   border: 1px solid var(--border-hair);
   border-radius: var(--radius-xl);
   background: var(--bg-card);
+  box-shadow: var(--tile-lift, none);
 }
 .nl__channels {
   display: grid;
@@ -2750,7 +2879,7 @@ a.tile .tile__desc {
   text-wrap: balance;
 }
 .feat--art {
-  --card-media: url("/saltware-prototype3/media/insight/feature.jpg?v=f2b4fafefb02");
+  --card-media: url("/saltware-prototype3/media/insight/feature.jpg?v=a406783206b0");
 }
 .feat[class*="feat--"] .feat__lead::before {
   content: "";
@@ -2986,19 +3115,19 @@ a.tile .tile__desc {
   }
 }
 .hub-card--cases {
-  --card-media: url("/saltware-prototype3/media/insight/card-cases.jpg?v=f2b4fafefb02");
+  --card-media: url("/saltware-prototype3/media/insight/card-cases.jpg?v=a406783206b0");
 }
 .hub-card--industry {
-  --card-media: url("/saltware-prototype3/media/insight/card-industry.jpg?v=f2b4fafefb02");
+  --card-media: url("/saltware-prototype3/media/insight/card-industry.jpg?v=a406783206b0");
 }
 .hub-card--report {
-  --card-media: url("/saltware-prototype3/media/insight/card-report.jpg?v=f2b4fafefb02");
+  --card-media: url("/saltware-prototype3/media/insight/card-report.jpg?v=a406783206b0");
 }
 .hub-card--library {
-  --card-media: url("/saltware-prototype3/media/insight/card-library.jpg?v=f2b4fafefb02");
+  --card-media: url("/saltware-prototype3/media/insight/card-library.jpg?v=a406783206b0");
 }
 .hub-card--news {
-  --card-media: url("/saltware-prototype3/media/insight/card-news.jpg?v=f2b4fafefb02");
+  --card-media: url("/saltware-prototype3/media/insight/card-news.jpg?v=a406783206b0");
 }
 .hubcol {
   display: flex;
@@ -3787,23 +3916,36 @@ html.js-reveal
   }
 }
 body[data-route^="/business/"],
+body[data-route^="/insights/cases"],
+body[data-route^="/insights/industry"] {
+  --bg-page: var(--c-neutral-200);
+  --text-muted: var(--c-neutral-650);
+}
+body[data-route^="/company/about"],
+body[data-route^="/company/brand"],
+body[data-route^="/company/capabilities"],
+body[data-route^="/company/history"],
 body[data-route^="/company/careers"],
 body[data-route^="/company/location"],
 body[data-route^="/company/ir"],
 body[data-route^="/company/esg"],
 body[data-route^="/company/partners"],
-body[data-route^="/insights/cases"],
-body[data-route^="/insights/industry"],
 body[data-route^="/insights/news"],
 body[data-route^="/insights/resources"],
 body[data-route^="/insights/technology"],
 body[data-route^="/insights/events"] {
-  --bg-page: var(--c-neutral-200);
-  --text-muted: var(--c-neutral-650);
+  --bg-page: var(--c-white);
+  --hero-band: var(--c-white);
+  --band-face: var(--c-white);
+  --seam-py: calc(var(--section-py) + var(--sp-7));
+  --tile-lift: var(--shadow-lift);
+  --header-bg: rgba(255, 255, 255, 0.96);
+  --plate-face: var(--c-white);
 }
 .pbanner {
   padding-top: var(--hero-pt);
   padding-bottom: var(--sp-7);
+  background: var(--hero-band, transparent);
 }
 .pbanner__after {
   margin-top: var(--sp-6);
@@ -3936,7 +4078,7 @@ a.brief:hover {
   display: block;
   aspect-ratio: var(--cover-ratio);
   overflow: hidden;
-  background: var(--bg-band);
+  background: var(--plate-face, var(--bg-band));
 }
 .brief__cover img {
   width: 100%;

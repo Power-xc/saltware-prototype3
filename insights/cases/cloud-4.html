@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>규제 환경의 보안 구성과 운영 — AWS 클라우드 사례 | 솔트웨어</title>
+    <meta name="description" content="AWS 클라우드 고객 사례 — 금융 · 대기업. 금융 보안 기준에 맞춘 구성과 감사 대응을 지원합니다. 같은 갈래로 보도된 미래에셋자산운용, 생명보험협회, 렌딧 · 펀다, 아워스포츠네이션의 수행을 출처와 함께 실었습니다." />
+    <link rel="canonical" href="https://www.saltware.co.kr/insights/cases/cloud-4" />
+    <meta name="robots" content="noindex" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="솔트웨어" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:title" content="규제 환경의 보안 구성과 운영 — AWS 클라우드 사례 | 솔트웨어" />
+    <meta property="og:description" content="AWS 클라우드 고객 사례 — 금융 · 대기업. 금융 보안 기준에 맞춘 구성과 감사 대응을 지원합니다. 같은 갈래로 보도된 미래에셋자산운용, 생명보험협회, 렌딧 · 펀다, 아워스포츠네이션의 수행을 출처와 함께 실었습니다." />
+    <meta property="og:url" content="https://power-xc.github.io/saltware-prototype3/insights/cases/cloud-4" />
+    <meta property="og:image" content="https://power-xc.github.io/saltware-prototype3/media/shared/og/insights-cases-cloud-4.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="솔트웨어 로고 아래 '인사이트 · 고객 사례' 머리말과 '규제 환경의 보안 구성과 운영' 제목" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image:alt" content="솔트웨어 로고 아래 '인사이트 · 고객 사례' 머리말과 '규제 환경의 보안 구성과 운영' 제목" />
+    <link rel="icon" href="/saltware-prototype3/favicon.png?v=d4b964853b2e" type="image/png" />
+    <link rel="apple-touch-icon" href="/saltware-prototype3/favicon.png?v=d4b964853b2e" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/tokens.css?v=d4b964853b2e" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/base.css?v=d4b964853b2e" />
+    <link rel="stylesheet" href="/saltware-prototype3/assets/css/components.css?v=d4b964853b2e" />
+        <link rel="stylesheet" href="/saltware-prototype3/assets/css/pages/cases.css?v=d4b964853b2e" />
+  </head>
+  <body class="" data-route="/insights/cases/cloud-4">
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+<header class="site-header" data-header>
+  <svg class="svg-sprite" width="0" height="0" aria-hidden="true" focusable="false"><symbol id="mega-chev" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
+  <div class="container site-header__bar">
+    <a class="site-header__logo" href="/saltware-prototype3/"><img class="wordmark" src="/saltware-prototype3/brand/saltware-logo-dark.svg?v=a406783206b0" width="170" height="28" alt="솔트웨어" /></a>
+    <nav class="gnb" aria-label="주 메뉴"><button type="button" class="gnb__item" data-mega="business" aria-expanded="false">사업</button><button type="button" class="gnb__item" data-mega="insights" aria-expanded="false" aria-current="page">인사이트</button><button type="button" class="gnb__item" data-mega="company" aria-expanded="false">회사소개</button></nav>
+    <div class="site-header__right">
+      <a href="/saltware-prototype3/contact.html" class="btn btn--dark btn--spark" data-ga-event="header_contact_click"><svg class="spark" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0A12 12 0 0 0 24 12A12 12 0 0 0 12 24A12 12 0 0 0 0 12A12 12 0 0 0 12 0Z"/></svg>문의하기</a>
+      <button type="button" class="site-header__burger" data-drawer-open aria-expanded="false" aria-controls="drawer" aria-haspopup="dialog">
+        <span class="sr-only">메뉴 열기</span><span aria-hidden="true">☰</span>
+      </button>
+    </div>
+  </div>
+  <div class="mega" data-mega-panel="business" hidden>
+      <div class="container mega__grid mega__grid--business"><div class="mega__col mega__col--intro">
+    <p class="mega__eyebrow">OUR BUSINESS</p>
+    <p class="mega__title">사업</p>
+    <p class="mega__desc">클라우드부터 AI까지,<br />고객의 비즈니스에 맞는 기술과 서비스를 제공합니다.</p>
+    <a href="/saltware-prototype3/business.html" class="mega__all">사업 전체보기 →</a>
+  </div><div class="mega__col">
+    <a class="mega__label mega__label--link" href="/saltware-prototype3/business/data-ai.html" data-ga-event="gnb_column_click">AI<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></a>
+    <p class="mega__coldesc">AI로 누리는 새로운 경험</p>
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/products/sapie-agent.html"><span class="mega__item-name">Sapie-Agent<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col">
+    <a class="mega__label mega__label--link" href="/saltware-prototype3/business/databricks.html" data-ga-event="gnb_column_click">Data<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></a>
+    <p class="mega__coldesc">데이터로 만드는 더 큰 가능성</p>
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/business/databricks.html"><span class="mega__item-name">Databricks<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/business/data-platform.html"><span class="mega__item-name">Starburst<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/business/data-platform.html"><span class="mega__item-name">Sapie-Lake<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col">
+    <a class="mega__label mega__label--link" href="/saltware-prototype3/business/cloud.html" data-ga-event="gnb_column_click">Cloud<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></a>
+    <p class="mega__coldesc">검증된 글로벌 클라우드 환경</p>
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/business/cloud.html"><span class="mega__item-name">AWS<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/business/redhat.html"><span class="mega__item-name">Red Hat<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col">
+    <a class="mega__label mega__label--link" href="/saltware-prototype3/business/identity.html" data-ga-event="gnb_column_click">Security<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></a>
+    <p class="mega__coldesc">계정 · 권한부터 생성형 AI 보안까지</p>
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/business/identity.html"><span class="mega__item-name">SailPoint<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/products/sapie-guardian.html"><span class="mega__item-name">Sapie-Guardian<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col">
+    <a class="mega__label mega__label--link" href="/saltware-prototype3/business/data-ai.html" data-ga-event="gnb_column_click">Platform<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></a>
+    <p class="mega__coldesc">데이터와 AI 에이전트를 한 환경에서</p>
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/business/data-ai.html"><span class="mega__item-name">Sapie-ADP<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col mega__col--aside">
+    <a class="mega__label mega__label--link" href="/saltware-prototype3/business.html#brands" data-ga-event="gnb_column_click">브랜드 · 계열사<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></a>
+    <p class="mega__coldesc">솔트웨어와 함께하는 브랜드</p>
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/products/fitcloud.html"><span class="mega__item-name">FitCloud<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/business/data-ai.html"><span class="mega__item-name">Sapie-AI<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="https://gafatec.co.kr/" target="_blank" rel="noopener noreferrer"><span class="mega__item-name">GAFATEC<span class="ext-mark" aria-hidden="true">↗</span><svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div></div>
+    </div><div class="mega" data-mega-panel="insights" hidden>
+      <div class="container mega__grid mega__grid--insights"><div class="mega__col mega__col--intro">
+    <p class="mega__eyebrow">INSIGHTS</p>
+    <p class="mega__title">인사이트</p>
+    <p class="mega__desc">고객의 비즈니스에 도움이 되는<br />솔트웨어의 경험과 인사이트를 공유합니다.</p>
+    <a href="/saltware-prototype3/insights.html" class="mega__all">인사이트 전체 보기 →</a>
+  </div><div class="mega__col">
+    <p class="mega__label">고객 인사이트</p>
+    
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/insights/cases.html"><span class="mega__item-name">고객 사례<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span><span class="mega__item-sum">여러 산업의 도입 경험과 사례를 확인하세요.</span></a></div>
+  </div><div class="mega__col">
+    <p class="mega__label">콘텐츠 · 자료</p>
+    
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/insights/technology.html"><span class="mega__item-name">리포트<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span><span class="mega__item-sum">클라우드 · 데이터 · AI 시장과 기술에 대한 분석 리포트</span></a><a class="mega__item" href="/saltware-prototype3/insights/resources.html"><span class="mega__item-name">자료실<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span><span class="mega__item-sum">회사소개서, 서비스 소개서 등 주요 자료를 내려받으세요.</span></a><a class="mega__item" href="/saltware-prototype3/insights/news.html#newsletter"><span class="mega__item-name">뉴스레터<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span><span class="mega__item-sum">솔트웨어의 최신 소식과 AWS · AI · Data 트렌드를 전해드립니다.</span></a></div>
+  </div><div class="mega__col">
+    <p class="mega__label">소식 · 행사</p>
+    
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/insights/events.html"><span class="mega__item-name">이벤트 · 세미나<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span><span class="mega__item-sum">세미나, 웨비나 등 주요 행사 소식을 확인하세요.</span></a><a class="mega__item" href="/saltware-prototype3/insights/news.html"><span class="mega__item-name">언론보도<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span><span class="mega__item-sum">언론에 실린 솔트웨어 소식입니다.</span></a></div>
+  </div></div>
+    </div><div class="mega" data-mega-panel="company" hidden>
+      <div class="container mega__grid mega__grid--company"><div class="mega__col mega__col--intro">
+    <p class="mega__eyebrow">ABOUT US</p>
+    <p class="mega__title">회사소개</p>
+    <p class="mega__desc">솔트웨어가 어떤 회사인지,<br />역량과 연혁을 한눈에 확인하세요.</p>
+    <a href="/saltware-prototype3/company.html" class="mega__all">회사소개 전체보기 →</a>
+  </div><div class="mega__col">
+    <p class="mega__label">기업 정보</p>
+    
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/company/about.html"><span class="mega__item-name">회사 소개<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/company/capabilities.html"><span class="mega__item-name">기술 역량<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/company/esg.html"><span class="mega__item-name">ESG 경영<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col">
+    <p class="mega__label">연혁 · 공시</p>
+    
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/company/history.html"><span class="mega__item-name">연혁<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/company/ir.html"><span class="mega__item-name">IR<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col">
+    <p class="mega__label">파트너</p>
+    
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/company/partners.html"><span class="mega__item-name">파트너사<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col">
+    <p class="mega__label">브랜드</p>
+    
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/company/brand.html"><span class="mega__item-name">CI · BI 가이드<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div><div class="mega__col">
+    <p class="mega__label">채용 · 안내</p>
+    
+    <div class="mega__list"><a class="mega__item" href="/saltware-prototype3/company/careers.html"><span class="mega__item-name">인재채용<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a><a class="mega__item" href="/saltware-prototype3/company/location.html"><span class="mega__item-name">오시는 길<svg class="mega__chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><use href="#mega-chev"/></svg></span></a></div>
+  </div></div>
+    </div>
+  <span class="site-header__progress" aria-hidden="true"></span>
+</header>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="주 메뉴" hidden>
+  <div class="container drawer__inner">
+    <div class="drawer__top">
+      <a class="site-header__logo" href="/saltware-prototype3/"><img class="wordmark" src="/saltware-prototype3/brand/saltware-logo-dark.svg?v=a406783206b0" width="170" height="28" alt="솔트웨어" /></a>
+      <button type="button" class="btn btn--sm" data-drawer-close>닫기</button>
+    </div>
+    <div class="drawer__group">
+      <button type="button" class="drawer__toggle" aria-expanded="false">사업<span aria-hidden="true">+</span></button>
+      <div class="drawer__panel" hidden><a class="drawer__label drawer__label--link" href="/saltware-prototype3/business/data-ai.html">AI →</a><a href="/saltware-prototype3/products/sapie-agent.html">Sapie-Agent</a><a class="drawer__label drawer__label--link" href="/saltware-prototype3/business/databricks.html">Data →</a><a href="/saltware-prototype3/business/databricks.html">Databricks</a><a href="/saltware-prototype3/business/data-platform.html">Starburst</a><a href="/saltware-prototype3/business/data-platform.html">Sapie-Lake</a><a class="drawer__label drawer__label--link" href="/saltware-prototype3/business/cloud.html">Cloud →</a><a href="/saltware-prototype3/business/cloud.html">AWS</a><a href="/saltware-prototype3/business/redhat.html">Red Hat</a><a class="drawer__label drawer__label--link" href="/saltware-prototype3/business/identity.html">Security →</a><a href="/saltware-prototype3/business/identity.html">SailPoint</a><a href="/saltware-prototype3/products/sapie-guardian.html">Sapie-Guardian</a><a class="drawer__label drawer__label--link" href="/saltware-prototype3/business/data-ai.html">Platform →</a><a href="/saltware-prototype3/business/data-ai.html">Sapie-ADP</a><a class="drawer__label drawer__label--link" href="/saltware-prototype3/business.html#brands">브랜드 · 계열사 →</a><a href="/saltware-prototype3/products/fitcloud.html">FitCloud</a><a href="/saltware-prototype3/business/data-ai.html">Sapie-AI</a><a href="https://gafatec.co.kr/" target="_blank" rel="noopener noreferrer">GAFATEC<span class="ext-mark" aria-hidden="true">↗</span></a></div>
+    </div><div class="drawer__group">
+      <button type="button" class="drawer__toggle" aria-expanded="false">인사이트<span aria-hidden="true">+</span></button>
+      <div class="drawer__panel" hidden><p class="drawer__label">고객 인사이트</p><a href="/saltware-prototype3/insights/cases.html">고객 사례</a><p class="drawer__label">콘텐츠 · 자료</p><a href="/saltware-prototype3/insights/technology.html">리포트</a><a href="/saltware-prototype3/insights/resources.html">자료실</a><a href="/saltware-prototype3/insights/news.html#newsletter">뉴스레터</a><p class="drawer__label">소식 · 행사</p><a href="/saltware-prototype3/insights/events.html">이벤트 · 세미나</a><a href="/saltware-prototype3/insights/news.html">언론보도</a></div>
+    </div><div class="drawer__group">
+      <button type="button" class="drawer__toggle" aria-expanded="false">회사소개<span aria-hidden="true">+</span></button>
+      <div class="drawer__panel" hidden><p class="drawer__label">기업 정보</p><a href="/saltware-prototype3/company/about.html">회사 소개</a><a href="/saltware-prototype3/company/capabilities.html">기술 역량</a><a href="/saltware-prototype3/company/esg.html">ESG 경영</a><p class="drawer__label">연혁 · 공시</p><a href="/saltware-prototype3/company/history.html">연혁</a><a href="/saltware-prototype3/company/ir.html">IR</a><p class="drawer__label">파트너</p><a href="/saltware-prototype3/company/partners.html">파트너사</a><p class="drawer__label">브랜드</p><a href="/saltware-prototype3/company/brand.html">CI · BI 가이드</a><p class="drawer__label">채용 · 안내</p><a href="/saltware-prototype3/company/careers.html">인재채용</a><a href="/saltware-prototype3/company/location.html">오시는 길</a></div>
+    </div>
+    <a href="/saltware-prototype3/contact.html" class="btn btn--dark btn--block btn--spark" data-ga-event="header_contact_click"><svg class="spark" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0A12 12 0 0 0 24 12A12 12 0 0 0 12 24A12 12 0 0 0 0 12A12 12 0 0 0 12 0Z"/></svg>문의하기</a>
+  </div>
+</div>
+    <main id="main"><section class="section section--card">
+  <div class="container"><div class="pressled">
+    <div class="pressled__aside"><a class="cdoc__back" href="/saltware-prototype3/insights/cases.html" data-ga-event="insight_detail_click">
+    <span class="cdoc__back-mark" aria-hidden="true">←</span>
+    <span>고객 사례</span>
+  </a><p class="eyebrow">금융 · 대기업</p><h1>규제 환경의 보안 구성과 운영</h1><dl class="cdoc__facts"><div class="cdoc__fact"><dt>산업</dt><dd>금융</dd></div><div class="cdoc__fact"><dt>사업</dt><dd>클라우드 · AWS</dd></div><div class="cdoc__fact"><dt>출처</dt><dd>공개 자료 6건</dd></div></dl><p class="cdoc__note">백패커(idus) 사례는 2026.08.26 보도 내용입니다. 나머지 셋은 고객사명을 공개하지 않은 수행 영역입니다.</p><nav class="kin" aria-label="클라우드 · AWS의 다른 사례">
+    <p class="kin__head">클라우드 · AWS의 다른 사례</p>
+    <a class="kin__row" href="/saltware-prototype3/insights/cases/cloud-1.html" data-ga-event="case_detail_click">
+      <span class="kin__body">
+        <span class="kin__name">AWS 보안 점검을 사람 손에서 떼어낸 사례</span>
+        
+      </span>
+      <span class="kin__go" aria-hidden="true"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a><a class="kin__row" href="/saltware-prototype3/insights/cases/cloud-2.html" data-ga-event="case_detail_click">
+      <span class="kin__body">
+        <span class="kin__name">트래픽 성장 구간의 이전과 확장 운영</span>
+        
+      </span>
+      <span class="kin__go" aria-hidden="true"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a><a class="kin__row" href="/saltware-prototype3/insights/cases/cloud-3.html" data-ga-event="case_detail_click">
+      <span class="kin__body">
+        <span class="kin__name">서비스 안정화와 비용 최적화</span>
+        
+      </span>
+      <span class="kin__go" aria-hidden="true"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+  </nav></div>
+    <div class="pressled__list">
+      <article class="cdoc">
+        <p class="cdoc__basis">고객사명을 밝히지 않은 수행 영역입니다. 아래는 같은 갈래로 보도된 솔트웨어의 공개 수행이며, 고객사명과 수치는 보도에 나온 그대로입니다.</p>
+        <p class="lede">금융 보안 기준에 맞춘 구성과 감사 대응을 지원합니다.</p>
+        <figure class="cdoc__cover"><img src="/saltware-prototype3/media/case/cloud-4.jpg?v=a406783206b0" alt="" width="1000" height="625" loading="lazy" decoding="async" /></figure>
+        <ul class="cdoc__metrics"><li class="cdoc__metric">
+      <p class="cdoc__metric-label">미래에셋자산운용 웹서버 AWS 이전 (2015)</p>
+      <p class="cdoc__metric-value">1개월</p>
+    </li><li class="cdoc__metric">
+      <p class="cdoc__metric-label">생명보험협회 광고심의 업무 효율 (2019)</p>
+      <p class="cdoc__metric-value">3배 가까이</p>
+    </li><li class="cdoc__metric">
+      <p class="cdoc__metric-label">AWS 금융 서비스 컴피턴시 획득</p>
+      <p class="cdoc__metric-value">2018</p>
+    </li></ul>
+        <div class="cdoc__body"><section class="cdoc__part"><h2 class="cdoc__part-head">
+      <span class="cdoc__part-no" aria-hidden="true">01</span>
+      <span class="cdoc__part-say">미래에셋자산운용</span>
+    </h2><p class="cdoc__part-when">2015.07 보도</p><dl class="cdoc__rows"><div class="cdoc__row"><dt>과제</dt><dd>웹서버 일부를 온프레미스에서 클라우드로 옮기는 일로, 보도 기준 국내 금융권에서 처음 이뤄진 클라우드 이전이었습니다.</dd></div><div class="cdoc__row"><dt>수행</dt><dd>기존 웹서비스 시스템을 분석하고 AWS 아키텍처를 설계해 이전까지 1개월 안에 마쳤습니다.</dd></div><div class="cdoc__row"><dt>결과</dt><dd>이전 후 국내 접속자는 약 50%, 해외 접속자는 약 300% 접속 속도가 개선된 것으로 나타났습니다.</dd></div></dl></section><section class="cdoc__part"><h2 class="cdoc__part-head">
+      <span class="cdoc__part-no" aria-hidden="true">02</span>
+      <span class="cdoc__part-say">생명보험협회</span>
+    </h2><p class="cdoc__part-when">2019.02 보도</p><dl class="cdoc__rows"><div class="cdoc__row"><dt>과제</dt><dd>보험 광고의 규정 준수를 심사하는 광고심의시스템은 여러 생명보험사 업무와 항상 연계돼야 하는데, 기존 서버에서는 동시에 들어오는 업무가 실시간으로 동기화되지 않았습니다.</dd></div><div class="cdoc__row"><dt>수행</dt><dd>광고심의시스템을 AWS로 이관하고, 심의에 필요한 대용량 동영상 파일에 Amazon CloudFront와 Amazon Route 53을 적용했습니다.</dd></div><div class="cdoc__row"><dt>결과</dt><dd>협회는 업무 효율이 3배 가까이 올랐고, 온프레미스에 준하는 보안 수준을 유지하게 됐다고 밝혔습니다.</dd></div></dl></section><section class="cdoc__part"><h2 class="cdoc__part-head">
+      <span class="cdoc__part-no" aria-hidden="true">03</span>
+      <span class="cdoc__part-say">렌딧 · 펀다</span>
+    </h2><p class="cdoc__part-when">2021 보도</p><dl class="cdoc__rows"><div class="cdoc__row"><dt>과제</dt><dd>온라인투자연계금융(P2P금융)업은 금융위원회가 자기자본, 인적 · 물적 설비, 내부통제장치 등을 심사해 등록을 허가합니다.</dd></div><div class="cdoc__row"><dt>수행</dt><dd>국내 보안 법규 가이드라인을 기준으로 한 컨설팅, AWS 보안 아키텍처 적용, 금융 컴플라이언스 대응으로 두 회사의 등록을 지원했습니다.</dd></div><div class="cdoc__row"><dt>결과</dt><dd>렌딧은 2021년 6월, 펀다는 같은 해 8월 금융위원회의 등록 허가를 받았습니다.</dd></div></dl></section><section class="cdoc__part"><h2 class="cdoc__part-head">
+      <span class="cdoc__part-no" aria-hidden="true">04</span>
+      <span class="cdoc__part-say">아워스포츠네이션</span>
+    </h2><p class="cdoc__part-when">2025.04 보도</p><dl class="cdoc__rows"><div class="cdoc__row"><dt>과제</dt><dd>스포츠대회 운영과 동호회 회비관리를 하던 회사가 선불전자 결제 · 상품권 발행으로 사업을 넓히려면 전자금융업 등록과 금융 클라우드 이용보고가 필요했습니다.</dd></div><div class="cdoc__row"><dt>수행</dt><dd>AWS의 금융 특화 클라우드 보안 · 규제 대응 기준에 맞춰 아키텍처를 설계하고 인프라를 구축했습니다. 등록 요건을 채우기 위한 기술 컨설팅부터 증빙 문서 준비까지 함께 맡았습니다.</dd></div></dl></section></div>
+        <div class="cdoc__stack">
+    <p class="cdoc__stack-name">적용 기술</p>
+    <ul class="cdoc__stack-list"><li>AWS</li><li>Amazon CloudFront</li><li>Amazon Route 53</li></ul>
+  </div>
+        <div class="cdoc__src">
+    <p class="cdoc__src-name">출처</p>
+    <ul class="cdoc__src-list"><li><a class="cdoc__src-row" href="https://n.news.naver.com/mnews/article/008/0005183171" target="_blank" rel="noopener noreferrer" data-ga-event="case_source_click">
+        <span class="cdoc__src-date">2025.04.21</span>
+        <span class="cdoc__src-title">솔트웨어, 아워스포츠네이션 전자금융업 등록 지원</span>
+        <span class="cdoc__src-outlet">머니투데이<span class="ext-mark" aria-hidden="true">↗</span></span>
+      </a></li><li><a class="cdoc__src-row" href="https://www.etnews.com/20211130000136" target="_blank" rel="noopener noreferrer" data-ga-event="case_source_click">
+        <span class="cdoc__src-date">2021.11.30</span>
+        <span class="cdoc__src-title">솔트웨어, 소상공인 온투업 플랫폼 펀다 AWS 파이낸스 컨설팅 제공</span>
+        <span class="cdoc__src-outlet">전자신문<span class="ext-mark" aria-hidden="true">↗</span></span>
+      </a></li><li><a class="cdoc__src-row" href="https://www.etnews.com/20210721000203" target="_blank" rel="noopener noreferrer" data-ga-event="case_source_click">
+        <span class="cdoc__src-date">2021.07.21</span>
+        <span class="cdoc__src-title">솔트웨어, P2P금융기업 렌딧에 AWS 통합 컨설팅 제공</span>
+        <span class="cdoc__src-outlet">전자신문<span class="ext-mark" aria-hidden="true">↗</span></span>
+      </a></li><li><a class="cdoc__src-row" href="https://www.etnews.com/20190211000140" target="_blank" rel="noopener noreferrer" data-ga-event="case_source_click">
+        <span class="cdoc__src-date">2019.02.11</span>
+        <span class="cdoc__src-title">솔트웨어, 생명보험협회 AWS클라우드 도입 프로젝트 성공</span>
+        <span class="cdoc__src-outlet">전자신문<span class="ext-mark" aria-hidden="true">↗</span></span>
+      </a></li><li><a class="cdoc__src-row" href="https://www.etnews.com/20180521000084" target="_blank" rel="noopener noreferrer" data-ga-event="case_source_click">
+        <span class="cdoc__src-date">2018.05.22</span>
+        <span class="cdoc__src-title">솔트웨어, AWS '금융 서비스 컴피턴시' 획득</span>
+        <span class="cdoc__src-outlet">전자신문<span class="ext-mark" aria-hidden="true">↗</span></span>
+      </a></li><li><a class="cdoc__src-row" href="https://www.etnews.com/20150721000197" target="_blank" rel="noopener noreferrer" data-ga-event="case_source_click">
+        <span class="cdoc__src-date">2015.07.21</span>
+        <span class="cdoc__src-title">솔트웨어, 금융권 최초 클라우드 서버 이전 작업 성공</span>
+        <span class="cdoc__src-outlet">전자신문<span class="ext-mark" aria-hidden="true">↗</span></span>
+      </a></li></ul>
+  </div>
+        <div class="cdoc__press">
+    <p class="cdoc__press-name">클라우드 · AWS 소식</p>
+    <p class="cdoc__note">고객사를 밝히지 않은 사례라, 같은 사업의 최근 보도를 모았습니다.</p>
+    <ol class="inews" data-reveal><li><a class="inews__row" href="https://n.news.naver.com/mnews/article/138/0002239838?sid=105" data-ga-event="case_press_click" target="_blank" rel="noopener noreferrer"><span class="inews__date">2026.09.02</span>
+        <span class="inews__title">솔트웨어, AWS MSP 인증 획득…‘클라우드옵스’ 외부 공급 검토</span>
+        <span class="inews__outlet">디지털데일리</span>
+        <span class="inews__go" aria-hidden="true">↗</span></a></li><li><a class="inews__row" href="http://www.itdaily.kr/news/articleView.html?idxno=239391" data-ga-event="case_press_click" target="_blank" rel="noopener noreferrer"><span class="inews__date">2026.05.19</span>
+        <span class="inews__title">솔트웨어, ‘AWS 서밋’서 AI·클라우드 보안 서비스 공개</span>
+        <span class="inews__outlet">아이티데일리</span>
+        <span class="inews__go" aria-hidden="true">↗</span></a></li><li><a class="inews__row" href="https://n.news.naver.com/mnews/article/030/0003417749?sid=105" data-ga-event="case_press_click" target="_blank" rel="noopener noreferrer"><span class="inews__date">2026.04.14</span>
+        <span class="inews__title">솔트웨어, 클라우드 보안 점검 서비스 'SCR' 업그레이드 버전 출시</span>
+        <span class="inews__outlet">전자신문</span>
+        <span class="inews__go" aria-hidden="true">↗</span></a></li><li><a class="inews__row" href="https://n.news.naver.com/mnews/article/092/0002416645?sid=105" data-ga-event="case_press_click" target="_blank" rel="noopener noreferrer"><span class="inews__date">2026.03.30</span>
+        <span class="inews__title">[기고] AI 시대 클라우드 MSP, 운영 넘어 데이터·AI 파트너로</span>
+        <span class="inews__outlet">지디넷코리아</span>
+        <span class="inews__go" aria-hidden="true">↗</span></a></li></ol>
+  </div>
+      </article>
+    </div>
+  </div></div>
+</section><section class="section section--band">
+  <div class="container"><div class="section__head" data-reveal><h2>검토 중인 과제가 있으십니까</h2><p class="lede">수행 범위와 구성은 환경에 따라 달라집니다. 어떤 상황인지 알려주시면 맞는 사업으로 안내드립니다.</p></div><div class="cta-row"><a href="/saltware-prototype3/contact.html" class="btn btn--solid btn--md" data-ga-event="cases_contact_click">문의하기</a><a href="/saltware-prototype3/business/cloud.html" class="btn btn--md" data-ga-event="bu_detail_click">클라우드 · AWS 보기</a></div></div>
+</section></main>
+    <footer class="site-footer">
+  <div class="container footer__top">
+    <a class="site-header__logo" href="/saltware-prototype3/"><img class="wordmark" src="/saltware-prototype3/brand/saltware-logo.svg?v=a406783206b0" width="170" height="28" alt="솔트웨어" loading="lazy" /></a>
+    <p class="footer__intro">솔트웨어는 AWS 클라우드 운영, 데이터 플랫폼, 업무 AI, 계정·권한 보안, 엔터프라이즈 오픈소스 사업을 합니다. 사업별 내용과 문의 창구는 아래에 있습니다.</p>
+  </div>
+  <div class="container footer__groups"><details class="footer__group" open>
+      <summary class="footer__label">사업<span class="footer__chev" aria-hidden="true"></span></summary>
+      <div class="footer__list"><a href="/saltware-prototype3/business/cloud.html">클라우드 · AWS</a><a href="/saltware-prototype3/business/redhat.html">클라우드 · Red Hat</a><a href="/saltware-prototype3/business/databricks.html">데이터 · Databricks</a><a href="/saltware-prototype3/business/data-platform.html">데이터 · Starburst</a><a href="/saltware-prototype3/business/data-ai.html">AI 데이터 플랫폼 · Sapie-ADP</a><a href="/saltware-prototype3/business/data-platform.html">데이터 플랫폼 · Sapie-Lake</a><a href="/saltware-prototype3/business/identity.html">보안 · SailPoint</a><a href="/saltware-prototype3/products/sapie-guardian.html">보안 · Sapie-Guardian</a></div>
+    </details><details class="footer__group" open>
+      <summary class="footer__label">인사이트<span class="footer__chev" aria-hidden="true"></span></summary>
+      <div class="footer__list"><a href="/saltware-prototype3/insights/cases.html">고객 사례</a><a href="/saltware-prototype3/insights/industry.html">산업 인사이트</a><a href="/saltware-prototype3/insights/technology.html">기술 인사이트</a><a href="/saltware-prototype3/insights/resources.html">가이드 · 자료실</a><a href="/saltware-prototype3/insights/news.html">언론보도</a><a href="/saltware-prototype3/insights/events.html">이벤트 · 세미나</a></div>
+    </details><details class="footer__group" open>
+      <summary class="footer__label">회사<span class="footer__chev" aria-hidden="true"></span></summary>
+      <div class="footer__list"><a href="/saltware-prototype3/company/about.html">회사 소개</a><a href="/saltware-prototype3/company/capabilities.html">기술 역량</a><a href="/saltware-prototype3/company/esg.html">ESG 경영</a><a href="/saltware-prototype3/company/partners.html">파트너사</a><a href="/saltware-prototype3/company/history.html">연혁</a><a href="/saltware-prototype3/company/brand.html">CI · BI 가이드</a><a href="/saltware-prototype3/company/ir.html">IR</a><a href="/saltware-prototype3/company/careers.html">인재채용</a><a href="/saltware-prototype3/company/location.html">오시는 길</a></div>
+    </details><details class="footer__group" open>
+      <summary class="footer__label">브랜드 · 자회사<span class="footer__chev" aria-hidden="true"></span></summary>
+      <div class="footer__list"><a href="https://www.fitcloud.co.kr/" data-ga-event="fitcloud_outbound" target="_blank" rel="noopener noreferrer">FitCloud<span class="ext-mark" aria-hidden="true">↗</span></a><a href="/saltware-prototype3/business/data-ai.html">Sapie-AI</a><a href="https://gafatec.co.kr/" data-ga-event="gahwatech_outbound" target="_blank" rel="noopener noreferrer">GAFATEC<span class="ext-mark" aria-hidden="true">↗</span></a></div>
+    </details><details class="footer__group" open>
+      <summary class="footer__label">문의<span class="footer__chev" aria-hidden="true"></span></summary>
+      <div class="footer__list"><a href="/saltware-prototype3/contact.html" data-ga-event="footer_contact_click">문의하기</a><a href="/saltware-prototype3/company/careers.html">채용 문의</a></div>
+    </details></div>
+  <div class="container footer__info">
+    <div class="footer__where">
+      <address class="footer__addr">
+        <span class="footer__firm">솔트웨어㈜</span>
+        <span>경기도 과천시 과천대로12길 117 과천펜타원 G동 7층</span>
+        <span>TEL 02-6249-6111 · FAX 02-6249-6121</span>
+        <a href="/saltware-prototype3/company/location.html" class="footer__map">오시는 길</a>
+      </address>
+      <div class="footer__social"><a href="https://www.youtube.com/@saltware_youtube" class="footer__sns" target="_blank" rel="noopener noreferrer">YouTube<span class="ext-mark" aria-hidden="true">↗</span></a><a href="https://www.instagram.com/saltware_official" class="footer__sns" target="_blank" rel="noopener noreferrer">Instagram<span class="ext-mark" aria-hidden="true">↗</span></a><a href="https://www.facebook.com/Saltware.co.kr" class="footer__sns" target="_blank" rel="noopener noreferrer">Facebook<span class="ext-mark" aria-hidden="true">↗</span></a></div>
+    </div>
+    <div class="footer__careers">
+    <p class="footer__careers-head">기술을 이해하고<br />문제를 해결하는 사람</p>
+    <a href="/saltware-prototype3/company/careers.html" class="footer__careers-link" data-ga-event="footer_careers_click">채용 보기 →</a>
+  </div>
+  </div>
+  <div class="container footer__bottom">
+    <p class="footer__copy">© 2003–2026 솔트웨어㈜.</p>
+    
+  </div>
+</footer> <aside class="floating" aria-label="빠른 이동">
+  <a
+    class="floating__ask"
+    href="/saltware-prototype3/contact.html"
+    data-ga-event="floating_contact_click"
+    aria-label="문의하기"
+  >
+    <svg class="spark floating__spark" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0A12 12 0 0 0 24 12A12 12 0 0 0 12 24A12 12 0 0 0 0 12A12 12 0 0 0 12 0Z"/></svg
+    ><span class="floating__label" aria-hidden="true">문의하기</span>
+  </a>
+  <button type="button" class="floating__top" data-to-top data-ga-event="back_to_top_click">
+    <span class="sr-only">맨 위로</span><span aria-hidden="true">↑</span>
+  </button>
+</aside>
+
+    <script type="module" src="/saltware-prototype3/assets/js/main.mjs?v=d4b964853b2e"></script>
+  </body>
+</html>

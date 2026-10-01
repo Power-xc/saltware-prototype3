@@ -179,19 +179,6 @@
 .caps-part:hover {
   background: var(--bg-band);
 }
-.caps-part::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: -1px;
-  width: 0;
-  height: 1px;
-  background: var(--c-accent-500);
-  transition: width 0.5s var(--ease);
-}
-.caps-part:hover::before {
-  width: 100%;
-}
 .caps-part__no {
   font-size: var(--fs-label);
   font-weight: 700;

@@ -121,7 +121,7 @@
   --hcard-scale: 1.5;
   height: max(
     260px,
-    (100cqw - 5 * var(--sp-4)) / 5.42 * 1.455 * var(--hcard-scale)
+    (100cqw - 4 * var(--sp-4)) / 5.06 * 1.455 * var(--hcard-scale)
   );
 }
 @media (max-height: 1000px) {
@@ -338,6 +338,9 @@
     display: flex;
     align-items: center;
     gap: var(--sp-3);
+  }
+  .hcards:not(:has(> .hcard--mini ~ .hcard--mini ~ .hcard--mini)) > .hcard--mini ~ .hcard--mini {
+    grid-column: span 2;
   }
   .hcard--mini .hcard__n,
   .hcard--mini .hcard__side {
@@ -1375,9 +1378,10 @@ a.story:hover .story__more {
 }
 .ask__acts {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--sp-4) var(--sp-6);
+}
+.ask__call {
+  display: flex;
+  margin-top: var(--sp-3);
 }
 .h2__dot {
   color: var(--c-brand-dot);

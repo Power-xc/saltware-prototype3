@@ -3,7 +3,7 @@
 // data-endpoint 가 비어 있으면 아무 데도 보내지 않고 흐름만 확인한다.
 // 운영 이식 시점에 값을 넣고, 그때 레이트리밋·캡차를 문의 폼과 함께 건다.
 
-import { track } from "./analytics.mjs?v=ca2d7753127c";
+import { track } from "./analytics.mjs?v=d4b964853b2e";
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

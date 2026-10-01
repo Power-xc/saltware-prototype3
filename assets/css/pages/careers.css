@@ -3,7 +3,7 @@ body[data-route="/company/careers"] {
   --section-py: clamp(40px, 4.5vw, 64px);
 }
 .section--crval {
-  background: var(--c-neutral-900);
+  background: var(--c-white);
 }
 .crvals {
   --crv-gap: var(--sp-8);
@@ -23,7 +23,7 @@ body[data-route="/company/careers"] {
   position: absolute;
   inset-block: 0;
   left: calc(var(--crv-gap) / -2);
-  border-left: 1px solid var(--border-inverse);
+  border-left: 1px solid var(--c-neutral-200);
 }
 .crval__art {
   margin: 0 0 var(--sp-4);
@@ -68,6 +68,44 @@ body[data-route="/company/careers"] {
 }
 .crsup {
   border-top: 1px solid var(--rule-track);
+}
+.crsup__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-5);
+}
+.crsup__head > .section__head {
+  flex: 1 1 auto;
+}
+.crsup__switch {
+  display: none;
+  flex: 0 0 auto;
+}
+.crsup__flat {
+  font: inherit;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--c-neutral-300);
+  border-radius: var(--radius-pill);
+  padding: var(--sp-3) var(--sp-4);
+  cursor: pointer;
+  transition:
+    color var(--dur-hover) var(--ease),
+    background-color var(--dur-hover) var(--ease),
+    border-color var(--dur-hover) var(--ease);
+}
+.crsup__flat:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+.crsup__flat[aria-pressed="true"] {
+  color: var(--c-white);
+  background: var(--text-primary);
+  border-color: var(--text-primary);
 }
 .crsup__row {
   border-bottom: 1px solid var(--rule-track);
@@ -171,6 +209,23 @@ body[data-route="/company/careers"] {
   html.js-scrollcord .crsup__row.is-on .crsup__q {
     color: var(--text-primary);
   }
+  html.js-scrollcord .crsup__switch {
+    display: block;
+  }
+  html.js-scrollcord .crsup__stage.is-flat {
+    height: auto;
+  }
+  html.js-scrollcord .crsup__stage.is-flat .crsup__pin {
+    position: static;
+    height: auto;
+    display: block;
+  }
+  html.js-scrollcord .crsup__stage.is-flat .crsup__row {
+    grid-template-rows: auto 1fr;
+  }
+  html.js-scrollcord .crsup__stage.is-flat .crsup__q {
+    color: var(--text-primary);
+  }
 }
 .crstep {
   display: grid;
@@ -262,6 +317,10 @@ html.js-scrollcord .crstep__item.is-on .crstep__n {
 .cropen .split__head {
   align-self: center;
 }
+.cropen__doors {
+  display: grid;
+  gap: var(--sp-4);
+}
 .cropen__door {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -304,10 +363,15 @@ html.js-scrollcord .crstep__item.is-on .crstep__n {
 .cropen__act {
   grid-area: act;
 }
+.cropen__door .cropen__act {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
 .cropen__door:hover .cropen__act,
 .cropen__door:focus-visible .cropen__act {
   background: var(--c-neutral-150);
   border-color: var(--c-neutral-150);
+  color: var(--c-neutral-900);
 }
 .cropen__count strong {
   color: var(--text-primary);
@@ -434,13 +498,13 @@ a.cropen__row:focus-visible .cropen__title {
     column-gap: var(--sp-4);
     align-items: center;
     padding-block: var(--sp-5);
-    border-top: 1px solid var(--border-inverse);
+    border-top: 1px solid var(--c-neutral-200);
   }
   .crval:first-child {
     border-top: 0;
     padding-top: 0;
   }
-  .crval::before {
+  .crval + .crval::before {
     content: none;
   }
   .crval__art,

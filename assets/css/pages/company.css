@@ -1,30 +1,30 @@
 
 .feat--company {
-  --card-media: url("/saltware-prototype3/media/company/hub-feature.jpg?v=f2b4fafefb02");
+  --card-media: url("/saltware-prototype3/media/company/hub-feature.jpg?v=a406783206b0");
 }
 .hub-card--company-capabilities {
-  --card-media: url("/saltware-prototype3/media/company/card-capabilities.jpg?v=f2b4fafefb02");
+  --card-media: url("/saltware-prototype3/media/company/card-capabilities.jpg?v=a406783206b0");
 }
 .hub-card--company-esg {
-  --card-media: url("/saltware-prototype3/media/company/card-esg.jpg?v=f2b4fafefb02");
+  --card-media: url("/saltware-prototype3/media/company/card-esg.jpg?v=a406783206b0");
 }
 .hub-card--company-partners {
-  --card-media: url("/saltware-prototype3/media/company/card-partners.jpg?v=f2b4fafefb02");
+  --card-media: url("/saltware-prototype3/media/company/card-partners.jpg?v=a406783206b0");
 }
 .hub-card--company-history {
-  --card-media: url("/saltware-prototype3/media/company/card-history.jpg?v=f2b4fafefb02");
+  --card-media: url("/saltware-prototype3/media/company/card-history.jpg?v=a406783206b0");
 }
 .hub-card--company-ir {
-  --card-media: url("/saltware-prototype3/media/company/card-ir.jpg?v=f2b4fafefb02");
+  --card-media: url("/saltware-prototype3/media/company/card-ir.jpg?v=a406783206b0");
 }
 .hub-card--company-careers {
-  --card-media: url("/saltware-prototype3/media/company/card-careers.jpg?v=f2b4fafefb02");
+  --card-media: url("/saltware-prototype3/media/company/card-careers.jpg?v=a406783206b0");
 }
 .hub-card--company-location {
-  --card-media: url("/saltware-prototype3/media/company/card-location.jpg?v=f2b4fafefb02");
+  --card-media: url("/saltware-prototype3/media/company/card-location.jpg?v=a406783206b0");
 }
 .hub-card--company-brand {
-  --card-media: url("/saltware-prototype3/media/company/card-brand.jpg?v=f2b4fafefb02");
+  --card-media: url("/saltware-prototype3/media/company/card-brand.jpg?v=a406783206b0");
 }
 @media (min-width: 1080px) {
   .hub-grid--3 {
@@ -326,6 +326,7 @@
   overflow: hidden;
   border-radius: var(--radius-xl);
   background: var(--bg-card);
+  box-shadow: var(--tile-lift, none);
 }
 .cceo__frame img {
   display: block;
@@ -457,7 +458,7 @@
 }
 .cclose--art::before {
   z-index: -2;
-  background-image: url("/saltware-prototype3/media/hub/hub-insights.jpg?v=f2b4fafefb02");
+  background-image: url("/saltware-prototype3/media/company/about-closing.jpg?v=a406783206b0");
   background-position: center;
   background-size: cover;
   filter: var(--art-tone);

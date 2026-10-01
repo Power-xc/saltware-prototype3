@@ -34,11 +34,14 @@
   background: var(--bg-card);
   overflow: hidden;
 }
+.section--band .ptile {
+  box-shadow: var(--tile-lift, none);
+}
 .ptile[hidden] {
   display: none;
 }
 .ptile__art {
-  background: var(--bg-band);
+  background: var(--plate-face, var(--bg-band));
 }
 .ptile__art img {
   display: block;
@@ -64,7 +67,7 @@
   align-self: start;
   margin: 0;
   background: var(--bg-panel);
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 .ptiles--market .ptile__body {
   gap: var(--sp-2);
@@ -125,7 +128,7 @@
 }
 .ptile__tag {
   background: var(--bg-panel);
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 .ptiles--rows {
   grid-template-columns: minmax(0, 1fr);
@@ -376,10 +379,6 @@
 .pmark--nginx-plus {
   --logo-h: 34px;
   --logo-b: 0.92;
-}
-.pmark--sapie-reco,
-.pmark--sapie-bot {
-  --logo-h: 36px;
 }
 .pmark--sapie {
   --logo-h: 34px;

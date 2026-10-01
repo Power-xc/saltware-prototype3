@@ -114,7 +114,7 @@
   max-height: 78vh;
   overflow: hidden;
   border-radius: var(--radius-lg);
-  background: var(--bg-band);
+  background: var(--plate-face, var(--bg-band));
 }
 .cpils__shot {
   position: absolute;

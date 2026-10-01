@@ -71,7 +71,7 @@
 .lomap__frame {
   display: grid;
   place-items: center;
-  background: var(--bg-band);
+  background: var(--plate-face, var(--bg-band));
   text-align: center;
 }
 .lomap__img {

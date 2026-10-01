@@ -34,7 +34,7 @@
   display: grid;
   grid-template-rows: auto 1fr;
   border-radius: var(--radius-lg);
-  background: var(--bg-band);
+  background: var(--plate-face, var(--bg-band));
   overflow: hidden;
   transition: background var(--dur-hover) var(--ease);
 }
@@ -69,7 +69,7 @@
 }
 .ccase__ind {
   background: var(--bg-panel);
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 .ccase__link {
   color: inherit;
